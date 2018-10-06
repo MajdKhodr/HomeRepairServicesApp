@@ -7,68 +7,70 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="66dp"
-        android:layout_height="18dp"
-        android:layout_marginBottom="8dp"
+        android:id="@+id/app_name_textview"
+        android:layout_width="98dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/app_name"
+        android:text="@string/app_name_textview"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/username_button"
+        app:layout_constraintBottom_toTopOf="@+id/username_edittext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/username_button"
+    <EditText
+        android:id="@+id/username_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="@string/username"
+        android:ems="10"
+        android:hint="@string/username_edittext"
+        android:inputType="textPersonName"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/password_button"
+        app:layout_constraintBottom_toTopOf="@+id/password_edittext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/password_button"
+    <EditText
+        android:id="@+id/password_edittext"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="@string/password"
+        android:ems="10"
+        android:hint="@string/password_edittext"
+        android:inputType="textPassword"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/sign_in_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/sign_in_button"
         android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/or_textview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="229dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/or_textview"
         android:layout_width="18dp"
         android:layout_height="20dp"
+        android:layout_marginBottom="56dp"
         android:text="or"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="345dp" />
+        app:layout_constraintBottom_toTopOf="@+id/sign_up_button"
+        tools:layout_editor_absoluteX="183dp" />
 
     <View
         android:layout_width="match_parent"
