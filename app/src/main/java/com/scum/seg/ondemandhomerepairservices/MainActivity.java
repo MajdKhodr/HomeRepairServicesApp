@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         registerUser();
     }
 
+<<<<<<< Updated upstream
     @Override
     protected void onStart() {
         super.onStart();
@@ -39,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
             //TODO: implement
         }
     }
+=======
+        mTest = new test();
+    }
+
+>>>>>>> Stashed changes
 
     private void registerUser(){
         // TODO: Add actual values and type
@@ -67,10 +73,13 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+<<<<<<< Updated upstream
     public void generateUser(String firstName, String lastName, String userName, String passsord, String email){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference users = database.getReference("users");
         User user = new User(firstName, lastName, userName, passsord, email);
         users.push().setValue(user);
     }
+=======
+>>>>>>> Stashed changes
 }
