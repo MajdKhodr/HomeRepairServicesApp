@@ -66,6 +66,7 @@ public class SignUpPageActivity extends AppCompatActivity {
     }
 
     public void generateUser(String firstName, String lastName, String userName, String passsord, String email){
+        //TODO Hash Passwords
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference users = database.getReference("users");
         User user = new User(firstName, lastName, userName, passsord, email);
