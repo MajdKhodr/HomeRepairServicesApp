@@ -66,32 +66,14 @@
         android:id="@+id/or_textview"
         android:layout_width="18dp"
         android:layout_height="20dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="44dp"
         android:text="or"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/sign_up_button"
-        tools:layout_editor_absoluteX="183dp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="205dp"
-        android:layout_toLeftOf="@id/or_textview"
-        android:background="#000000"
-        tools:layout_editor_absoluteX="210dp"
-        tools:layout_editor_absoluteY="355dp" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="205dp"
-        android:layout_toRightOf="@id/or_textview"
-        android:background="#000000"
-        tools:layout_editor_absoluteX="210dp"
-        tools:layout_editor_absoluteY="355dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/sign_up_button"
