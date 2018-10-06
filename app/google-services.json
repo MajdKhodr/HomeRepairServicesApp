@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "394509977653",
+    "firebase_url": "https://seg-project-f1e19.firebaseio.com",
+    "project_id": "seg-project-f1e19",
+    "storage_bucket": "seg-project-f1e19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394509977653:android:6cdb574ad50d8735",
+        "android_client_info": {
+          "package_name": "com.scum.seg.ondemandhomerepairservices"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394509977653-9n7rpn0dvpsrsekvu3jpc3kopvfhos1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR8hRKMZVSfotAz0IkHOrpJkJJL9brnww"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
