@@ -8,47 +8,208 @@
 
     <TextView
         android:id="@+id/name_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="29dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
         android:text="@string/name_textview"
+        android:textSize="20sp"
+        app:layout_constrainedWidth="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="150"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/name_textview"
+        android:background="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="43dp" />
+
+    <View
+        android:layout_width="150"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/name_textview"
+        android:background="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="43dp" />
 
     <EditText
         android:id="@+id/firstname_edittext"
         android:layout_width="256dp"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:hint="@string/name_first_edittext_hint"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name_textview" />
 
+    <TextView
+        android:id="@+id/signuppage_first_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/name_first_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstname_edittext" />
+
     <EditText
         android:id="@+id/lastname_edittext"
-        android:layout_width="258dp"
-        android:layout_height="wrap_content"
+        android:layout_width="256dp"
+        android:layout_height="38"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:hint="@string/name_last_edittext_hint"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstname_edittext" />
+
+    <TextView
+        android:id="@+id/signuppage_last_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/name_last_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastname_edittext" />
+
+    <TextView
+        android:id="@+id/credential_textview"
+        android:layout_width="114dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="@string/credential_textview"
+        android:textSize="20sp"
+        app:layout_constrainedWidth="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signuppage_last_textview" />
+
+    <View
+        android:layout_width="130"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/credential_textview"
+        android:background="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="265dp" />
+
+    <View
+        android:layout_width="130"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:layout_toRightOf="@id/credential_textview"
+        android:background="#000000"
+        app:layout_constraintStart_toEndOf="@+id/credential_textview"
+        tools:layout_editor_absoluteY="265dp" />
+
+    <EditText
+        android:id="@+id/email_edittext"
+        android:layout_width="256"
+        android:layout_height="38"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:inputType="textCapCharacters|textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/credential_textview" />
+
+    <TextView
+        android:id="@+id/email_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/email_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_edittext" />
+
+    <EditText
+        android:id="@+id/username_edittext"
+        android:layout_width="256"
+        android:layout_height="38"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:inputType="textPersonName|textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_edittext" />
+
+    <TextView
+        android:id="@+id/username_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/username_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_edittext" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="256"
+        android:layout_height="38"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_edittext" />
+
+    <TextView
+        android:id="@+id/password_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/password_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+
 
 </android.support.constraint.ConstraintLayout>

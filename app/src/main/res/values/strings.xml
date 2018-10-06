@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Sign Up Page</string>
     <string name="name_textview">Name</string>
-    <string name="signup_textview"> Sign Up</string>
-    <string name="name_first_edittext_hint">(Please Enter Your First Name)</string>
-    <string name="name_last_edittext_hint">(Please Enter Your Last Name)</string>
-    <string name="name_first_edittext">First</string>
-    <string name="name_last_edittext">Last Name</string>
-    <string name="username_edittext">Username</string>
-    <string name="password_edittext">Password</string>
+    <string name="email_textview">Email</string>
+    <string name="credential_textview">Credentials</string>
+    <string name="signup_textview">Sign Up</string>
+    <string name="name_first_textview">First</string>
+    <string name="name_last_textview">Last Name</string>
+    <string name="username_textview">Username</string>
+    <string name="password_textview">Password</string>
     <string name="signup_button">Sign Up</string>
 </resources>
