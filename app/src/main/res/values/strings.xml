@@ -1,5 +1,4 @@
 <resources>
-<<<<<<< Updated upstream
     <string name="app_name">Sign Up Page</string>
     <string name="name_textview">Name</string>
     <string name="email_textview">Email</string>
@@ -10,12 +9,10 @@
     <string name="username_textview">Username</string>
     <string name="password_textview">Password</string>
     <string name="signup_button">Sign Up</string>
-=======
-    <string name="app_name">App Name</string>
+    <string name="app_name_textview">App Name</string>
     <string name="username">UserName</string>
     <string name="password">Password</string>
     <string name="sign_in_button">Sign In</string>
     <string name="sign_up_button">Sign Up</string>
 
->>>>>>> Stashed changes
 </resources>

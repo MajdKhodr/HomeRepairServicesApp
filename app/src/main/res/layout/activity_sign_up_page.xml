@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:layout_width="150"
+        android:layout_width="150dp"
         android:layout_height="1dp"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/name_textview"
@@ -33,7 +33,7 @@
         tools:layout_editor_absoluteY="43dp" />
 
     <View
-        android:layout_width="150"
+        android:layout_width="150dp"
         android:layout_height="1dp"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/name_textview"
@@ -70,7 +70,7 @@
     <EditText
         android:id="@+id/lastname_edittext"
         android:layout_width="256dp"
-        android:layout_height="38"
+        android:layout_height="38dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
@@ -111,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signuppage_last_textview" />
 
     <View
-        android:layout_width="130"
+        android:layout_width="130dp"
         android:layout_height="1dp"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/credential_textview"
@@ -120,7 +120,7 @@
         tools:layout_editor_absoluteY="265dp" />
 
     <View
-        android:layout_width="130"
+        android:layout_width="130dp"
         android:layout_height="1dp"
         android:layout_centerVertical="true"
         android:layout_marginStart="8dp"
@@ -131,8 +131,8 @@
 
     <EditText
         android:id="@+id/email_edittext"
-        android:layout_width="256"
-        android:layout_height="38"
+        android:layout_width="256dp"
+        android:layout_height="38dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
@@ -159,8 +159,8 @@
 
     <EditText
         android:id="@+id/username_edittext"
-        android:layout_width="256"
-        android:layout_height="38"
+        android:layout_width="256dp"
+        android:layout_height="38dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
@@ -187,8 +187,8 @@
 
     <EditText
         android:id="@+id/editText7"
-        android:layout_width="256"
-        android:layout_height="38"
+        android:layout_width="256dp"
+        android:layout_height="38dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
