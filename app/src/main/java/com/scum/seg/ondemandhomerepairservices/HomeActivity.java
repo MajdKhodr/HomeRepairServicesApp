@@ -16,10 +16,11 @@ public class HomeActivity extends AppCompatActivity {
 
         mWelcomeMessage = (TextView) findViewById(R.id.welcome_textview);
 
-        mWelcomeTxt = "Welcome " + getString(R.string.app_name)
-        + ",\nYou are logged in as the " + getString(R.string.app_name);
+        mWelcomeTxt = "Welcome " + "FIRSTNAME"
+        + ",\nYou are logged in as the " + "TYPE";
 
         mWelcomeMessage.setText(mWelcomeTxt);
 
     }
+    //getString(R.string.INSERT ID)
 }
