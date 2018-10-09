@@ -9,4 +9,9 @@
     <string name="username_textview">Username</string>
     <string name="password_textview">Password</string>
     <string name="signup_button">Sign Up</string>
+    <string name="app_name_textview">App Name</string>
+    <string name="username_edittext">UserName</string>
+    <string name="password_edittext">Password</string>
+    <string name="sign_in_button">Sign In</string>
+    <string name="sign_up_button">Sign Up</string>
 </resources>
