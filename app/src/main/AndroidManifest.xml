@@ -12,15 +12,10 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".TestActivity" />
         <activity android:name=".SignUpPageActivity"></activity>
-=======
->>>>>>> 5f3e3bf457adad996114fd37727017b41e26612c
     </application>
 
 </manifest>

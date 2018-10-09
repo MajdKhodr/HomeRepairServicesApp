@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,6 +17,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignUpPageActivity extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuth;
+    EditText mFirstName;
+    EditText mLastName;
+    EditText mEmail;
+    EditText mUsername;
+    EditText mPassword;
 
 
     @Override
@@ -38,6 +44,9 @@ public class SignUpPageActivity extends AppCompatActivity {
 
     private void registerUser(){
         // TODO: Add actual values and type
+
+
+
         final String email = "alexisharara@gmail.com";
         final String password = "password";
         final String firstname = "firstname";
