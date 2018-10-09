@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,6 +18,12 @@ public class SignUpPageActivity extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuth;
 
+    private EditText mFirstName;
+    private EditText mLastName;
+    private EditText mEmail;
+    private EditText mUserName;
+    private EditText mPassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +31,12 @@ public class SignUpPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up_page);
         mFirebaseAuth = FirebaseAuth.getInstance();
         registerUser();
+
+        mFirstName = findViewById(R.id.firstname_signup_edittext);
+        mLastName = findViewById(R.id.lastname_signup_edittext);
+        mEmail = findViewById(R.id.email_signup_edittext);
+        mUserName = findViewById(R.id.username_signup_edittext);
+        mPassword = findViewById(R.id.password_signup_editText);
     }
 
     @Override
@@ -40,11 +53,11 @@ public class SignUpPageActivity extends AppCompatActivity {
 
     private void registerUser(){
         // TODO: Add actual values and type
-        final String email = "alexisharara@gmail.com";
-        final String password = "password";
-        final String firstname = "firstname";
-        final String lastname = "lastname";
-        final String username = "username";
+        final String email = mEmail.getText().toString();
+        final String password = mPassword.getText().toString();
+        final String firstname = mFirstName.getText().toString();
+        final String lastname = mLastName.getText().toString();
+        final String username = mUserName.getText().toString();
 
 
         mFirebaseAuth.createUserWithEmailAndPassword(email, password)

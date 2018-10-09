@@ -15,12 +15,12 @@
         android:layout_marginStart="8dp"
         android:text="@string/app_name_textview"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/username_edittext"
+        app:layout_constraintBottom_toTopOf="@+id/username_signin_edittext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/username_edittext"
+        android:id="@+id/username_signin_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
@@ -30,12 +30,12 @@
         android:hint="@string/username_edittext"
         android:inputType="textPersonName"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/password_edittext"
+        app:layout_constraintBottom_toTopOf="@+id/password_signin_edittext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/password_edittext"
+        android:id="@+id/password_signin_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
