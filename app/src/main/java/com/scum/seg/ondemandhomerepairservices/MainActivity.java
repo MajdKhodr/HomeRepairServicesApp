@@ -31,9 +31,12 @@ public class MainActivity extends AppCompatActivity {
         ValueEventListener userListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
-                    User user = childSnapshot.getValue(User.class);
-                    Log.d(TAG, user.toString());
+                try {
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        User user = childSnapshot.getValue(User.class);
+                    }
+                } catch (Exception e){
+                    e.printStackTrace();
                 }
             }
 

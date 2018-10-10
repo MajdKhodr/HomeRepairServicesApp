@@ -30,6 +30,7 @@ public class SignUpPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
         mFirebaseAuth = FirebaseAuth.getInstance();
+        registerUser();
 
         mFirstName = findViewById(R.id.firstname_signup_edittext);
         mLastName = findViewById(R.id.lastname_signup_edittext);
@@ -42,40 +43,43 @@ public class SignUpPageActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if(mFirebaseAuth.getCurrentUser() != null){
+        if (mFirebaseAuth.getCurrentUser() != null) {
             //handle the already logged in user
             //TODO: implement
         }
     }
 
 
-
-    private void registerUser(){
+    private void registerUser() {
         // TODO: Add actual values and type
         final String email = "email2@gmail.com";
-        final String password = "password2";
         final String firstname = "firstname2";
         final String lastname = "lastname2";
         final String username = "username2";
 
+        try {
+            final String password = AESCrypt.encrypt("password");
 
-        mFirebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(SignUpPageActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(SignUpPageActivity.this, "Authentication failed." + task.getException(),
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(SignUpPageActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                            generateUser(firstname,lastname, username, password, email);
-                            finish();
+            mFirebaseAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(SignUpPageActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (!task.isSuccessful()) {
+                                Toast.makeText(SignUpPageActivity.this, "Authentication failed." + task.getException(),
+                                        Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(SignUpPageActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                generateUser(firstname, lastname, username, password, email);
+                                finish();
+                            }
                         }
-                    }
-                });
+                    });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    public void generateUser(String firstName, String lastName, String userName, String password, String email){
+    public void generateUser(String firstName, String lastName, String userName, String password, String email) {
         //TODO Hash Passwords
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference users = database.getReference("Users");
