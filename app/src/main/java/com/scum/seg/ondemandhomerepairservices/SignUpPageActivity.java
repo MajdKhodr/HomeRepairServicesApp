@@ -30,7 +30,6 @@ public class SignUpPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
         mFirebaseAuth = FirebaseAuth.getInstance();
-        registerUser();
 
         mFirstName = findViewById(R.id.firstname_signup_edittext);
         mLastName = findViewById(R.id.lastname_signup_edittext);
@@ -53,7 +52,6 @@ public class SignUpPageActivity extends AppCompatActivity {
 
     private void registerUser(){
         // TODO: Add actual values and type
-        // TODO: if it fails don't create the user
         final String email = "email2@gmail.com";
         final String password = "password2";
         final String firstname = "firstname2";
