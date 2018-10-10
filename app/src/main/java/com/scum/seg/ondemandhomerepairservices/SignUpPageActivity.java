@@ -53,36 +53,35 @@ public class SignUpPageActivity extends AppCompatActivity {
 
     private void registerUser(){
         // TODO: Add actual values and type
-        final String email = mEmail.getText().toString();
-        final String password = mPassword.getText().toString();
-        final String firstname = mFirstName.getText().toString();
-        final String lastname = mLastName.getText().toString();
-        final String username = mUserName.getText().toString();
+        // TODO: if it fails don't create the user
+        final String email = "email2@gmail.com";
+        final String password = "password2";
+        final String firstname = "firstname2";
+        final String lastname = "lastname2";
+        final String username = "username2";
 
 
         mFirebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(SignUpPageActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(SignUpPageActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-
                         if (!task.isSuccessful()) {
                             Toast.makeText(SignUpPageActivity.this, "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
-                            generateUser(firstname,lastname, username, password, email);
                         } else {
-                            startActivity(new Intent(SignUpPageActivity.this, MainActivity.class));
+                            Toast.makeText(SignUpPageActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                            generateUser(firstname,lastname, username, password, email);
                             finish();
                         }
                     }
                 });
     }
 
-    public void generateUser(String firstName, String lastName, String userName, String passsord, String email){
+    public void generateUser(String firstName, String lastName, String userName, String password, String email){
         //TODO Hash Passwords
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference users = database.getReference("users");
-        User user = new User(firstName, lastName, userName, passsord, email);
+        DatabaseReference users = database.getReference("Users");
+        User user = new User(firstName, lastName, userName, password, email);
         users.push().setValue(user);
     }
 }

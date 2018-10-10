@@ -1,14 +1,26 @@
 package com.scum.seg.ondemandhomerepairservices;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
 public class User {
-    public String firstName, lastName, userName, passsord, email;
+
+    public String firstName;
+    public String lastName;
+    public String userName;
+    public String password;
+    public String email;
 
 
-    public User(String firstName, String lastName, String userName, String passsord, String email){
+    public User(String firstName, String lastName, String userName, String password, String email){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
-        this.passsord = passsord;
+        this.password = password;
+        this.email = email;
+    }
+
+    public User(){
     }
 
     public String getFirstName() {
@@ -35,12 +47,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getPasssord() {
-        return passsord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasssord(String passsord) {
-        this.passsord = passsord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -49,5 +61,12 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+
+    public String toString(){
+        return "First name: " + firstName + ":" + "Last name:" + lastName + ":" + "User Name:"
+                + userName + ":" + "Password: " + password + ":"+ "Email: " + email;
     }
 }
