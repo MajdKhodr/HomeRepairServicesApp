@@ -28,6 +28,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-database:16.0.3'
     implementation 'com.google.firebase:firebase-auth:16.0.4'
+    // BottomNav library
+    implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
+
 
 
 }

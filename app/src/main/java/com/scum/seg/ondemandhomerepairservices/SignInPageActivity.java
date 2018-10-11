@@ -50,10 +50,12 @@ public class SignInPageActivity extends AppCompatActivity {
                             break;
                         }
                     }
+                    //TODO: Act accordingly
                     if (!found) {
                         Log.d(TAG, "Sign in unsuccessful");
                     }else{
                         Log.d(TAG, "Sign in successful");
+                        homeActivity();
                     }
 
                 } catch (Exception e) {
@@ -74,6 +76,12 @@ public class SignInPageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignUpPageActivity.class);
         startActivity(intent);
 
+    }
+
+    public void homeActivity(){
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 
