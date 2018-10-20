@@ -21,8 +21,10 @@ public class SignUpPageActivity extends AppCompatActivity {
     private EditText mFirstName;
     private EditText mLastName;
     private EditText mEmail;
-    private EditText mUserName;
+    private EditText mUsername;
     private EditText mPassword;
+    private EditText mPhoneNumber;
+    private EditText mAddress;
 
 
     @Override
@@ -34,6 +36,11 @@ public class SignUpPageActivity extends AppCompatActivity {
 
         mFirstName = findViewById(R.id.first_name_edittext);
         mLastName = findViewById(R.id.last_name_edittext);
+        mEmail = findViewById(R.id.email_edittext);
+        mUsername = findViewById(R.id.username_edittext);
+        mPassword = findViewById(R.id.password_editText);
+        mAddress = findViewById(R.id.address_editText);
+        mPhoneNumber = findViewById(R.id.phoneNumber_editText);
     }
 
     @Override

@@ -13,6 +13,8 @@
     <string name="password_edittext">Password</string>
     <string name="sign_in_button">Sign In</string>
     <string name="sign_up_button">Sign Up</string>
+    <string name="address_editText_hint">Address</string>
+    <string name="phoneNumber_editText_hint">Phone Number</string>
     <string name="title_activity_type">TypeActivity</string>
     <string name="type_admin">Admin</string>
     <string name="type_homeowner">Home Owner</string>

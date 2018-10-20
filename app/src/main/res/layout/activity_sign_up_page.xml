@@ -10,16 +10,14 @@
         android:id="@+id/name_textview"
         android:layout_width="56dp"
         android:layout_height="29dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:foregroundGravity="center"
         android:gravity="center"
         android:text="@string/name_section"
         android:textSize="20sp"
         app:layout_constrainedWidth="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +26,7 @@
         android:layout_width="150dp"
         android:layout_height="1dp"
         android:layout_centerVertical="true"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         android:layout_toLeftOf="@id/name_textview"
         android:background="#000000"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +37,7 @@
         android:layout_width="150dp"
         android:layout_height="1dp"
         android:layout_centerVertical="true"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         android:layout_toRightOf="@id/name_textview"
         android:background="#000000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,8 +45,8 @@
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/first_name_edittext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="236dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -61,16 +59,15 @@
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/last_name_edittext"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="236dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:foregroundGravity="fill_vertical|center"
         android:gravity="center"
         android:hint="@string/last_name_editText_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_name_edittext" />
 
@@ -90,11 +87,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/last_name_edittext" />
 
+
     <View
         android:layout_width="130dp"
         android:layout_height="1dp"
         android:layout_centerVertical="true"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="164dp"
         android:layout_toLeftOf="@id/credential_textview"
         android:background="#000000"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,11 +103,92 @@
         android:layout_height="1dp"
         android:layout_centerVertical="true"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="164dp"
         android:layout_toRightOf="@id/credential_textview"
         android:background="#000000"
         app:layout_constraintStart_toEndOf="@+id/credential_textview"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/email_edittext"
+        android:layout_width="236dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:foregroundGravity="fill_vertical|center"
+        android:gravity="center"
+        android:hint="@string/email_editText_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/credential_textview" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/username_edittext"
+        android:layout_width="236dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:foregroundGravity="fill_vertical|center"
+        android:gravity="center"
+        android:hint="@string/username_editText_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_edittext" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/password_editText"
+        android:layout_width="236dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:foregroundGravity="fill_vertical|center"
+        android:gravity="center"
+        android:hint="@string/password_editText_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_edittext" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/address_editText"
+        android:layout_width="236dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:foregroundGravity="fill_vertical|center"
+        android:gravity="center"
+        android:hint="@string/address_editText_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_editText" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/phoneNumber_editText"
+        android:layout_width="236dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:foregroundGravity="fill_vertical|center"
+        android:gravity="center"
+        android:hint="@string/phoneNumber_editText_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_editText" />
+
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/signup_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber_editText" />
 
 
 </android.support.constraint.ConstraintLayout>
