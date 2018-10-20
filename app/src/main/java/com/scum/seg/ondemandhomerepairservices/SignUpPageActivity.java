@@ -30,13 +30,14 @@ public class SignUpPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
         mFirebaseAuth = FirebaseAuth.getInstance();
+
         registerUser();
 
-        mFirstName = findViewById(R.id.firstname_signup_edittext);
-        mLastName = findViewById(R.id.lastname_signup_edittext);
-        mEmail = findViewById(R.id.email_signup_edittext);
-        mUserName = findViewById(R.id.username_signup_edittext);
-        mPassword = findViewById(R.id.password_signup_editText);
+        mFirstName = findViewById(R.id.first_name_edittext);
+        mLastName = findViewById(R.id.last_name_edittext);
+        mEmail = findViewById(R.id.email_editText);
+        mUserName = findViewById(R.id.username_editText);
+        mPassword = findViewById(R.id.password_editText);
     }
 
     @Override
