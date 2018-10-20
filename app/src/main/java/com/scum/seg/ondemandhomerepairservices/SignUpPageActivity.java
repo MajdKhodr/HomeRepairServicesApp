@@ -56,6 +56,9 @@ public class SignUpPageActivity extends AppCompatActivity {
         final String firstname = "firstname2";
         final String lastname = "lastname2";
         final String username = "username2";
+        final String phonenumber = "613-523-6763";
+        final String address = "317 billings ave";
+        final String type = "put enum here";
 
         try {
             final String password = AESCrypt.encrypt("password");
@@ -69,7 +72,7 @@ public class SignUpPageActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(SignUpPageActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                                generateUser(firstname, lastname, username, password, email);
+                                generateUser(firstname, lastname, username, password, email, phonenumber, address, type);
                                 finish();
                             }
                         }
@@ -79,11 +82,11 @@ public class SignUpPageActivity extends AppCompatActivity {
         }
     }
 
-    public void generateUser(String firstName, String lastName, String userName, String password, String email) {
-        //TODO Hash Passwords
+    public void generateUser(String firstName, String lastName, String userName, String password,
+                             String email, String phonenumber, String address, String type) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference users = database.getReference("Users");
-        User user = new User(firstName, lastName, userName, password, email);
+        User user = new User(firstName, lastName, userName, password, email, phonenumber, address, type);
         users.push().setValue(user);
     }
 }
