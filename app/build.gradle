@@ -35,6 +35,10 @@ dependencies {
     // BottomNav library
     implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
 
+    // EditText library
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+
+
 
 
 }
