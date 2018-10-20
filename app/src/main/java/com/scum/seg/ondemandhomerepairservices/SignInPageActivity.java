@@ -34,7 +34,7 @@ public class SignInPageActivity extends AppCompatActivity {
 
     public void signInUser(View view) {
         // Get editText reference
-        final EditText mUsername = findViewById(R.id.username_signin_edittext);
+        final EditText mUsername = findViewById(R.id.materialEditText);
         final EditText mPassword = findViewById(R.id.password_signin_edittext);
 
         // Get database reference
