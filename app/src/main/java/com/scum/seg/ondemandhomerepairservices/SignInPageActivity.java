@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
+
 public class SignInPageActivity extends AppCompatActivity {
 
     private static final String TAG = "SignInPageActivity";
@@ -46,8 +47,21 @@ public class SignInPageActivity extends AppCompatActivity {
                 try {
                     boolean found = false;
                     // Loop through list of users checking if the given username and password match an account
-                    String database = dataSnapshot.getValue(String.class);
-                    Log.d(TAG, "Database : " + database);
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        User user = childSnapshot.getValue(User.class);
+                        if (user.getUserName().equals(mUsername.getText().toString().trim())
+                                && AESCrypt.decrypt(user.getPassword()).equals(mPassword.getText().toString().trim())) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    //TODO: Act accordingly
+                    if (!found) {
+                        Log.d(TAG, "Sign in unsuccessful");
+                    }else{
+                        Log.d(TAG, "Sign in successful");
+                        homeActivity();
+                    }
 
                 } catch (Exception e) {
                     e.printStackTrace();
