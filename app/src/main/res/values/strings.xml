@@ -7,7 +7,7 @@
     <string name="signup_textview">Sign Up</string>
     <string name="last_name_editText_hint">Last</string>
     <string name="username_editText_hint">Username</string>
-    <string name="password_editTextview">Password</string>
+    <string name="password_editText_hint">Password</string>
     <string name="signup_button">Sign Up</string>
     <string name="app_name_textview">App Name</string>
     <string name="password_edittext">Password</string>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -51,17 +52,18 @@ public class SignUpPageActivity extends AppCompatActivity {
             //handle the already logged in user
             //TODO: implement
         }
+
     }
 
 
-    private void registerUser() {
+    public void registerUser() {
         // TODO: Add actual values and type
-        final String email = "email2@gmail.com";
-        final String firstname = "firstname2";
-        final String lastname = "lastname2";
-        final String username = "username2";
-        final String phonenumber = "613-523-6763";
-        final String address = "317 billings ave";
+        final String email = mEmail.getText().toString();
+        final String firstname = mFirstName.getText().toString();
+        final String lastname = mLastName.getText().toString();
+        final String username = mUsername.getText().toString();
+        final String phonenumber = mPhoneNumber.getText().toString();
+        final String address = mAddress.getText().toString();
         final String type = "put enum here";
 
         try {
@@ -92,5 +94,10 @@ public class SignUpPageActivity extends AppCompatActivity {
         DatabaseReference users = database.getReference("Users");
         User user = new User(firstName, lastName, userName, password, email, phonenumber, address, type);
         users.push().setValue(user);
+    }
+
+    public void signInUser(View view) {
+        Intent intent = new Intent(this, SignInPageActivity.class);
+        startActivity(intent);
     }
 }
