@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 // Required for firebase
@@ -20,10 +21,13 @@ public class SignInPageActivity extends AppCompatActivity {
 
     private static final String TAG = "SignInPageActivity";
 
+    Button mSignIn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_page);
+        mSignIn = findViewById(R.id.sign_in_button);
 
     }
 
@@ -42,21 +46,8 @@ public class SignInPageActivity extends AppCompatActivity {
                 try {
                     boolean found = false;
                     // Loop through list of users checking if the given username and password match an account
-                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                        User user = childSnapshot.getValue(User.class);
-                        if (user.getUserName().equals(mUsername.getText().toString().trim())
-                                && AESCrypt.decrypt(user.getPassword()).equals(mPassword.getText().toString().trim())) {
-                            found = true;
-                            break;
-                        }
-                    }
-                    //TODO: Act accordingly
-                    if (!found) {
-                        Log.d(TAG, "Sign in unsuccessful");
-                    }else{
-                        Log.d(TAG, "Sign in successful");
-                        homeActivity();
-                    }
+                    String database = dataSnapshot.getValue(String.class);
+                    Log.d(TAG, "Database : " + database);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -78,7 +69,7 @@ public class SignInPageActivity extends AppCompatActivity {
 
     }
 
-    public void homeActivity(){
+    public void homeActivity() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
