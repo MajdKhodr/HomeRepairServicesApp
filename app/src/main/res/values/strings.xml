@@ -14,4 +14,8 @@
     <string name="sign_in_button">Sign In</string>
     <string name="sign_up_button">Sign Up</string>
     <string name="title_activity_type">TypeActivity</string>
+    <string name="type_admin">Admin</string>
+    <string name="type_homeowner">Home Owner</string>
+    <string name="type_serviceprovider">Service Provider</string>
+    <string name="type">Type of User</string>
 </resources>
