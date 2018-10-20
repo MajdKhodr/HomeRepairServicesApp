@@ -80,7 +80,6 @@ public class SignInPageActivity extends AppCompatActivity {
     public void signUpUser(View view) {
         Intent intent = new Intent(this, SignUpPageActivity.class);
         startActivity(intent);
-
     }
 
     public void homeActivity(User user) {

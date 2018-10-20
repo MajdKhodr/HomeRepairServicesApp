@@ -35,9 +35,6 @@ public class SignUpPageActivity extends AppCompatActivity {
 
         mFirstName = findViewById(R.id.first_name_edittext);
         mLastName = findViewById(R.id.last_name_edittext);
-        mEmail = findViewById(R.id.email_editText);
-        mUserName = findViewById(R.id.username_editText);
-        mPassword = findViewById(R.id.password_editText);
     }
 
     @Override

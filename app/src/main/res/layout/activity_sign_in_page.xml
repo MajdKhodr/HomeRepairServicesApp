@@ -103,7 +103,7 @@
         android:layout_marginBottom="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:onClick="signUpUser"
+        android:onClick="signInUser"
         android:text="@string/sign_up_button"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
