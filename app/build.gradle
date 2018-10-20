@@ -39,9 +39,5 @@ dependencies {
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
 
 
-
-
-
-
 }
 apply plugin: 'com.google.gms.google-services'

@@ -13,4 +13,5 @@
     <string name="password_edittext">Password</string>
     <string name="sign_in_button">Sign In</string>
     <string name="sign_up_button">Sign Up</string>
+    <string name="title_activity_type">TypeActivity</string>
 </resources>
