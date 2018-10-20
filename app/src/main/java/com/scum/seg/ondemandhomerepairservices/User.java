@@ -2,8 +2,10 @@ package com.scum.seg.ondemandhomerepairservices;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.io.Serializable;
+
 @IgnoreExtraProperties
-public class User {
+public class User implements Serializable {
 
     private String firstName;
     private String lastName;

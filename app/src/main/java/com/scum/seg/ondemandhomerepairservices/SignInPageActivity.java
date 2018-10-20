@@ -42,25 +42,25 @@ public class SignInPageActivity extends AppCompatActivity {
 
         // Add on data change listener to database to fetch data
         ValueEventListener userListener = new ValueEventListener() {
+            User user;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
                     boolean found = false;
                     // Loop through list of users checking if the given username and password match an account
                     for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                        User user = childSnapshot.getValue(User.class);
+                        user = childSnapshot.getValue(User.class);
                         if (user.getUserName().equals(mUsername.getText().toString().trim())
                                 && AESCrypt.decrypt(user.getPassword()).equals(mPassword.getText().toString().trim())) {
                             found = true;
                             break;
                         }
                     }
-                    //TODO: Act accordingly
                     if (!found) {
                         Log.d(TAG, "Sign in unsuccessful");
                     }else{
                         Log.d(TAG, "Sign in successful");
-                        homeActivity();
+                        homeActivity(user);
                     }
 
                 } catch (Exception e) {
@@ -83,8 +83,9 @@ public class SignInPageActivity extends AppCompatActivity {
 
     }
 
-    public void homeActivity() {
+    public void homeActivity(User user) {
         Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra("User",user);
         startActivity(intent);
         finish();
     }
