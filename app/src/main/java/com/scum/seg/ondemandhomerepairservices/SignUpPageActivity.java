@@ -73,10 +73,10 @@ public class SignUpPageActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()) {
-                                Toast.makeText(SignUpPageActivity.this, "Authentication failed." + task.getException(),
+                                Toast.makeText(SignUpPageActivity.this, "Authentication Failed." + task.getException(),
                                         Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(SignUpPageActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUpPageActivity.this, "Registration Successful" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 generateUser(firstname, lastname, username, password, email, phonenumber, address, type);
                                 signInUser();
                                 finish();
