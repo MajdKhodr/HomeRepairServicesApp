@@ -56,18 +56,17 @@ public class SignUpPageActivity extends AppCompatActivity {
     }
 
 
-    public void registerUser() {
-        // TODO: Add actual values and type
+    public void registerUser(View view) {
         final String email = mEmail.getText().toString();
         final String firstname = mFirstName.getText().toString();
         final String lastname = mLastName.getText().toString();
         final String username = mUsername.getText().toString();
         final String phonenumber = mPhoneNumber.getText().toString();
         final String address = mAddress.getText().toString();
-        final String type = "put enum here";
+        final String type = (String) getIntent().getSerializableExtra("Type");
 
         try {
-            final String password = AESCrypt.encrypt("password");
+            final String password = AESCrypt.encrypt(mPassword.getText().toString());
 
             mFirebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(SignUpPageActivity.this, new OnCompleteListener<AuthResult>() {
@@ -79,6 +78,7 @@ public class SignUpPageActivity extends AppCompatActivity {
                             } else {
                                 Toast.makeText(SignUpPageActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 generateUser(firstname, lastname, username, password, email, phonenumber, address, type);
+                                signInUser();
                                 finish();
                             }
                         }
@@ -96,7 +96,7 @@ public class SignUpPageActivity extends AppCompatActivity {
         users.push().setValue(user);
     }
 
-    public void signInUser(View view) {
+    public void signInUser() {
         Intent intent = new Intent(this, SignInPageActivity.class);
         startActivity(intent);
     }

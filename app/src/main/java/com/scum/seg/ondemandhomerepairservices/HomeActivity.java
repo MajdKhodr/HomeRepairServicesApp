@@ -27,10 +27,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-//        mWelcomeMessage = (TextView) findViewById(R.id.welcome_textview);
-//        mWelcomeTxt = "Welcome " + "FIRSTNAME"
-//        + ",\nYou are logged in as the " + "TYPE";
-//        mWelcomeMessage.setText(mWelcomeTxt);
 
     }
 }

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 // Required for firebase
 import com.google.firebase.database.DataSnapshot;
@@ -57,6 +58,7 @@ public class SignInPageActivity extends AppCompatActivity {
                         }
                     }
                     if (!found) {
+                        Toast.makeText(SignInPageActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "Sign in unsuccessful");
                     }else{
                         Log.d(TAG, "Sign in successful");
@@ -78,7 +80,7 @@ public class SignInPageActivity extends AppCompatActivity {
 
     // Sends user to sign up page
     public void signUpUser(View view) {
-        Intent intent = new Intent(this, SignUpPageActivity.class);
+        Intent intent = new Intent(this, TypeActivity.class);
         startActivity(intent);
     }
 

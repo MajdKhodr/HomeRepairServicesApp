@@ -16,8 +16,8 @@
     <string name="address_editText_hint">Address</string>
     <string name="phoneNumber_editText_hint">Phone Number</string>
     <string name="title_activity_type">TypeActivity</string>
-    <string name="type_admin">Admin</string>
-    <string name="type_homeowner">Home Owner</string>
-    <string name="type_serviceprovider">Service Provider</string>
+    <string name="type_admin">admin</string>
+    <string name="type_homeowner">home owner</string>
+    <string name="type_serviceprovider">service provider</string>
     <string name="type">Type of User</string>
 </resources>
