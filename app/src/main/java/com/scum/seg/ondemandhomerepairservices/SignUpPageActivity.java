@@ -15,6 +15,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class SignUpPageActivity extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuth;
@@ -26,6 +29,7 @@ public class SignUpPageActivity extends AppCompatActivity {
     private EditText mPassword;
     private EditText mPhoneNumber;
     private EditText mAddress;
+    private static final String TAG = "SignUpPageActivity";
 
 
     @Override
@@ -64,28 +68,89 @@ public class SignUpPageActivity extends AppCompatActivity {
         final String phonenumber = mPhoneNumber.getText().toString();
         final String address = mAddress.getText().toString();
         final String type = (String) getIntent().getSerializableExtra("Type");
+        boolean firstNameIsValid = true;
+        boolean lastNameIsValid = true;
+        boolean emailIsValid = validateEmail(email);
+        boolean numberIsValid = validatePhoneNumber(phonenumber);
+        String toastMessage = "The following fields are either missing or the information you gave is not valid:\n";
 
-        try {
-            final String password = AESCrypt.encrypt(mPassword.getText().toString());
-
-            mFirebaseAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(SignUpPageActivity.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (!task.isSuccessful()) {
-                                Toast.makeText(SignUpPageActivity.this, "Authentication Failed." + task.getException(),
-                                        Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(SignUpPageActivity.this, "Registration Successful" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                                generateUser(firstname, lastname, username, password, email, phonenumber, address, type);
-                                signInUser();
-                                finish();
-                            }
-                        }
-                    });
-        }catch (Exception e){
-            e.printStackTrace();
+        for(int i = 0; i < firstname.length(); i ++){
+            if( (!Character.isLetter(firstname.charAt(i))) && (firstname.charAt(i) != ' ') ){
+                firstNameIsValid = false;
+            }
         }
+
+        for(int i = 0; i < lastname.length(); i ++){
+            if( (!Character.isLetter(lastname.charAt(i))) && (lastname.charAt(i) != ' ') ){
+                lastNameIsValid = false;
+            }
+        }
+
+        if(!firstNameIsValid){
+            toastMessage += "\nFirst Name (Make sure it includes only letters and no symbols)\n";
+        }
+
+        if(!lastNameIsValid){
+            toastMessage += "\nLast Name (Make sure it includes only letters and no symbols\n";
+        }
+
+        if(!emailIsValid){
+            toastMessage += "\nEmail (Make sure it follows the following format \"abc@gmail.com\"\n";
+        }
+
+        if(!numberIsValid){
+            toastMessage += "\nPhone Number (Make sure it includes nothing but numbers and follows the following format \"1234567899\"";
+        }
+
+        if(numberIsValid && firstNameIsValid && emailIsValid && lastNameIsValid) {
+            try {
+                final String password = AESCrypt.encrypt(mPassword.getText().toString());
+
+                mFirebaseAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(SignUpPageActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(SignUpPageActivity.this, "Authentication Failed." + task.getException(),
+                                            Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(SignUpPageActivity.this, "Registration Successful" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                    generateUser(firstname, lastname, username, password, email, phonenumber, address, type);
+                                    signInUser();
+                                    finish();
+                                }
+                            }
+                        });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        else{
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    toastMessage,
+                    Toast.LENGTH_LONG);
+
+            toast.show();
+        }
+    }
+
+    private boolean validatePhoneNumber(String phonenumber) {
+        for(int i = 0; i < phonenumber.length(); i ++){
+            if(!Character.isDigit(phonenumber.charAt(i))){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean validateEmail(String email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
     public void generateUser(String firstName, String lastName, String userName, String password,
