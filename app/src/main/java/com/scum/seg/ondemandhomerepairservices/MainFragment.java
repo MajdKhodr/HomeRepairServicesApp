@@ -25,10 +25,10 @@ public class MainFragment extends Fragment {
         //Get's user information from Sign in Activity
         user = (User) getActivity().getIntent().getSerializableExtra("User");
 
-        mWelcomeTextView = (TextView) v.findViewById(R.id.welcomeMSG_textView);
+        mWelcomeTextView = v.findViewById(R.id.welcomeMSG_textView);
 
         mWelcomeString = "Welcome " + user.getFirstName()
-          + ",\nYou are logged in as the " + user.getType();
+          + ",\nYou are logged in as a " + user.getType();
 
         mWelcomeTextView.setText(mWelcomeString);
 
