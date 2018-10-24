@@ -147,6 +147,7 @@
         android:foregroundGravity="fill_vertical|center"
         android:gravity="center"
         android:hint="@string/password_editText_hint"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_edittext" />
