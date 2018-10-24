@@ -22,4 +22,5 @@
     <string name="type">Type of User</string>
     <string name="welcome_textview">Welcome</string>
     <string name="or_textview">or</string>
+    <string name="placeholder">Placeholder</string>
 </resources>
