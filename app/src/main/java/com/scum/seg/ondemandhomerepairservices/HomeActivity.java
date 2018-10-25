@@ -19,11 +19,15 @@ public class HomeActivity extends AppCompatActivity {
 
 
         FragmentManager fm = getSupportFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragment);
+        Fragment fragmentMain = fm.findFragmentById(R.id.fragment);
+        Fragment fragmentUsers = fm.findFragmentById(R.id.users);
 
-        if (fragment == null){
-            fragment = new MainFragment();
-            fm.beginTransaction().add(R.id.fragment, fragment).commit();
+        if (fragmentMain == null) {
+            fragmentMain = new MainFragment();
+            fm.beginTransaction().add(R.id.fragment, fragmentMain).commit();
+        } else if (fragmentUsers == null) {
+            fragmentUsers = new ListofUsersFragment();
+            fm.beginTransaction().add(R.id.users, fragmentUsers).commit();
         }
     }
 
