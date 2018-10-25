@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sign Up P</string>
+    <string name="app_name">On Demand Home Repair</string>
     <string name="name_section">Name</string>
     <string name="credentials_section">Credentials</string>
     <string name="first_name_editText_hint">First</string>

@@ -25,7 +25,8 @@ public class HomeActivity extends AppCompatActivity {
         if (fragmentMain == null) {
             fragmentMain = new MainFragment();
             fm.beginTransaction().add(R.id.fragment, fragmentMain).commit();
-        } else if (fragmentUsers == null) {
+        }
+        if (fragmentUsers == null && ((User) getIntent().getSerializableExtra("User")).getType().equals("admin")) {
             fragmentUsers = new ListOfUsersFragment();
             fm.beginTransaction().add(R.id.users, fragmentUsers).commit();
         }
