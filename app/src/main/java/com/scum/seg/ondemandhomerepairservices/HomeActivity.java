@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
             fragmentMain = new MainFragment();
             fm.beginTransaction().add(R.id.fragment, fragmentMain).commit();
         } else if (fragmentUsers == null) {
-            fragmentUsers = new ListofUsersFragment();
+            fragmentUsers = new ListOfUsersFragment();
             fm.beginTransaction().add(R.id.users, fragmentUsers).commit();
         }
     }
