@@ -74,35 +74,35 @@ public class SignUpPageActivity extends AppCompatActivity {
         boolean numberIsValid = validatePhoneNumber(phonenumber);
         String toastMessage = "The following fields are either missing or the information you gave is not valid:\n";
 
-        for(int i = 0; i < firstname.length(); i ++){
-            if( (!Character.isLetter(firstname.charAt(i))) && (firstname.charAt(i) != ' ') ){
+        for (int i = 0; i < firstname.length(); i++) {
+            if ((!Character.isLetter(firstname.charAt(i))) && (firstname.charAt(i) != ' ')) {
                 firstNameIsValid = false;
             }
         }
 
-        for(int i = 0; i < lastname.length(); i ++){
-            if( (!Character.isLetter(lastname.charAt(i))) && (lastname.charAt(i) != ' ') ){
+        for (int i = 0; i < lastname.length(); i++) {
+            if ((!Character.isLetter(lastname.charAt(i))) && (lastname.charAt(i) != ' ')) {
                 lastNameIsValid = false;
             }
         }
 
-        if(!firstNameIsValid){
+        if (!firstNameIsValid) {
             toastMessage += "\nFirst Name (Make sure it includes only letters and no symbols)\n";
         }
 
-        if(!lastNameIsValid){
+        if (!lastNameIsValid) {
             toastMessage += "\nLast Name (Make sure it includes only letters and no symbols\n";
         }
 
-        if(!emailIsValid){
+        if (!emailIsValid) {
             toastMessage += "\nEmail (Make sure it follows the following format \"abc@gmail.com\"\n";
         }
 
-        if(!numberIsValid){
+        if (!numberIsValid) {
             toastMessage += "\nPhone Number (Make sure it includes nothing but numbers and follows the following format \"1234567899\"";
         }
 
-        if(numberIsValid && firstNameIsValid && emailIsValid && lastNameIsValid) {
+        if (numberIsValid && firstNameIsValid && emailIsValid && lastNameIsValid) {
             try {
                 final String password = AESCrypt.encrypt(mPassword.getText().toString());
 
@@ -125,9 +125,7 @@ public class SignUpPageActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-        }
-
-        else{
+        } else {
             Toast toast = Toast.makeText(getApplicationContext(),
                     toastMessage,
                     Toast.LENGTH_LONG);
@@ -137,8 +135,8 @@ public class SignUpPageActivity extends AppCompatActivity {
     }
 
     private boolean validatePhoneNumber(String phonenumber) {
-        for(int i = 0; i < phonenumber.length(); i ++){
-            if(!Character.isDigit(phonenumber.charAt(i))){
+        for (int i = 0; i < phonenumber.length(); i++) {
+            if (!Character.isDigit(phonenumber.charAt(i))) {
                 return false;
             }
         }
