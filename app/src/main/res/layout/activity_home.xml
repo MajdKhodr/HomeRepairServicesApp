@@ -20,12 +20,13 @@
     <FrameLayout
         android:id="@+id/users"
         android:layout_width="match_parent"
-        android:layout_height="302dp"
+        android:layout_height="253dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment">
+        app:layout_constraintTop_toBottomOf="@+id/fragment"
+        app:layout_constraintVertical_bias="0.0">
 
     </FrameLayout>
 
