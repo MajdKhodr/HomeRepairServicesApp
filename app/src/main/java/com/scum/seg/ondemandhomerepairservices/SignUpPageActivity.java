@@ -68,44 +68,44 @@ public class SignUpPageActivity extends AppCompatActivity {
         final String phonenumber = mPhoneNumber.getText().toString();
         final String address = mAddress.getText().toString();
         final String type = (String) getIntent().getSerializableExtra("Type");
-        boolean firstNameIsValid = true;
-        boolean lastNameIsValid = true;
+
+        boolean firstNameIsValid = validateFirstName(firstname);
+        boolean lastNameIsValid = validateLastName(lastname);
         boolean emailIsValid = validateEmail(email);
         boolean numberIsValid = validatePhoneNumber(phonenumber);
+        boolean addressIsValid = validateAddress(address);
+        boolean userNameIsValid = validateUsername(username);
+
         String toastMessage = "The following fields are either missing or the information you gave is not valid:\n";
 
-        for (int i = 0; i < firstname.length(); i++) {
-            if ((!Character.isLetter(firstname.charAt(i))) && (firstname.charAt(i) != ' ')) {
-                firstNameIsValid = false;
-            }
-        }
-
-        for (int i = 0; i < lastname.length(); i++) {
-            if ((!Character.isLetter(lastname.charAt(i))) && (lastname.charAt(i) != ' ')) {
-                lastNameIsValid = false;
-            }
-        }
-
         if (!firstNameIsValid) {
-            toastMessage += "\nFirst Name (Make sure it includes only letters and no symbols)\n";
+            toastMessage += "\nFirst Name (Make sure it includes only letters and no symbols and that it is not empty)\n";
         }
 
         if (!lastNameIsValid) {
-            toastMessage += "\nLast Name (Make sure it includes only letters and no symbols\n";
+            toastMessage += "\nLast Name (Make sure it includes only letters and no symbols and that it is not empty)\n";
         }
 
         if (!emailIsValid) {
-            toastMessage += "\nEmail (Make sure it follows the following format \"abc@gmail.com\"\n";
+            toastMessage += "\nEmail (Make sure it follows the following format \"abc@gmail.com\" and that it is not empty)\n";
         }
 
         if (!numberIsValid) {
-            toastMessage += "\nPhone Number (Make sure it includes nothing but numbers and follows the following format \"1234567899\"";
+            toastMessage += "\nPhone Number (Make sure it includes nothing but numbers and follows the following format \"1234567899\" and that it is not empty)";
         }
 
-        if (numberIsValid && firstNameIsValid && emailIsValid && lastNameIsValid) {
+        if(!addressIsValid){
+            toastMessage += "\nAddress (Make sure it is not empty)\n";
+        }
+
+        if(!userNameIsValid){
+            toastMessage += "\nUsername (Make sure it's not empty)\n";
+        }
+
+
+        if (userNameIsValid && numberIsValid && firstNameIsValid && emailIsValid && lastNameIsValid && addressIsValid && !mPassword.getText().toString().isEmpty()) {
             try {
                 final String password = AESCrypt.encrypt(mPassword.getText().toString());
-
                 mFirebaseAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignUpPageActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -132,6 +132,50 @@ public class SignUpPageActivity extends AppCompatActivity {
 
             toast.show();
         }
+    }
+
+    private boolean validateUsername(String username) {
+        return !username.isEmpty();
+    }
+
+    private boolean validatePassword(String password) {
+        return !password.isEmpty();
+    }
+
+    private boolean validateAddress(String address) {
+        return !address.isEmpty();
+    }
+
+    private boolean validateLastName(String lastname) {
+        boolean lastNameIsValid = true;
+
+        if(lastname.isEmpty()){
+            return false;
+        }
+
+        for (int i = 0; i < lastname.length(); i++) {
+            if ((!Character.isLetter(lastname.charAt(i))) && (lastname.charAt(i) != ' ')) {
+                lastNameIsValid = false;
+            }
+        }
+
+        return lastNameIsValid;
+    }
+
+    private boolean validateFirstName(String firstname) {
+        boolean firstNameIsValid = true;
+
+        if(firstname.isEmpty()){
+            return false;
+        }
+
+        for (int i = 0; i < firstname.length(); i++) {
+            if ((!Character.isLetter(firstname.charAt(i))) && (firstname.charAt(i) != ' ')) {
+                firstNameIsValid = false;
+            }
+        }
+
+        return firstNameIsValid;
     }
 
     private boolean validatePhoneNumber(String phonenumber) {
