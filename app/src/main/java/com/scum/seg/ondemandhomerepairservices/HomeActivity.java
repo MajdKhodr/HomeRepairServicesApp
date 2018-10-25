@@ -1,9 +1,11 @@
 package com.scum.seg.ondemandhomerepairservices;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.scum.seg.ondemandhomerepairservices.Utils.BottomNavHelper;
@@ -39,5 +41,11 @@ public class HomeActivity extends AppCompatActivity {
 
 //        bottomNavHelper.setListeners(this);
 
+    }
+
+    public void signOut(View view) {
+        Intent intent = new Intent(this, SignInPageActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
