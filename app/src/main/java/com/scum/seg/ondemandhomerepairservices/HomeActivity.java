@@ -37,9 +37,7 @@ public class HomeActivity extends AppCompatActivity {
     private void setupBottomNav() {
         AHBottomNavigation bottomNavigation = findViewById(R.id.bottom_navigation);
         final BottomNavHelper bottomNavHelper = new BottomNavHelper(bottomNavigation);
-
-
-//        bottomNavHelper.setListeners(this);
+        bottomNavHelper.setListeners(this);
 
     }
 

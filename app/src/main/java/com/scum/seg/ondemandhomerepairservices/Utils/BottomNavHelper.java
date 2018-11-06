@@ -1,10 +1,20 @@
 package com.scum.seg.ondemandhomerepairservices.Utils;
 
 import android.graphics.Color;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.view.ViewGroup;
+import android.view.ViewManager;
+import android.widget.FrameLayout;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.scum.seg.ondemandhomerepairservices.ListOfUsersFragment;
+import com.scum.seg.ondemandhomerepairservices.MainFragment;
 import com.scum.seg.ondemandhomerepairservices.R;
+import com.scum.seg.ondemandhomerepairservices.ServicesFragment;
 
 public class BottomNavHelper {
 
@@ -16,23 +26,19 @@ public class BottomNavHelper {
         this.bottomNavigation = bottomNavigation;
 
         // Creating the items
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.placeholder,R.drawable.baseline_android_24, R.color.colorAccent);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.placeholder,R.drawable.baseline_android_24, R.color.colorAccent);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.placeholder,R.drawable.baseline_android_24, R.color.colorAccent);
-        AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.placeholder,R.drawable.baseline_android_24, R.color.colorAccent);
-        AHBottomNavigationItem item5 = new AHBottomNavigationItem(R.string.placeholder,R.drawable.baseline_android_24, R.color.colorAccent);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.placeholder, R.drawable.baseline_android_24, R.color.colorAccent);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.services, R.drawable.services, R.color.colorAccent);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.placeholder, R.drawable.baseline_android_24, R.color.colorAccent);
 
         // Adding the items
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
-        bottomNavigation.addItem(item4);
-        bottomNavigation.addItem(item5);
 
 
         // Configurations
         bottomNavigation.setBehaviorTranslationEnabled(false);
-        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_HIDE);
+        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
 
         // Theme
         bottomNavigation.setAccentColor(Color.parseColor("#6CABDD"));
@@ -46,10 +52,30 @@ public class BottomNavHelper {
         return bottomNavigation;
     }
 
-//    public void setListeners(final AppCompatActivity activity) {
-//        bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
-//            @Override
-//            public boolean onTabSelected(int position, boolean wasSelected) {
-//
-//            }
+    public void setListeners(final AppCompatActivity activity) {
+        bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
+            @Override
+            public boolean onTabSelected(int position, boolean wasSelected) {
+                // Main Page
+                if (position == 0) {
+                    Fragment fragment = new MainFragment();
+                    Fragment fragment1 = new ListOfUsersFragment();
+
+                    FragmentManager fm = activity.getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fm.beginTransaction();
+
+                    fragmentTransaction.replace(R.id.fragment, fragment);
+                    fragmentTransaction.replace(R.id.users, fragment1);
+
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+                // Services Tab
+                if (position == 1) {
+                }
+                return true;
+            }
+        });
+
+    }
 }

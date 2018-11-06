@@ -24,4 +24,5 @@
     <string name="or_textview">or</string>
     <string name="placeholder">Placeholder</string>
     <string name="sign_out_button">Sign Out</string>
+    <string name="services">Services</string>
 </resources>

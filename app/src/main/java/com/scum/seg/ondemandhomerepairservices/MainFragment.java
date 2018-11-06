@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MainFragment extends Fragment {
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
@@ -20,7 +20,7 @@ public class MainFragment extends Fragment {
     User user;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
 
         //Get's user information from Sign in Activity
@@ -29,7 +29,7 @@ public class MainFragment extends Fragment {
         mWelcomeTextView = v.findViewById(R.id.welcomeMSG_textView);
 
         mWelcomeString = "Welcome " + user.getFirstName()
-          + ",\nYou are logged in as a " + user.getType();
+                + ",\nYou are logged in as a " + user.getType();
 
         mWelcomeTextView.setText(mWelcomeString);
 
