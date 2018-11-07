@@ -72,6 +72,14 @@ public class BottomNavHelper {
                 }
                 // Services Tab
                 if (position == 1) {
+                    Fragment fragment = new ServicesFragment();
+
+                    FragmentManager fm = activity.getSupportFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    Fragment users = fm.findFragmentById(R.id.users);
+
+                    ft.hide(users);
+                    ft.commit();
                 }
                 return true;
             }
