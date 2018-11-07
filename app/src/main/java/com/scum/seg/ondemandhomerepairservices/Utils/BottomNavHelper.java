@@ -78,7 +78,10 @@ public class BottomNavHelper {
                     FragmentTransaction ft = fm.beginTransaction();
                     Fragment users = fm.findFragmentById(R.id.users);
 
+                    ft.replace(R.id.fragment, fragment);
+                    ft.addToBackStack(null);
                     ft.hide(users);
+
                     ft.commit();
                 }
                 return true;

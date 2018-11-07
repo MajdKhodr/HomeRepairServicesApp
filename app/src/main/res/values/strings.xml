@@ -25,4 +25,6 @@
     <string name="placeholder">Placeholder</string>
     <string name="sign_out_button">Sign Out</string>
     <string name="services">Services</string>
+    <string name="service_name">Service</string>
+    <string name="service_rate">Service Rate</string>
 </resources>

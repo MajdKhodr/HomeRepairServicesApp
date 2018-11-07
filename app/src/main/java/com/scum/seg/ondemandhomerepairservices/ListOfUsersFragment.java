@@ -36,6 +36,7 @@ public class ListOfUsersFragment extends Fragment {
 
         mUserRecyclerView = v.findViewById(R.id.recycler_view);
         mUserRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mUserRecyclerView.setHasFixedSize(true);
 
         updateUI();
         return v;
