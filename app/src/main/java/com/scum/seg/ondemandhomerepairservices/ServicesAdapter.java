@@ -45,6 +45,16 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         return serviceList.size();
     }
 
+    public void removeItem(int position){
+        serviceList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void addItem(int position, Service service){
+        serviceList.add(service);
+        notifyItemInserted(serviceList.size() - 1);
+    }
+
 
 
 
@@ -60,6 +70,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
             mService = itemView.findViewById(R.id.textview_service_value);
             mServiceRate = itemView.findViewById(R.id.textview_servicerate_value);
         }
+
     }
 
 
