@@ -43,6 +43,7 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/add_button_admin_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"

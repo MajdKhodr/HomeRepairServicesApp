@@ -1,5 +1,6 @@
 package com.scum.seg.ondemandhomerepairservices;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,30 +30,14 @@ public class AdminActivity extends AppCompatActivity {
     public void addServiceToServices(View view) {
         rate = ratePerHour.getText().toString();
 
-        if (!validateRate(rate)) {
-            String toastMessage = "Please enter a valid Rate Per Hour.";
+        Spinner servicesSpinner = findViewById(R.id.services_spinner);
+        String serviceName = servicesSpinner.getSelectedItem().toString();
 
-            Toast toast = Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_LONG);
-        } else{
-            Spinner servicesSpinner = findViewById(R.id.services_spinner);
-            String service = servicesSpinner.getSelectedItem().toString();
+        Service service = new Service(serviceName, Float.parseFloat(rate));
 
-            //Call alexi's method and pass rate and service
-        }
-    }
-
-    public boolean validateRate(String rate) {
-        // Checks if rate is a negative number
-        if (Integer.parseInt(rate) < 0)
-             return false;
-
-        // Verifies all characters are digits
-        for (int i = 0; i < rate.length(); i++) {
-            if (!Character.isDigit(rate.charAt(i))) {
-                return false;
-            }
-        }
-
-        return true;
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra("Service", service);
+        startActivity(intent);
+        finish();
     }
 }

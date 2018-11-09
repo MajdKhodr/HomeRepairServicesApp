@@ -1,6 +1,8 @@
 package com.scum.seg.ondemandhomerepairservices;
 
-public class Service {
+import java.io.Serializable;
+
+public class Service implements Serializable {
 
     private String serviceName;
     private float serviceRate;
