@@ -1,5 +1,8 @@
 package com.scum.seg.ondemandhomerepairservices;
 
+import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -14,7 +17,6 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.content.Intent.getIntent;
 
 
 public class ServicesFragment extends Fragment {
@@ -62,7 +64,7 @@ public class ServicesFragment extends Fragment {
                 View itemView = viewHolder.itemView;
                 int itemHeight = itemView.getBottom() - itemView.getTop();
 
-                itemView.setBackgroundColor(Color.parseColor("#ff0000"));
+                itemView.setBackgroundColor(Color.parseColor("#CC0000"));
                 itemView.draw(c);
 
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
