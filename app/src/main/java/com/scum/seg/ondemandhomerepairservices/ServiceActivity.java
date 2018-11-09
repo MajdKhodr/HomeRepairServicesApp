@@ -35,11 +35,15 @@ public class ServiceActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.services_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
         service = (Service) getIntent().getSerializableExtra("Service");
-        ratePerHour.setText((service.getServiceRate() + ""));
-        serviceName = service.getServiceName();
-        spinner.setSelection(Arrays.asList(getResources().getStringArray(R.array.services_array)).indexOf(serviceName));
+
+        if(service != null){
+            ratePerHour.setText((service.getServiceRate() + ""));
+            serviceName = service.getServiceName();
+            spinner.setSelection(Arrays.asList(getResources().getStringArray(R.array.services_array)).indexOf(serviceName));
+        }
+
+
     }
 
     public void addServiceToServices(View view) {
