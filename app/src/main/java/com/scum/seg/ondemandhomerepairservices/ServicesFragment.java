@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class ServicesFragment extends Fragment {
 
     private RecyclerView mServiceRecyclerView;
@@ -54,49 +53,49 @@ public class ServicesFragment extends Fragment {
         mServiceRecyclerView = fragment.findViewById(R.id.services_recyclerview);
         mServiceRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
-        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-                mServicesAdapter.removeItem(viewHolder.getAdapterPosition());
-            }
-
-            @Override
-            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-
-                if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-                    // Get RecyclerView item from the ViewHolder
-                    View itemView = viewHolder.itemView;
-
-                    Paint p = new Paint();
-                    if (dX > 0) {
-                        /* Set your color for positive displacement */
-                        // Draw Rect with varying right side, equal to displacement dX
-                        c.drawRect((float) itemView.getLeft(), (float) itemView.getTop(), dX,
-                                (float) itemView.getBottom(), p);
-                    } else {
-                        /* Set your color for negative displacement */
-                        p.setColor(Color.parseColor("#CC0000"));
-                        // Draw Rect with varying left side, equal to the item's right side plus negative displacement dX
-                        c.drawRect((float) itemView.getRight() + dX, (float) itemView.getTop(),
-                                (float) itemView.getRight(), (float) itemView.getBottom(), p);
-                    }
-
-                    super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-
+        if (((User) getActivity().getIntent().getSerializableExtra("User")).getType().equals("admin")) {
+            ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                @Override
+                public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
+                    return false;
                 }
-            }
-        };
+
+                @Override
+                public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+                    mServicesAdapter.removeItem(viewHolder.getAdapterPosition());
+                }
+
+                @Override
+                public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+                    if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+                        // Get RecyclerView item from the ViewHolder
+                        View itemView = viewHolder.itemView;
+
+                        Paint p = new Paint();
+                        if (dX > 0) {
+                            p.setColor(Color.parseColor("#CC0000"));
+                            c.drawRoundRect((float) itemView.getLeft() , (float) itemView.getTop(), dX,
+                                    (float) itemView.getBottom(),16,16,p);
+
+                        } else {
+                            p.setColor(Color.parseColor("#CC0000"));
+                            c.drawRoundRect((float) itemView.getRight() + dX, (float) itemView.getTop(),
+                                    (float) itemView.getRight(), (float) itemView.getBottom(), 16,16,p);
+                        }
+
+                        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
+                    }
+                }
+            };
 
 
             ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
 
-        itemTouchHelper.attachToRecyclerView(mServiceRecyclerView);
+
+            itemTouchHelper.attachToRecyclerView(mServiceRecyclerView);
+        }
 
         mServiceList.add(new Service("Service Name", 21331));
         mServiceList.add(new Service("Service Name", 21331));
@@ -109,16 +108,15 @@ public class ServicesFragment extends Fragment {
         mServiceList.add(new Service("Service Name", 21331));
 
 
-
-            mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList);
+        mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList);
         mServiceRecyclerView.setAdapter(mServicesAdapter);
 
         return fragment;
-        }
-
-        public void addService() {
-            Intent intent = new Intent(getActivity(), AdminActivity.class);
-            //intent.putExtra("User", user);
-            getActivity().startActivity(intent);
-        }
     }
+
+    public void addService() {
+        Intent intent = new Intent(getActivity(), AdminActivity.class);
+        //intent.putExtra("User", user);
+        getActivity().startActivity(intent);
+    }
+}
