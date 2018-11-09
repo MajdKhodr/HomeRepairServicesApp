@@ -29,7 +29,7 @@ public class MainFragment extends Fragment {
         mWelcomeTextView = v.findViewById(R.id.welcomeMSG_textView);
 
         mWelcomeString = "Welcome " + user.getFirstName()
-                + ",\nYou are logged in as a " + user.getType();
+                + ",\nyou are logged in as a " + user.getType();
 
         mWelcomeTextView.setText(mWelcomeString);
 
