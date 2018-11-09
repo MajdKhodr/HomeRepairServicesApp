@@ -92,6 +92,7 @@ public class ServicesFragment extends Fragment {
         mServiceList.add(new Service("Service Name", 21331));
 
 
+
         mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList);
         mServiceRecyclerView.setAdapter(mServicesAdapter);
 
