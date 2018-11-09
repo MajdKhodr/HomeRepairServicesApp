@@ -26,6 +26,7 @@
     <string name="sign_out_button">Sign Out</string>
     <string name="services">Services</string>
     <string name="service_name">Service</string>
+    <string name="service_type">Service Type</string>
     <string name="service_rate">Service Rate</string>
     <string name="add_button">Add</string>
     <string-array name="services_array">
