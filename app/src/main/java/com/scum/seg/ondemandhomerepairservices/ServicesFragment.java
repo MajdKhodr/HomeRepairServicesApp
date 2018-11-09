@@ -103,17 +103,6 @@ public class ServicesFragment extends Fragment {
             itemTouchHelper.attachToRecyclerView(mServiceRecyclerView);
         }
 
-        mServiceList.add(new Service("Service Name", 21331));
-        mServiceList.add(new Service("Service Name", 21331));
-        mServiceList.add(new Service("Service Name", 21331));
-        mServiceList.add(new Service("Service Name", 21331));
-        mServiceList.add(new Service("Service Name", 21331));
-        mServiceList.add(new Service("Service Name", 21331));
-        mServiceList.add(new Service("Service Name", 21331));
-        mServiceList.add(new Service("Service Name", 21331));
-        mServiceList.add(new Service("Service Name", 21331));
-
-
         mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList);
         mServiceRecyclerView.setAdapter(mServicesAdapter);
 
@@ -131,7 +120,7 @@ public class ServicesFragment extends Fragment {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
                 Service service = (Service) data.getSerializableExtra("Service");
-                // TODO: Add to recyclerview
+                mServicesAdapter.addItem(mServiceList.size() - 1, service);
             }
         }
     }
