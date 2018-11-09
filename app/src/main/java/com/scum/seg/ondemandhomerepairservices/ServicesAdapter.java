@@ -1,15 +1,14 @@
 package com.scum.seg.ondemandhomerepairservices;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -19,25 +18,29 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
     private Context context;
     private List<Service> serviceList;
 
-    public ServicesAdapter(Context context, List<Service> servicesList){
+    public ServicesAdapter(Context context, List<Service> servicesList) {
         this.serviceList = servicesList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public ServiceHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ServiceHolder onCreateViewHolder(@NonNull final ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.list_services, null);
 
+        final ServiceHolder v = new ServiceHolder(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                final Intent intent;
+                intent = new Intent(context, AdminActivity.class);
+                intent.putExtra("Service", serviceList.get(v.getAdapterPosition()));
+                context.startActivity(intent);
             }
         });
-        return new ServiceHolder(view);
-       }
+        return v;
+    }
 
     @Override
     public void onBindViewHolder(@NonNull ServiceHolder serviceHolder, int i) {
@@ -46,9 +49,9 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         double rate = service.getServiceRate();
         String stringRate = "";
 
-        if(rate == (long) rate){
+        if (rate == (long) rate) {
             stringRate = String.format("%d", (long) rate);
-        }else{
+        } else {
             stringRate = String.format("%s", rate);
         }
 
@@ -62,32 +65,28 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         return serviceList.size();
     }
 
-    public void removeItem(int position){
+    public void removeItem(int position) {
         serviceList.remove(position);
         notifyItemRemoved(position);
     }
 
-    public void addItem(Service service){
+    public void addItem(Service service) {
         serviceList.add(service);
         notifyItemInserted(serviceList.size() - 1);
     }
 
-    public void replaceItem(int position, Service service){
-        serviceList.add(position,service);
+    public void replaceItem(int position, Service service) {
+        serviceList.add(position, service);
         notifyDataSetChanged();
     }
 
 
-
-
-
-    public class ServiceHolder extends RecyclerView.ViewHolder{
+    public class ServiceHolder extends RecyclerView.ViewHolder {
         TextView mService;
         TextView mServiceRate;
 
 
-
-        public ServiceHolder (View itemView){
+        public ServiceHolder(View itemView) {
             super(itemView);
 
             mService = itemView.findViewById(R.id.textview_service_value);
@@ -95,9 +94,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         }
 
     }
-
-
-
 
 
 }
