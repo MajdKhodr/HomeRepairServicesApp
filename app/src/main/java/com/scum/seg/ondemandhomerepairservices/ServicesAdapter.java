@@ -35,7 +35,17 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
     @Override
     public void onBindViewHolder(@NonNull ServiceHolder serviceHolder, int i) {
         Service service = serviceList.get(i);
-        serviceHolder.mServiceRate.setText(String.valueOf(service.getServiceRate()));
+
+        double rate = service.getServiceRate();
+        String stringRate = "";
+
+        if(rate == (long) rate){
+            stringRate = String.format("%d", (long) rate);
+        }else{
+            stringRate = String.format("%s", rate);
+        }
+
+        serviceHolder.mServiceRate.setText(stringRate + " $/h");
         serviceHolder.mService.setText(service.getServiceName());
 
     }
