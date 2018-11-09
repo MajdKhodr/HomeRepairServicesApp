@@ -1,8 +1,12 @@
 package com.scum.seg.ondemandhomerepairservices;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,9 +14,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class AdminActivity extends AppCompatActivity {
+import java.util.Arrays;
+
+public class ServiceActivity extends AppCompatActivity {
     private EditText ratePerHour;
     private String rate;
+    private String serviceName;
+    private Service service;
 
     private static final String TAG = "EMPTYDATA";
 
@@ -27,17 +35,21 @@ public class AdminActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.services_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-    }
 
+        service = (Service) getIntent().getSerializableExtra("Service");
+        ratePerHour.setText((service.getServiceRate() + ""));
+        serviceName = service.getServiceName();
+        spinner.setSelection(Arrays.asList(getResources().getStringArray(R.array.services_array)).indexOf(serviceName));
+    }
 
     public void addServiceToServices(View view) {
         rate = ratePerHour.getText().toString();
 
         Spinner servicesSpinner = findViewById(R.id.services_spinner);
-        String serviceName = servicesSpinner.getSelectedItem().toString();
+        serviceName = servicesSpinner.getSelectedItem().toString();
 
         if (!rate.equals("")) {
-            Service service = new Service(serviceName, Float.parseFloat(rate));
+            service = new Service(serviceName, Float.parseFloat(rate));
 
             Intent intent = new Intent();
             intent.putExtra("Service", service);
