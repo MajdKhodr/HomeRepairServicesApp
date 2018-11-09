@@ -86,7 +86,7 @@ public class SignInPageActivity extends AppCompatActivity {
 
     public void homeActivity(User user) {
         Intent intent = new Intent(this, HomeActivity.class);
-        intent.putExtra("User",user);
+        intent.putExtra("User", user);
         startActivity(intent);
         finish();
     }

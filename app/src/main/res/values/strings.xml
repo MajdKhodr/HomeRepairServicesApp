@@ -27,4 +27,21 @@
     <string name="services">Services</string>
     <string name="service_name">Service</string>
     <string name="service_rate">Service Rate</string>
+    <string name="add_button">Add</string>
+    <string-array name="services_array">
+        <item>Appliance Installation</item>
+        <item>Carpet Cleaning</item>
+        <item>Moving</item>
+        <item>Plumbing</item>
+        <item>Appliance Repair</item>
+        <item>Furniture Assembly</item>
+        <item>Locksmith</item>
+        <item>Painting</item>
+        <item>Window Cleaning</item>
+        <item>Electrical</item>
+        <item>Mould Remediation</item>
+        <item>Pest Control</item>
+        <item>Junk Removal</item>
+        <item>Handyman Services</item>
+    </string-array>
 </resources>
