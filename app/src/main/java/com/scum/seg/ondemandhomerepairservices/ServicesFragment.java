@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -39,8 +40,13 @@ public class ServicesFragment extends Fragment {
 
         //Checks if the user is an admin to display the add button
         if (((User) getActivity().getIntent().getSerializableExtra("User")).getType().equals("admin")) {
-            Button addButton = fragment.findViewById(R.id.add_button);
-            addButton.setVisibility(View.VISIBLE);
+            FloatingActionButton addButton = fragment.findViewById(R.id.floatingActionButton);
+            addButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    addService();
+                }
+            });
         }
 
         mServiceRecyclerView = fragment.findViewById(R.id.services_recyclerview);
@@ -92,7 +98,7 @@ public class ServicesFragment extends Fragment {
         return fragment;
     }
 
-    public void addService(View view) {
+    public void addService() {
         Intent intent = new Intent(getActivity(), AdminActivity.class);
         //intent.putExtra("User", user);
         getActivity().startActivity(intent);
