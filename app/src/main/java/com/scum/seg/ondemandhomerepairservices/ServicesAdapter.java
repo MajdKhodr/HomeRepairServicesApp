@@ -1,8 +1,10 @@
 package com.scum.seg.ondemandhomerepairservices;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.view.menu.ActionMenuItem;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +44,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 final Intent intent;
                 intent = new Intent(context, AdminActivity.class);
                 intent.putExtra("Service", serviceList.get(v.getAdapterPosition()));
-                context.startActivity(intent);
+                ((Activity) context) .startActivityForResult(intent, 1);
             }
         });
         return v;

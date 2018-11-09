@@ -81,6 +81,10 @@ public class ServicesFragment extends Fragment {
                 Service service = (Service) data.getSerializableExtra("Service");
                 mServicesAdapter.addItem(service);
             }
+        }if (requestCode == 1){
+            if(resultCode == RESULT_OK){
+                //TODO edit goes here
+            }
         }
     }
 
