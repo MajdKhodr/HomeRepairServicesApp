@@ -13,6 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="44dp"
+        android:fontFamily="@font/font"
         android:text="@string/welcome_textview"
         android:textAlignment="center"
         android:textSize="32sp"
@@ -31,7 +32,6 @@
 
         android:hint="@string/username_editText_hint"
         android:textAlignment="center"
-        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/password_signin_edittext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -90,7 +90,6 @@
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
         android:text="@string/or_textview"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/sign_up_button"
