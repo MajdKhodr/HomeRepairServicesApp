@@ -3,6 +3,7 @@ package com.scum.seg.ondemandhomerepairservices;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -67,18 +68,34 @@ public class ServicesFragment extends Fragment {
 
             @Override
             public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-                View itemView = viewHolder.itemView;
-                int itemHeight = itemView.getBottom() - itemView.getTop();
 
-                itemView.setBackgroundColor(Color.parseColor("#CC0000"));
-                itemView.draw(c);
+                if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+                    // Get RecyclerView item from the ViewHolder
+                    View itemView = viewHolder.itemView;
 
-                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+                    Paint p = new Paint();
+                    if (dX > 0) {
+                        /* Set your color for positive displacement */
 
+                        // Draw Rect with varying right side, equal to displacement dX
+                        c.drawRect((float) itemView.getLeft(), (float) itemView.getTop(), dX,
+                                (float) itemView.getBottom(), p);
+                    } else {
+                        /* Set your color for negative displacement */
+
+                        // Draw Rect with varying left side, equal to the item's right side plus negative displacement dX
+                        c.drawRect((float) itemView.getRight() + dX, (float) itemView.getTop(),
+                                (float) itemView.getRight(), (float) itemView.getBottom(), p);
+                    }
+
+                    super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
+                }
             }
         };
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+
+            ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
 
         itemTouchHelper.attachToRecyclerView(mServiceRecyclerView);
 
@@ -94,15 +111,15 @@ public class ServicesFragment extends Fragment {
 
 
 
-        mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList);
+            mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList);
         mServiceRecyclerView.setAdapter(mServicesAdapter);
 
         return fragment;
-    }
+        }
 
-    public void addService() {
-        Intent intent = new Intent(getActivity(), AdminActivity.class);
-        //intent.putExtra("User", user);
-        getActivity().startActivity(intent);
+        public void addService() {
+            Intent intent = new Intent(getActivity(), AdminActivity.class);
+            //intent.putExtra("User", user);
+            getActivity().startActivity(intent);
+        }
     }
-}
