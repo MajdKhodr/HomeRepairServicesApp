@@ -10,8 +10,9 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/services_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="395dp"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp" />
+
 </LinearLayout>
