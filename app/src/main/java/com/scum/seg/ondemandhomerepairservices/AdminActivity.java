@@ -19,7 +19,6 @@ public class AdminActivity extends AppCompatActivity {
 
         ratePerHour = findViewById(R.id.rate_editText);
 
-
         Spinner spinner = findViewById(R.id.services_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.services_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
