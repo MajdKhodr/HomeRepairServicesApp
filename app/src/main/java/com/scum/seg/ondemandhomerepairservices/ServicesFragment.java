@@ -37,7 +37,6 @@ public class ServicesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View fragment = inflater.inflate(R.layout.fragment_services, container, false);
 
-
         //Checks if the user is an admin to display the add button
         if (((User) getActivity().getIntent().getSerializableExtra("User")).getType().equals("admin")) {
             Button addButton = fragment.findViewById(R.id.add_button);
@@ -89,8 +88,6 @@ public class ServicesFragment extends Fragment {
 
         mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList);
         mServiceRecyclerView.setAdapter(mServicesAdapter);
-
-
 
         return fragment;
     }
