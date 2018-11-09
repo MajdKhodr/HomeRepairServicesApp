@@ -3,6 +3,7 @@ package com.scum.seg.ondemandhomerepairservices;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,12 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.list_services, null);
 
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         return new ServiceHolder(view);
        }
 
@@ -74,6 +81,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         TextView mServiceRate;
 
 
+
         public ServiceHolder (View itemView){
             super(itemView);
 
@@ -82,6 +90,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         }
 
     }
+
+
 
 
 

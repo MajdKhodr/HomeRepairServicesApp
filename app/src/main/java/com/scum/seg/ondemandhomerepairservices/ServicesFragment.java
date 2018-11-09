@@ -59,6 +59,8 @@ public class ServicesFragment extends Fragment {
         mServiceRecyclerView = fragment.findViewById(R.id.services_recyclerview);
         mServiceRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+
+
         if (user.getType().equals("admin")) {
             ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
                 @Override
