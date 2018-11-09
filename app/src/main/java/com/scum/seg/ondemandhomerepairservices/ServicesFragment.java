@@ -128,10 +128,10 @@ public class ServicesFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("ServiceFragment", "onActivityResult fragment");
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
                 Service service = (Service) data.getSerializableExtra("Service");
+                // TODO: Add to recyclerview
             }
         }
     }
