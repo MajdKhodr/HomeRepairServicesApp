@@ -3,6 +3,7 @@ package com.scum.seg.ondemandhomerepairservices;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 public class AdminActivity extends AppCompatActivity {
     private EditText ratePerHour;
     private String rate;
+
+    private static final String TAG = "EMPTYDATA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +36,18 @@ public class AdminActivity extends AppCompatActivity {
         Spinner servicesSpinner = findViewById(R.id.services_spinner);
         String serviceName = servicesSpinner.getSelectedItem().toString();
 
-        Service service = new Service(serviceName, Float.parseFloat(rate));
+        if (!rate.equals("")) {
+            Service service = new Service(serviceName, Float.parseFloat(rate));
 
-        Intent intent = new Intent();
-        intent.putExtra("Service", service);
-        intent.putExtra("User", getIntent().getSerializableExtra("User"));
-        setResult(RESULT_OK, intent);
-        finish();
+            Intent intent = new Intent();
+            intent.putExtra("Service", service);
+            intent.putExtra("User", getIntent().getSerializableExtra("User"));
+            setResult(RESULT_OK, intent);
+            finish();
+        } else {
+            String toastMessage = "Please enter a Rate Per Hour";
+            Toast toast = Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 }
