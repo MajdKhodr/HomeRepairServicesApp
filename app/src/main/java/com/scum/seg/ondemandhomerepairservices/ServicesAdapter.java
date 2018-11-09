@@ -10,6 +10,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.List;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceHolder> {
@@ -65,13 +71,38 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         return serviceList.size();
     }
 
-    public void removeItem(int position) {
+    public void removeItem(final int position) {
+        final Service service = serviceList.get(position);
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services");
+        ValueEventListener serviceListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int counter = 0;
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    if(counter == position){
+                        childSnapshot.getRef().setValue(null);
+                    }
+                    counter++;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        mDatabase.addListenerForSingleValueEvent(serviceListener);
+
+
         serviceList.remove(position);
         notifyItemRemoved(position);
     }
 
     public void addItem(Service service) {
         serviceList.add(service);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Services");
+        ref.push().setValue(service);
         notifyItemInserted(serviceList.size() - 1);
     }
 
