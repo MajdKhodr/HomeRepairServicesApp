@@ -20,7 +20,7 @@
     <string name="type_homeowner">home owner</string>
     <string name="type_serviceprovider">service provider</string>
     <string name="type">Type of User</string>
-    <string name="welcome_textview">Welcome</string>
+    <string name="welcome_textview">Sign In</string>
     <string name="or_textview">or</string>
     <string name="placeholder">Placeholder</string>
     <string name="sign_out_button">Sign Out</string>

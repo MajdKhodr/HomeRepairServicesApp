@@ -23,7 +23,7 @@
         <FrameLayout
             android:id="@+id/users"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="202dp"
             android:layout_marginTop="200dp"
             android:layout_marginBottom="0dp"
             app:layout_constraintBottom_toTopOf="@+id/sign_out"
