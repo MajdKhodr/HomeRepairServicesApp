@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.view.menu.ActionMenuItem;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +43,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 final Intent intent;
                 intent = new Intent(context, AdminActivity.class);
                 intent.putExtra("Service", serviceList.get(v.getAdapterPosition()));
-                ((Activity) context) .startActivityForResult(intent, 1);
+                intent.putExtra("ServicePosition", v.getAdapterPosition());
+                ((Activity) context).startActivityForResult(intent, 1);
             }
         });
         return v;
@@ -74,15 +74,13 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
     }
 
     public void removeItem(final int position) {
-        final Service service = serviceList.get(position);
-
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services");
         ValueEventListener serviceListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int counter = 0;
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                    if(counter == position){
+                    if (counter == position) {
                         childSnapshot.getRef().setValue(null);
                     }
                     counter++;
@@ -108,7 +106,28 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         notifyItemInserted(serviceList.size() - 1);
     }
 
-    public void replaceItem(int position, Service service) {
+    public void replaceItem(final int position, final Service service) {
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services");
+        ValueEventListener serviceListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int counter = 0;
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    if (counter == position) {
+                        childSnapshot.getRef().setValue(service);
+                    }
+                    counter++;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        mDatabase.addListenerForSingleValueEvent(serviceListener);
+
         serviceList.add(position, service);
         notifyDataSetChanged();
     }
