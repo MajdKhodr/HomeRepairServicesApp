@@ -15,6 +15,7 @@ import com.scum.seg.ondemandhomerepairservices.ListOfUsersFragment;
 import com.scum.seg.ondemandhomerepairservices.MainFragment;
 import com.scum.seg.ondemandhomerepairservices.R;
 import com.scum.seg.ondemandhomerepairservices.ServicesFragment;
+import com.scum.seg.ondemandhomerepairservices.SettingsFragment;
 
 public class BottomNavHelper {
 
@@ -26,9 +27,9 @@ public class BottomNavHelper {
         this.bottomNavigation = bottomNavigation;
 
         // Creating the items
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.placeholder, R.drawable.baseline_android_24, R.color.colorAccent);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.home, R.drawable.baseline_android_24, R.color.colorAccent);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.services, R.drawable.services, R.color.colorAccent);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.placeholder, R.drawable.baseline_android_24, R.color.colorAccent);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.settings, R.drawable.baseline_settings_black_48, R.color.colorAccent);
 
         // Adding the items
         bottomNavigation.addItem(item1);
@@ -83,6 +84,23 @@ public class BottomNavHelper {
                     }
 
                     ft.commit();
+                }
+                // Settings Tab
+                if(position == 2){
+                    Fragment fragment = new SettingsFragment();
+
+                    FragmentManager fm = activity.getSupportFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+
+                    Fragment users = fm.findFragmentById(R.id.users);
+
+                    ft.replace(R.id.fragment,fragment);
+                    ft.addToBackStack(null);
+                    if (users != null) {
+                        ft.hide(users);
+                    }
+                    ft.commit();
+
                 }
                 return true;
             }
