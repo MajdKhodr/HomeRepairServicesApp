@@ -56,8 +56,8 @@
 
             <TextView
                 android:id="@+id/textview_service_value"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
+                android:layout_width="145dp"
+                android:layout_height="20dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/font"
@@ -67,8 +67,8 @@
 
             <TextView
                 android:id="@+id/textview_servicerate_value"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
+                android:layout_width="145dp"
+                android:layout_height="20dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
@@ -78,6 +78,7 @@
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/textview_service_value"
                 card_view:layout_constraintVertical_bias="1.0" />
+
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>
