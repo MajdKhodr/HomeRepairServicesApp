@@ -11,12 +11,15 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.app.Activity.RESULT_OK;
 
 
 public class ServicesFragment extends Fragment {
@@ -78,13 +81,13 @@ public class ServicesFragment extends Fragment {
                         Paint p = new Paint();
                         if (dX > 0) {
                             p.setColor(Color.parseColor("#CC0000"));
-                            c.drawRoundRect((float) itemView.getLeft() , (float) itemView.getTop(), dX,
-                                    (float) itemView.getBottom(),16,16,p);
+                            c.drawRoundRect((float) itemView.getLeft(), (float) itemView.getTop(), dX,
+                                    (float) itemView.getBottom(), 16, 16, p);
 
                         } else {
                             p.setColor(Color.parseColor("#CC0000"));
                             c.drawRoundRect((float) itemView.getRight() + dX, (float) itemView.getTop(),
-                                    (float) itemView.getRight(), (float) itemView.getBottom(), 16,16,p);
+                                    (float) itemView.getRight(), (float) itemView.getBottom(), 16, 16, p);
                         }
 
                         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
@@ -120,8 +123,16 @@ public class ServicesFragment extends Fragment {
     public void addService() {
         Intent intent = new Intent(getActivity(), AdminActivity.class);
         intent.putExtra("User", user);
-        getActivity().startActivityForResult(intent,0);
+        startActivityForResult(intent, 0);
     }
 
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("ServiceFragment", "onActivityResult fragment");
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                Service service = (Service) data.getSerializableExtra("Service");
+            }
+        }
+    }
 }

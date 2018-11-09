@@ -35,10 +35,10 @@ public class AdminActivity extends AppCompatActivity {
 
         Service service = new Service(serviceName, Float.parseFloat(rate));
 
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent();
         intent.putExtra("Service", service);
         intent.putExtra("User", getIntent().getSerializableExtra("User"));
-        startActivity(intent);
+        setResult(RESULT_OK, intent);
         finish();
     }
 }

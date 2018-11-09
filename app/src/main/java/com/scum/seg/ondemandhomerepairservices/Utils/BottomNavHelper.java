@@ -44,8 +44,6 @@ public class BottomNavHelper {
         bottomNavigation.setAccentColor(Color.parseColor("#6CABDD"));
         bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#f8f8f8"));
 
-        // Init
-        bottomNavigation.setCurrentItem(0);
     }
 
     public AHBottomNavigation getBottomNavigation() {
