@@ -45,8 +45,10 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
             @Override
             public void onClick(View view) {
                 final Intent intent;
-                intent = new Intent(context, AdminActivity.class);
-                intent.putExtra("Service", serviceList.get(v.getAdapterPosition()));
+                final Service service;
+                intent = new Intent(context, ServiceActivity.class);
+                service = serviceList.get(v.getAdapterPosition());
+                intent.putExtra("Service", service);
                 intent.putExtra("ServicePosition", v.getAdapterPosition());
                 fragment.startActivityForResult(intent, 1);
             }

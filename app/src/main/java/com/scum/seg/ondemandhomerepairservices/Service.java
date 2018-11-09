@@ -23,4 +23,8 @@ public class Service implements Serializable {
     public float getServiceRate() {
         return serviceRate;
     }
+
+    public void setServiceName(String name){serviceName = name;}
+
+    public void setServiceRate(float rate){serviceRate = rate;}
 }

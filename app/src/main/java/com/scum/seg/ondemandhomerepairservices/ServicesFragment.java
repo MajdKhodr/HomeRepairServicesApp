@@ -21,7 +21,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.scum.seg.ondemandhomerepairservices.Utils.AESCrypt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +67,7 @@ public class ServicesFragment extends Fragment {
 
 
     public void addService() {
-        Intent intent = new Intent(getActivity(), AdminActivity.class);
+        Intent intent = new Intent(getActivity(), ServiceActivity.class);
         intent.putExtra("User", user);
         startActivityForResult(intent, 0);
     }
