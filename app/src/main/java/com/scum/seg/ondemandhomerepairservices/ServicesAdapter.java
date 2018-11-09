@@ -1,6 +1,8 @@
 package com.scum.seg.ondemandhomerepairservices;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -24,10 +26,12 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
     private Context context;
     private List<Service> serviceList;
+    private android.support.v4.app.Fragment fragment;
 
-    public ServicesAdapter(Context context, List<Service> servicesList) {
+    public ServicesAdapter(Context context, List<Service> servicesList, android.support.v4.app.Fragment fragment) {
         this.serviceList = servicesList;
         this.context = context;
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -44,7 +48,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 intent = new Intent(context, AdminActivity.class);
                 intent.putExtra("Service", serviceList.get(v.getAdapterPosition()));
                 intent.putExtra("ServicePosition", v.getAdapterPosition());
-                ((Activity) context).startActivityForResult(intent, 1);
+                fragment.startActivityForResult(intent, 1);
             }
         });
         return v;

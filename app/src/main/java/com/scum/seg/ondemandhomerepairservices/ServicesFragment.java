@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -87,6 +86,7 @@ public class ServicesFragment extends Fragment {
                 mServicesAdapter.replaceItem((int) data.getSerializableExtra("ServicePosition"), service);
             }
         }
+        Log.d("OnActivityResult", "I AM IN THE FRAGMENT");
     }
 
     private void setupRecyclerView(View fragment) {
@@ -151,8 +151,8 @@ public class ServicesFragment extends Fragment {
 
                     itemTouchHelper.attachToRecyclerView(mServiceRecyclerView);
                 }
-
-                mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList);
+                Fragment fragment1 = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment);
+                mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList, fragment1);
                 mServiceRecyclerView.setAdapter(mServicesAdapter);
 
             }
