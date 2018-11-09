@@ -1,5 +1,8 @@
 package com.scum.seg.ondemandhomerepairservices;
 
+import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -13,8 +16,6 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.content.Intent.getIntent;
 
 
 public class ServicesFragment extends Fragment {
