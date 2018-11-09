@@ -22,7 +22,7 @@
     <string name="type">Type of User</string>
     <string name="welcome_textview">Sign In</string>
     <string name="or_textview">or</string>
-    <string name="placeholder">Placeholder</string>
+    <string name="placeholder">Home</string>
     <string name="sign_out_button">Sign Out</string>
     <string name="services">Services</string>
     <string name="service_name">Service</string>

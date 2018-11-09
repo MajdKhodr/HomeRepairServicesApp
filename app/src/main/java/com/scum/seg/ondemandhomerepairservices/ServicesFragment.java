@@ -76,13 +76,12 @@ public class ServicesFragment extends Fragment {
                     Paint p = new Paint();
                     if (dX > 0) {
                         /* Set your color for positive displacement */
-
                         // Draw Rect with varying right side, equal to displacement dX
                         c.drawRect((float) itemView.getLeft(), (float) itemView.getTop(), dX,
                                 (float) itemView.getBottom(), p);
                     } else {
                         /* Set your color for negative displacement */
-
+                        p.setColor(Color.parseColor("#CC0000"));
                         // Draw Rect with varying left side, equal to the item's right side plus negative displacement dX
                         c.drawRect((float) itemView.getRight() + dX, (float) itemView.getTop(),
                                 (float) itemView.getRight(), (float) itemView.getBottom(), p);
