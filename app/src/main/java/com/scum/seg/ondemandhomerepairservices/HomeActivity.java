@@ -1,6 +1,7 @@
 package com.scum.seg.ondemandhomerepairservices;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import com.scum.seg.ondemandhomerepairservices.Utils.BottomNavHelper;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
 
         setupBottomNav();
 
+        user = (User) getIntent().getSerializableExtra("User");
 
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragmentMain = fm.findFragmentById(R.id.fragment);
@@ -28,10 +32,16 @@ public class HomeActivity extends AppCompatActivity {
             fragmentMain = new MainFragment();
             fm.beginTransaction().add(R.id.fragment, fragmentMain).commit();
         }
-        if (fragmentUsers == null && ((User) getIntent().getSerializableExtra("User")).getType().equals("admin")) {
+        if (fragmentUsers == null && (user.getType().equals("admin"))) {
             fragmentUsers = new ListOfUsersFragment();
             fm.beginTransaction().add(R.id.users, fragmentUsers).commit();
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 
     private void setupBottomNav() {

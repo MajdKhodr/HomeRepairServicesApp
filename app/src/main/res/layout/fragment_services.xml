@@ -9,16 +9,17 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/services_recyclerview"
-        android:layout_width="329dp"
-        android:layout_height="384dp"
+        android:layout_width="345dp"
+        android:layout_height="485dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.044">
+        app:layout_constraintVertical_bias="0.0">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -26,7 +27,7 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
         android:visibility="invisible"

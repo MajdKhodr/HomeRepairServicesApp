@@ -10,7 +10,7 @@
     <FrameLayout
         android:id="@+id/fragment"
         android:layout_width="match_parent"
-        android:layout_height="470dp"
+        android:layout_height="473dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="128dp"
         app:layout_constraintBottom_toBottomOf="parent"

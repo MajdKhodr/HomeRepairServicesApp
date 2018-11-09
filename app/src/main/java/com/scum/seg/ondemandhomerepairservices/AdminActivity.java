@@ -37,6 +37,7 @@ public class AdminActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, HomeActivity.class);
         intent.putExtra("Service", service);
+        intent.putExtra("User", getIntent().getSerializableExtra("User"));
         startActivity(intent);
         finish();
     }

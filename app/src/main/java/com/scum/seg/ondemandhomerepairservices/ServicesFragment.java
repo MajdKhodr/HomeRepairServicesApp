@@ -14,7 +14,6 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +26,15 @@ public class ServicesFragment extends Fragment {
 
     private List<Service> mServiceList;
 
+    private User user;
+
+    private static final String TAG = "ServicesFragment";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mServiceList = new ArrayList<>();
+        user = ((User) getActivity().getIntent().getSerializableExtra("User"));
     }
 
     @Override
@@ -39,7 +42,7 @@ public class ServicesFragment extends Fragment {
         View fragment = inflater.inflate(R.layout.fragment_services, container, false);
 
         //Checks if the user is an admin to display the add button
-        if (((User) getActivity().getIntent().getSerializableExtra("User")).getType().equals("admin")) {
+        if (user.getType().equals("admin")) {
             FloatingActionButton addButton = fragment.findViewById(R.id.floatingActionButton);
             addButton.setVisibility(View.VISIBLE);
             addButton.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +56,7 @@ public class ServicesFragment extends Fragment {
         mServiceRecyclerView = fragment.findViewById(R.id.services_recyclerview);
         mServiceRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        if (((User) getActivity().getIntent().getSerializableExtra("User")).getType().equals("admin")) {
+        if (user.getType().equals("admin")) {
             ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
                 @Override
                 public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
@@ -116,7 +119,9 @@ public class ServicesFragment extends Fragment {
 
     public void addService() {
         Intent intent = new Intent(getActivity(), AdminActivity.class);
-        //intent.putExtra("User", user);
-        getActivity().startActivity(intent);
+        intent.putExtra("User", user);
+        getActivity().startActivityForResult(intent,0);
     }
+
+
 }
