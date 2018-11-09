@@ -80,7 +80,9 @@ public class BottomNavHelper {
 
                     ft.replace(R.id.fragment, fragment);
                     ft.addToBackStack(null);
-                    ft.hide(users);
+                    if (users != null) {
+                        ft.hide(users);
+                    }
 
                     ft.commit();
                 }
