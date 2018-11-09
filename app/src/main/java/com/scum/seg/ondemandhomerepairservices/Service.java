@@ -12,6 +12,10 @@ public class Service implements Serializable {
         this.serviceRate = serviceRate;
     }
 
+    public Service(){
+
+    }
+
     public String getServiceName() {
         return serviceName;
     }

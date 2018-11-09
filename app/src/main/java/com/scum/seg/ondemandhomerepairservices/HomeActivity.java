@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.scum.seg.ondemandhomerepairservices.Utils.BottomNavHelper;
 
 public class HomeActivity extends AppCompatActivity {
@@ -22,6 +24,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         setupBottomNav();
+
+
 
         user = (User) getIntent().getSerializableExtra("User");
 

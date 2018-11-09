@@ -15,6 +15,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.scum.seg.ondemandhomerepairservices.Utils.AESCrypt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +36,8 @@ public class ServicesFragment extends Fragment {
     private ServicesAdapter mServicesAdapter;
 
     private List<Service> mServiceList;
-
     private User user;
 
-    private static final String TAG = "ServicesFragment";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,7 @@ public class ServicesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View fragment = inflater.inflate(R.layout.fragment_services, container, false);
+        setupRecyclerView(fragment);
 
         //Checks if the user is an admin to display the add button
         if (user.getType().equals("admin")) {
@@ -56,60 +63,10 @@ public class ServicesFragment extends Fragment {
             });
         }
 
-        mServiceRecyclerView = fragment.findViewById(R.id.services_recyclerview);
-        mServiceRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-
-
-        if (user.getType().equals("admin")) {
-            ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-                @Override
-                public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
-                    return false;
-                }
-
-                @Override
-                public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-                    mServicesAdapter.removeItem(viewHolder.getAdapterPosition());
-                }
-
-                @Override
-                public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-
-                    if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-                        // Get RecyclerView item from the ViewHolder
-                        View itemView = viewHolder.itemView;
-
-                        Paint p = new Paint();
-                        if (dX > 0) {
-                            p.setColor(Color.parseColor("#CC0000"));
-                            c.drawRoundRect((float) itemView.getLeft(), (float) itemView.getTop(), dX,
-                                    (float) itemView.getBottom(), 16, 16, p);
-
-                        } else {
-                            p.setColor(Color.parseColor("#CC0000"));
-                            c.drawRoundRect((float) itemView.getRight() + dX, (float) itemView.getTop(),
-                                    (float) itemView.getRight(), (float) itemView.getBottom(), 16, 16, p);
-                        }
-
-                        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-
-                    }
-                }
-            };
-
-
-            ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
-
-
-            itemTouchHelper.attachToRecyclerView(mServiceRecyclerView);
-        }
-
-        mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList);
-        mServiceRecyclerView.setAdapter(mServicesAdapter);
 
         return fragment;
     }
+
 
     public void addService() {
         Intent intent = new Intent(getActivity(), AdminActivity.class);
@@ -125,5 +82,81 @@ public class ServicesFragment extends Fragment {
                 mServicesAdapter.addItem(service);
             }
         }
+    }
+
+    private void setupRecyclerView(View fragment) {
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services");
+        final View v = fragment;
+        ValueEventListener serviceListener = new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("setupRecyclerView", "Here");
+
+                mServiceList = new ArrayList<>();
+                // Loop through list of services
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    mServiceList.add(childSnapshot.getValue(Service.class));
+                }
+
+                mServiceRecyclerView = v.findViewById(R.id.services_recyclerview);
+                mServiceRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
+                if (user.getType().equals("admin")) {
+                    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                        @Override
+                        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
+                            return false;
+                        }
+
+                        @Override
+                        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+                            mServicesAdapter.removeItem(viewHolder.getAdapterPosition());
+                        }
+
+                        @Override
+                        public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+                            if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+                                // Get RecyclerView item from the ViewHolder
+                                View itemView = viewHolder.itemView;
+
+                                Paint p = new Paint();
+                                if (dX > 0) {
+                                    p.setColor(Color.parseColor("#CC0000"));
+                                    c.drawRoundRect((float) itemView.getLeft(), (float) itemView.getTop(), dX,
+                                            (float) itemView.getBottom(), 16, 16, p);
+
+                                } else {
+                                    p.setColor(Color.parseColor("#CC0000"));
+                                    c.drawRoundRect((float) itemView.getRight() + dX, (float) itemView.getTop(),
+                                            (float) itemView.getRight(), (float) itemView.getBottom(), 16, 16, p);
+                                }
+
+                                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
+                            }
+                        }
+                    };
+
+
+                    ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+
+
+                    itemTouchHelper.attachToRecyclerView(mServiceRecyclerView);
+                }
+
+                mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList);
+                mServiceRecyclerView.setAdapter(mServicesAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        mDatabase.addValueEventListener(serviceListener);
     }
 }

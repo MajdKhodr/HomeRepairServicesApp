@@ -10,7 +10,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/services_recyclerview"
         android:layout_width="345dp"
-        android:layout_height="485dp"
+        android:layout_height="345dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="16dp"
@@ -18,8 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
     </android.support.v7.widget.RecyclerView>
 
