@@ -41,6 +41,7 @@ public class ServicesFragment extends Fragment {
         //Checks if the user is an admin to display the add button
         if (((User) getActivity().getIntent().getSerializableExtra("User")).getType().equals("admin")) {
             FloatingActionButton addButton = fragment.findViewById(R.id.floatingActionButton);
+            addButton.setVisibility(View.VISIBLE);
             addButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
