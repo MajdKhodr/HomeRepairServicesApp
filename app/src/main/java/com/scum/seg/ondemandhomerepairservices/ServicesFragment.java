@@ -122,7 +122,7 @@ public class ServicesFragment extends Fragment {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
                 Service service = (Service) data.getSerializableExtra("Service");
-                mServicesAdapter.addItem(mServiceList.size() - 1, service);
+                mServicesAdapter.addItem(service);
             }
         }
     }

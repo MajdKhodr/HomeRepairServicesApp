@@ -67,9 +67,14 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         notifyItemRemoved(position);
     }
 
-    public void addItem(int position, Service service){
+    public void addItem(Service service){
         serviceList.add(service);
         notifyItemInserted(serviceList.size() - 1);
+    }
+
+    public void replaceItem(int position, Service service){
+        serviceList.add(position,service);
+        notifyDataSetChanged();
     }
 
 
