@@ -11,7 +11,10 @@ import static org.junit.Assert.assertEquals;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
-    User user = new User("Ali","Khanafer","akhan315","password","akhan310@gmail.com","6134136642","81 Gillespie Crescent","admin");
+
+    User user = new User("Ali","Khanafer","akhan315","password",
+            "akhan310@gmail.com","6134136642","81 Gillespie Crescent","admin");
+
     Service service = new Service("Appliance Installation", 25);
 
     @Test
@@ -24,6 +27,7 @@ public class ExampleUnitTest {
         assertEquals("Checking service name is correct ","Appliance Installation", service.getServiceName());
     }
 
+    // Testing User class
     @Test
     public void userFirstNameIsCorrect(){
         assertEquals("Checking if the user's first name is correct ", "Ali",user.getFirstName());
@@ -38,5 +42,31 @@ public class ExampleUnitTest {
     public void userUserNameCorrect(){
         assertEquals("Checking if user's username is correct ","akhan315",user.getUserName());
     }
+
+    @Test
+    public void userPasswordIsCorrect(){
+        assertEquals("Checking if user's password is correct ", "password", user.getPassword());
+    }
+
+    @Test
+    public void userEmailIsCorrect(){
+        assertEquals("Checking if user's email is correct ", "akhan310@gmail.com", user.getEmail());
+    }
+
+    @Test
+    public void userPhoneNumberIsCorrect(){
+        assertEquals("Checking if user's phone number is correct ","6134136642", user.getPhonenumber());
+    }
+
+    @Test
+    public void userAddressIsCorrect(){
+        assertEquals("Checking if user's address is correct ","81 Gillespie Crescent", user.getAddress());
+    }
+
+    @Test
+    public void userTypeIsCorrect(){
+        assertEquals("Checking if user's type is correct ", "admin", user.getType());
+    }
+
 
 }
