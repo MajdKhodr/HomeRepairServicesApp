@@ -71,7 +71,7 @@
         fab:menu_colorPressed="@color/colorFAB"
         fab:menu_colorRipple="@color/colorFAB"
         fab:menu_fab_label="Cancel"
-        fab:menu_icon="@drawable/baseline_toc_24"
+        fab:menu_icon="@drawable/baseline_toc_white_24"
         fab:menu_labels_ellipsize="end"
         fab:menu_labels_singleLine="true">
 
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_label="Edit Availability"
-            android:src="@drawable/baseline_calendar_today_24"
+            android:src="@drawable/baseline_calendar_today_white_24"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
