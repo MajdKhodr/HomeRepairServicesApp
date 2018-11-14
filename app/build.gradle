@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.github.clans:fab:1.6.4'
 
     // Calendar
-    implementation 'ru.cleverpumpkin:crunchycalendar:1.1.0'
+    implementation 'com.github.sundeepk:compact-calendar-view:3.0.0'
 
 
 
