@@ -59,6 +59,8 @@ public class ServicesFragment extends Fragment {
                     addService();
                 }
             });
+        }else if(user.getType().equals("")){
+
         }
 
 
