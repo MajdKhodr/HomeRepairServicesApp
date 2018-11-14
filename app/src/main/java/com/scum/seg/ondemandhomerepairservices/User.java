@@ -15,6 +15,7 @@ public class User implements Serializable {
     private String phonenumber;
     private String address;
     private String type;
+    private String key;
 
 
 
@@ -95,6 +96,14 @@ public class User implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public void setKey(String key){
+        this.key= key;
+    }
+
+    public String getKey() {
+        return key;
     }
 
     public String toString(){

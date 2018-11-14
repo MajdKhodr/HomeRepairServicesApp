@@ -54,6 +54,7 @@ public class SignInPageActivity extends AppCompatActivity {
                         if (user.getUserName().equals(mUsername.getText().toString().trim())
                                 && AESCrypt.decrypt(user.getPassword()).equals(mPassword.getText().toString().trim())) {
                             found = true;
+                            user.setKey(childSnapshot.getKey());
                             break;
                         }
                     }

@@ -16,8 +16,10 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.136">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -38,7 +40,7 @@
         android:id="@+id/textView3"
         android:layout_width="133dp"
         android:layout_height="37dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/font"
@@ -48,7 +50,7 @@
         app:layout_constraintBottom_toTopOf="@+id/services_recyclerview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.692" />
 
 
     <com.github.clans.fab.FloatingActionMenu xmlns:fab="http://schemas.android.com/apk/res-auto"
@@ -62,10 +64,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:padding="8dp"
+        android:visibility="invisible"
         fab:layout_constraintBottom_toBottomOf="parent"
         fab:layout_constraintEnd_toEndOf="parent"
+        fab:layout_constraintHorizontal_bias="1.0"
         fab:layout_constraintStart_toStartOf="parent"
         fab:layout_constraintTop_toTopOf="parent"
+        fab:layout_constraintVertical_bias="0.0"
         fab:menu_animationDelayPerItem="0"
         fab:menu_colorNormal="@color/colorFAB"
         fab:menu_colorPressed="@color/colorFAB"
@@ -76,19 +81,19 @@
         fab:menu_labels_singleLine="true">
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fabEdit"
+            android:id="@+id/fabCal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_label="Edit Availability"
             android:src="@drawable/baseline_calendar_today_white_24"
+            fab:fab_label="Edit Availability"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fabAddProduct"
+            android:id="@+id/fabLinkService"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/fab_add"
-            fab:fab_label="Add service"
+            fab:fab_label="Link service"
             fab:fab_size="mini" />
 
 

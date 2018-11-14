@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.clans.fab.FloatingActionMenu;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,8 +60,16 @@ public class ServicesFragment extends Fragment {
                     addService();
                 }
             });
-        }else if(user.getType().equals("")){
-
+        }else if(user.getType().equals("service provider")){
+            FloatingActionMenu menu = fragment.findViewById(R.id.floatingMenu);
+            menu.setVisibility(View.VISIBLE);
+            com.github.clans.fab.FloatingActionButton fabCal = fragment.findViewById(R.id.fabCal);
+            fabCal.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    openCalendar();
+                }
+            });
         }
 
 
@@ -72,6 +81,13 @@ public class ServicesFragment extends Fragment {
         Intent intent = new Intent(getActivity(), ServiceActivity.class);
         intent.putExtra("User", user);
         startActivityForResult(intent, 0);
+    }
+
+    public void openCalendar(){
+        Intent intent = new Intent(getActivity(), AvailabilityActivity.class);
+        intent.putExtra("User", user);
+        startActivity(intent);
+
     }
 
     @Override
