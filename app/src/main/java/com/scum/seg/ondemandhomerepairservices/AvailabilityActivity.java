@@ -27,7 +27,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 
@@ -41,7 +40,6 @@ public class AvailabilityActivity extends AppCompatActivity {
     private int mMinuteStart;
     private int mHourEnd;
     private int mMinuteEnd;
-    private List<Availability> mAvailabilityList;
 
     private CompactCalendarView compactCalendarView;
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
@@ -64,7 +62,7 @@ public class AvailabilityActivity extends AppCompatActivity {
             public void onDayClick(Date dateClicked) {
                 if (compactCalendarView.getEvents(dateClicked).size() > 0) {
                     Toast.makeText(getApplicationContext(), compactCalendarView.getEvents(dateClicked).get(0).getData().toString(), Toast.LENGTH_LONG).show();
-                }else{
+                } else {
                     Toast.makeText(getApplicationContext(), "No Event", Toast.LENGTH_LONG).show();
 
                 }
@@ -83,6 +81,8 @@ public class AvailabilityActivity extends AppCompatActivity {
                 calendarDialog();
             }
         });
+
+        loadCalendar();
 
 
     }
@@ -153,25 +153,28 @@ public class AvailabilityActivity extends AppCompatActivity {
         try {
             newEvent = new Event(Color.BLUE, simpleDateFormat.parse(date).getTime(), "Available from:\n" + startDate + " to: " + endDate);
             compactCalendarView.addEvent(newEvent);
+
+            User user = (User) getIntent().getSerializableExtra("User");
+            DatabaseReference users = FirebaseDatabase.getInstance().getReference("Users/" + user.getKey());
+            Availability availability = new Availability(simpleDateFormat.parse(date).getTime(), "Available from:\n" + startDate + " to: " + endDate);
+            users.child("Availability").push().setValue(availability);
+
         } catch (ParseException e) {
             Log.d("AvailableActivity", "Error");
         }
+
     }
 
     private void loadCalendar() {
         User user = (User) getIntent().getSerializableExtra("User");
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + user.getKey());
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + user.getKey() + "/Availability");
 
-        mDatabase.push().setValue(user);
-
-        ValueEventListener serviceListener = new ValueEventListener() {
-
+        ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                // Loop through list of availabilities
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                    mAvailabilityList.add(childSnapshot.getValue(Availability.class));
+                        Availability availability = childSnapshot.getValue(Availability.class);
+                        compactCalendarView.addEvent(new Event(Color.BLUE, availability.getTime(), availability.getDesc()));
                 }
             }
 
@@ -180,6 +183,7 @@ public class AvailabilityActivity extends AppCompatActivity {
 
             }
         };
-        mDatabase.addValueEventListener(serviceListener);
+        mDatabase.addValueEventListener(valueEventListener);
+
     }
 }

@@ -103,7 +103,6 @@ public class ServicesFragment extends Fragment {
                 mServicesAdapter.replaceItem((int) data.getSerializableExtra("ServicePosition"), service);
             }
         }
-        Log.d("OnActivityResult", "I AM IN THE FRAGMENT");
     }
 
     private void setupRecyclerView(View fragment) {
@@ -113,7 +112,6 @@ public class ServicesFragment extends Fragment {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.d("setupRecyclerView", "Here");
 
                 mServiceList = new ArrayList<>();
                 // Loop through list of services

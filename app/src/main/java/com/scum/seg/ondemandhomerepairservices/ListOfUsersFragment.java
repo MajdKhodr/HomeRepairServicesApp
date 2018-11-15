@@ -101,7 +101,6 @@ public class ListOfUsersFragment extends Fragment {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                boolean found = false;
                 List<User> users = new ArrayList<>();
                 // Loop through list of users checking if the given username and password match an account
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
@@ -121,6 +120,6 @@ public class ListOfUsersFragment extends Fragment {
             }
 
         };
-        mDatabase.addValueEventListener(userListener);
+        mDatabase.addListenerForSingleValueEvent(userListener);
     }
 }
