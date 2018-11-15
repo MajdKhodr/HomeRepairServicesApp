@@ -31,7 +31,8 @@ public class SettingsFragment extends Fragment {
     }
 
     public void signOut() {
-        Intent intent = new Intent(getActivity(),SignInPageActivity.class);
+        Intent intent = new Intent(getActivity(), SignInPageActivity.class);
         startActivity(intent);
+        getActivity().finish();
     }
 }
