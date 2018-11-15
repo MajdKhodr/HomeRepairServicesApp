@@ -2,22 +2,33 @@ package com.scum.seg.ondemandhomerepairservices;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import com.github.sundeepk.compactcalendarview.CompactCalendarView;
+import com.github.sundeepk.compactcalendarview.domain.Event;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class AvailabilityActivity extends AppCompatActivity {
@@ -32,11 +43,38 @@ public class AvailabilityActivity extends AppCompatActivity {
     private int mMinuteEnd;
     private List<Availability> mAvailabilityList;
 
+    private CompactCalendarView compactCalendarView;
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_availability);
 
+
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setTitle(null);
+
+        compactCalendarView = findViewById(R.id.compactcalendar_view);
+        compactCalendarView.setUseThreeLetterAbbreviation(true);
+
+        compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
+            @Override
+            public void onDayClick(Date dateClicked) {
+                if (compactCalendarView.getEvents(dateClicked).size() > 0) {
+                    Toast.makeText(getApplicationContext(), compactCalendarView.getEvents(dateClicked).get(0).getData().toString(), Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "No Event", Toast.LENGTH_LONG).show();
+
+                }
+            }
+
+            @Override
+            public void onMonthScroll(Date firstDayOfNewMonth) {
+                actionBar.setTitle(simpleDateFormat.format(firstDayOfNewMonth));
+            }
+        });
 
         FloatingActionButton fab = findViewById(R.id.floatingActionButton2);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +83,6 @@ public class AvailabilityActivity extends AppCompatActivity {
                 calendarDialog();
             }
         });
-
 
 
     }
@@ -87,7 +124,7 @@ public class AvailabilityActivity extends AppCompatActivity {
         timePickerDialog.show();
     }
 
-    private void dateDialogEnd(){
+    private void dateDialogEnd() {
         final Calendar c = Calendar.getInstance();
         mHourEnd = c.get(Calendar.HOUR_OF_DAY);
         mMinuteEnd = c.get(Calendar.MINUTE);
@@ -104,13 +141,24 @@ public class AvailabilityActivity extends AppCompatActivity {
         timePickerDialog.show();
     }
 
-    private void parseDate(){
-        String startDate = date + ":" + mHourStart + ":" + mMinuteStart;
-        String endDate = date + ":" + mHourEnd + ":" + mMinuteEnd;
+    private void parseDate() {
+        String startDate = mHourStart + ":" + mMinuteStart;
+        String endDate = mHourEnd + ":" + mMinuteEnd;
+        createEvent(startDate, endDate);
+
     }
 
+    private void createEvent(String startDate, String endDate) {
+        Event newEvent;
+        try {
+            newEvent = new Event(Color.BLUE, simpleDateFormat.parse(date).getTime(), "Available from:\n" + startDate + " to: " + endDate);
+            compactCalendarView.addEvent(newEvent);
+        } catch (ParseException e) {
+            Log.d("AvailableActivity", "Error");
+        }
+    }
 
-    private void setupCalendar() {
+    private void loadCalendar() {
         User user = (User) getIntent().getSerializableExtra("User");
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + user.getKey());
 

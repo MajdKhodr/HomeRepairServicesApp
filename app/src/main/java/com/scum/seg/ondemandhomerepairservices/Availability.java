@@ -1,26 +1,21 @@
 package com.scum.seg.ondemandhomerepairservices;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Availability implements Serializable {
 
-    private String startDate;
-    private String endDate;
+    private Date date;
 
     public Availability(){
 
     }
 
-    public Availability(String startDate, String endDate){
-        this.startDate = startDate;
-        this.endDate = endDate;
+    public Availability(Date date){
+        this.date = date;
     }
 
-    public String getStartDate() {
-        return startDate;
-    }
-
-    public String getEndDate() {
-        return endDate;
+    public Date getDate() {
+        return date;
     }
 }
