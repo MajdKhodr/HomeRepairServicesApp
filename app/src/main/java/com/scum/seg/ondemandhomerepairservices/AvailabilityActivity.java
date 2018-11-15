@@ -143,7 +143,18 @@ public class AvailabilityActivity extends AppCompatActivity {
     private void parseDate() {
         String startDate = mHourStart + ":" + mMinuteStart;
         String endDate = mHourEnd + ":" + mMinuteEnd;
-        createEvent(startDate, endDate);
+
+        SimpleDateFormat hourmin = new SimpleDateFormat("HH:mm", Locale.getDefault());
+
+        try {
+            if (hourmin.parse(startDate).getTime() < hourmin.parse(endDate).getTime()) {
+                createEvent(startDate, endDate);
+            } else {
+                Toast.makeText(this, "The end time is smaller than the start time. Please try again", Toast.LENGTH_LONG).show();
+            }
+        }catch (ParseException e){
+            Log.d("Error","Error");
+        }
 
     }
 
