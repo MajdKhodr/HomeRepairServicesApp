@@ -25,8 +25,6 @@ public class HomeActivity extends AppCompatActivity {
 
         setupBottomNav();
 
-
-
         user = (User) getIntent().getSerializableExtra("User");
 
         FragmentManager fm = getSupportFragmentManager();
@@ -46,7 +44,6 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        Log.d("OnActivityResult", "IM AM IN THE ACTIVITY");
         super.onActivityResult(requestCode, resultCode, data);
     }
 

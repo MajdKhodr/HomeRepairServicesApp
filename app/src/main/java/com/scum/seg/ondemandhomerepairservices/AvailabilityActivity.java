@@ -2,7 +2,6 @@ package com.scum.seg.ondemandhomerepairservices;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -183,7 +182,7 @@ public class AvailabilityActivity extends AppCompatActivity {
 
             }
         };
-        mDatabase.addValueEventListener(valueEventListener);
+        mDatabase.addListenerForSingleValueEvent(valueEventListener);
 
     }
 }

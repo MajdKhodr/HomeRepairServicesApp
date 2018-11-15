@@ -60,9 +60,7 @@ public class SignInPageActivity extends AppCompatActivity {
                     }
                     if (!found) {
                         Toast.makeText(SignInPageActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "Sign in unsuccessful");
                     }else{
-                        Log.d(TAG, "Sign in successful");
                         homeActivity(user);
                     }
 
