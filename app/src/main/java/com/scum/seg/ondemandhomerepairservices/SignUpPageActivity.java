@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -82,14 +83,10 @@ public class SignUpPageActivity extends AppCompatActivity {
         if (type.equals("service provider")) {
             registerServiceProvider(view);
         }
-
-        else if (type.equals("admin")) {
+        else {
             registerAdmin(view);
         }
 
-        else if (type.equals("home owner")) {
-            registerAdmin(view);
-        }
     }
 
 
@@ -102,12 +99,13 @@ public class SignUpPageActivity extends AppCompatActivity {
         final String address = mAddress.getText().toString();
         final String companyName = mCompanyName.getText().toString();
         final String description = mDescription.getText().toString();
+        final boolean isLicensed;
 
         if (mIsLicensed.isChecked()) {
-            final boolean isLicensed = true;
+            isLicensed = true;
         }
         else {
-            final boolean isLicensed = false;
+            isLicensed = false;
         }
 
         final String type = (String) getIntent().getSerializableExtra("Type");
@@ -119,7 +117,6 @@ public class SignUpPageActivity extends AppCompatActivity {
         boolean addressIsValid = validateAddress(address);
         boolean userNameIsValid = validateUsername(username);
         boolean companyNameIsValid = validateCompanyName(companyName);
-        boolean descriptionIsValid = validateDescription(description);
 
         String toastMessage = "The following fields are either missing or the information you gave is not valid:\n";
 
@@ -151,23 +148,20 @@ public class SignUpPageActivity extends AppCompatActivity {
             toastMessage += "\nCompany Name (Make sure it's not empty)\n";
         }
 
-        if(!descriptionIsValid) {
-            toastMessage += "\nDescription (Make sure it's not empty)\n";
-        }
 
-
-        if (userNameIsValid && numberIsValid && firstNameIsValid && emailIsValid && lastNameIsValid && addressIsValid && companyNameIsValid && descriptionIsValid && !mPassword.getText().toString().isEmpty()) {
+        if (userNameIsValid && numberIsValid && firstNameIsValid && emailIsValid && lastNameIsValid && addressIsValid && companyNameIsValid && !mPassword.getText().toString().isEmpty()) {
             try {
                 final String password = AESCrypt.encrypt(mPassword.getText().toString());
                 mFirebaseAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignUpPageActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.d(TAG, "onComplete: I AM HERE");
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(SignUpPageActivity.this, "Authentication Failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(SignUpPageActivity.this, "Registration Successful" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignUpPageActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                     generateServiceProvider(firstname, lastname, username, password, email, phonenumber, address, type, companyName, description, isLicensed);
                                     signInUser();
                                     finish();
@@ -324,8 +318,6 @@ public class SignUpPageActivity extends AppCompatActivity {
     }
 
     private boolean validateCompanyName(String companyName){ return !companyName.isEmpty(); }
-
-    private boolean validateDescription(String description){ return !description.isEmpty(); }
 
 
     public void generateUser(String firstName, String lastName, String userName, String password,
