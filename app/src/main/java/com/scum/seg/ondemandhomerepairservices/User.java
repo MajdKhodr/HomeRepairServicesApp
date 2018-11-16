@@ -14,6 +14,9 @@ public class User implements Serializable {
     private String email;
     private String phonenumber;
     private String address;
+    private String companyName;
+    private String description;
+    private boolean isLicensed;
     private String type;
     private String key;
 
@@ -30,6 +33,22 @@ public class User implements Serializable {
         this.address = address;
         this.type = type;
     }
+
+    public User(String firstName, String lastName, String userName, String password, String email,
+                String phonenumber, String address, String type, String companyName, String description, boolean isLicensed){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+        this.phonenumber = phonenumber;
+        this.address = address;
+        this.companyName = companyName;
+        this.description = description;
+        this.isLicensed = isLicensed;
+        this.type = type;
+    }
+
 
     public User(){
     }
@@ -88,6 +107,30 @@ public class User implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean getIsLicensed() {
+        return isLicensed;
+    }
+
+    public void setIsLicensed(boolean isLicensed) {
+        this.isLicensed = isLicensed;
     }
 
     public String getType() {

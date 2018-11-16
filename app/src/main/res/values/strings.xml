@@ -30,6 +30,9 @@
     <string name="service_type">Service Type</string>
     <string name="service_rate">Service Rate</string>
     <string name="add_button">Add</string>
+    <string name="company_name_editText">Company Name</string>
+    <string name="description_editText">General Description</string>
+    <string name="isLicensed">Licensed</string>
     <string-array name="services_array">
         <item>Appliance Installation</item>
         <item>Carpet Cleaning</item>

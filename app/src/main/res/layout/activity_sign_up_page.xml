@@ -1,199 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpPageActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/name_textview"
-        android:layout_width="56dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/font"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:text="@string/name_section"
-        android:textSize="20sp"
-        app:layout_constrainedWidth="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="150dp"
-        android:layout_height="1dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="16dp"
-        android:layout_toLeftOf="@id/name_textview"
-        android:background="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="150dp"
-        android:layout_height="1dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="16dp"
-        android:layout_toRightOf="@id/name_textview"
-        android:background="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/first_name_edittext"
-        android:layout_width="236dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:foregroundGravity="fill_vertical|center"
-        android:gravity="center"
-        android:hint="@string/first_name_editText_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_textview" />
-
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/last_name_edittext"
-        android:layout_width="236dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:foregroundGravity="fill_vertical|center"
-        android:gravity="center"
-        android:hint="@string/last_name_editText_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_name_edittext" />
-
-    <TextView
-        android:id="@+id/credential_textview"
-        android:layout_width="114dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/font"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:text="@string/credentials_section"
-        android:textSize="20sp"
-        app:layout_constrainedWidth="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/last_name_edittext" />
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SignUpPageActivity">
 
 
-    <View
-        android:layout_width="130dp"
-        android:layout_height="1dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="164dp"
-        android:layout_toLeftOf="@id/credential_textview"
-        android:background="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/name_textview"
+            android:layout_width="56dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/font"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="@string/name_section"
+            android:textSize="20sp"
+            app:layout_constrainedWidth="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:layout_width="130dp"
-        android:layout_height="1dp"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="164dp"
-        android:layout_toRightOf="@id/credential_textview"
-        android:background="#000000"
-        app:layout_constraintStart_toEndOf="@+id/credential_textview"
-        app:layout_constraintTop_toTopOf="parent" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="150dp"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="16dp"
+            android:layout_toLeftOf="@id/name_textview"
+            android:background="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/email_edittext"
-        android:layout_width="236dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:foregroundGravity="fill_vertical|center"
-        android:gravity="center"
-        android:hint="@string/email_editText_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credential_textview" />
+        <View
+            android:id="@+id/view2"
+            android:layout_width="150dp"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@id/name_textview"
+            android:background="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/username_edittext"
-        android:layout_width="236dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:foregroundGravity="fill_vertical|center"
-        android:gravity="center"
-        android:hint="@string/username_editText_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_edittext" />
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/first_name_edittext"
+            android:layout_width="236dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:foregroundGravity="fill_vertical|center"
+            android:gravity="center"
+            android:hint="@string/first_name_editText_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_textview" />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/password_editText"
-        android:layout_width="236dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:foregroundGravity="fill_vertical|center"
-        android:gravity="center"
-        android:hint="@string/password_editText_hint"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_edittext" />
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/last_name_edittext"
+            android:layout_width="236dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:foregroundGravity="fill_vertical|center"
+            android:gravity="center"
+            android:hint="@string/last_name_editText_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_name_edittext" />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/address_editText"
-        android:layout_width="236dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:foregroundGravity="fill_vertical|center"
-        android:gravity="center"
-        android:hint="@string/address_editText_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_editText" />
-
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/phoneNumber_editText"
-        android:layout_width="236dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:foregroundGravity="fill_vertical|center"
-        android:gravity="center"
-        android:hint="@string/phoneNumber_editText_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_editText" />
-
-    <Button
-        android:id="@+id/signup_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/font"
-        android:onClick="registerUser"
-        android:text="@string/signup_textview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber_editText" />
+        <TextView
+            android:id="@+id/credential_textview"
+            android:layout_width="114dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/font"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="@string/credentials_section"
+            android:textSize="20sp"
+            app:layout_constrainedWidth="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/last_name_edittext" />
 
 
-</android.support.constraint.ConstraintLayout>
+        <View
+            android:layout_width="130dp"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="164dp"
+            android:layout_toLeftOf="@id/credential_textview"
+            android:background="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="130dp"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="164dp"
+            android:layout_toRightOf="@id/credential_textview"
+            android:background="#000000"
+            app:layout_constraintStart_toEndOf="@+id/credential_textview"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/email_edittext"
+            android:layout_width="236dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:foregroundGravity="fill_vertical|center"
+            android:gravity="center"
+            android:hint="@string/email_editText_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/credential_textview" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/username_edittext"
+            android:layout_width="236dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:foregroundGravity="fill_vertical|center"
+            android:gravity="center"
+            android:hint="@string/username_editText_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_edittext" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/password_editText"
+            android:layout_width="236dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:foregroundGravity="fill_vertical|center"
+            android:gravity="center"
+            android:hint="@string/password_editText_hint"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/username_edittext" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/address_editText"
+            android:layout_width="236dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:foregroundGravity="fill_vertical|center"
+            android:gravity="center"
+            android:hint="@string/address_editText_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_editText" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/phoneNumber_editText"
+            android:layout_width="236dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:foregroundGravity="fill_vertical|center"
+            android:gravity="center"
+            android:hint="@string/phoneNumber_editText_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address_editText" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/company_name_editText"
+            android:layout_width="236dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:foregroundGravity="fill_vertical|center"
+            android:gravity="center"
+            android:hint="@string/company_name_editText"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.53"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumber_editText" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/description_editText"
+            android:layout_width="236dp"
+            android:layout_height="115dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:foregroundGravity="fill_vertical|center"
+            android:gravity="center"
+            android:hint="@string/description_editText"
+            android:inputType="textMultiLine"
+            android:textAlignment="center"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_name_editText" />
+
+
+        <CheckBox
+            android:id="@+id/isLicensed_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/isLicensed"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_editText" />
+
+        <Button
+            android:id="@+id/signup_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/font"
+            android:onClick="registerUser"
+            android:text="@string/signup_textview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/isLicensed_checkBox" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
