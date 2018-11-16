@@ -167,7 +167,13 @@ public class ServicesFragment extends Fragment {
                     itemTouchHelper.attachToRecyclerView(mServiceRecyclerView);
                 }
                 Fragment fragment1 = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment);
-                mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList, fragment1);
+                if(user.getType().equals("service provider")){
+                    mServiceList = new ArrayList<>();
+                    mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList, fragment1);
+                }
+                else{
+                    mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList, fragment1);
+                }
                 mServiceRecyclerView.setAdapter(mServicesAdapter);
 
             }
