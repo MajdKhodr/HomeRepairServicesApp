@@ -60,7 +60,7 @@ public class ServicesFragment extends Fragment {
                     addService();
                 }
             });
-        }else if(user.getType().equals("service provider")){
+        } else if (user.getType().equals("service provider")) {
             FloatingActionMenu menu = fragment.findViewById(R.id.floatingMenu);
             menu.setVisibility(View.VISIBLE);
             com.github.clans.fab.FloatingActionButton fabCal = fragment.findViewById(R.id.fabCal);
@@ -83,7 +83,7 @@ public class ServicesFragment extends Fragment {
         startActivityForResult(intent, 0);
     }
 
-    public void openCalendar(){
+    public void openCalendar() {
         Intent intent = new Intent(getActivity(), AvailabilityActivity.class);
         intent.putExtra("User", user);
         startActivity(intent);
@@ -97,8 +97,8 @@ public class ServicesFragment extends Fragment {
                 Service service = (Service) data.getSerializableExtra("Service");
                 mServicesAdapter.addItem(service);
             }
-        }else if (requestCode == 1){
-            if(resultCode == RESULT_OK){
+        } else if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
                 Service service = (Service) data.getSerializableExtra("Service");
                 mServicesAdapter.replaceItem((int) data.getSerializableExtra("ServicePosition"), service);
             }

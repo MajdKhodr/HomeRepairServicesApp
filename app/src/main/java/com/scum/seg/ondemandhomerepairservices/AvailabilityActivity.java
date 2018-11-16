@@ -60,9 +60,9 @@ public class AvailabilityActivity extends AppCompatActivity {
             @Override
             public void onDayClick(Date dateClicked) {
                 if (compactCalendarView.getEvents(dateClicked).size() > 0) {
-                    Toast.makeText(getApplicationContext(), compactCalendarView.getEvents(dateClicked).get(0).getData().toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), compactCalendarView.getEvents(dateClicked).get(0).getData().toString(), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "No Event", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "No Event", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -150,7 +150,7 @@ public class AvailabilityActivity extends AppCompatActivity {
             if (hourmin.parse(startDate).getTime() < hourmin.parse(endDate).getTime()) {
                 createEvent(startDate, endDate);
             } else {
-                Toast.makeText(this, "The end time is smaller than the start time. Please try again", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "The end time is smaller than the start time. Please try again", Toast.LENGTH_SHORT).show();
             }
         }catch (ParseException e){
             Log.d("Error","Error");
@@ -161,7 +161,7 @@ public class AvailabilityActivity extends AppCompatActivity {
     private void createEvent(String startDate, String endDate) {
         Event newEvent;
         try {
-            newEvent = new Event(Color.BLUE, simpleDateFormat.parse(date).getTime(), "Available from:\n" + startDate + " to: " + endDate);
+            newEvent = new Event(R.color.colorFAB, simpleDateFormat.parse(date).getTime(), "Available from:\n" + startDate + " to: " + endDate);
             compactCalendarView.addEvent(newEvent);
 
             User user = (User) getIntent().getSerializableExtra("User");
@@ -184,7 +184,8 @@ public class AvailabilityActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                         Availability availability = childSnapshot.getValue(Availability.class);
-                        compactCalendarView.addEvent(new Event(Color.BLUE, availability.getTime(), availability.getDesc()));
+                        compactCalendarView.addEvent(new Event(R.color.colorFAB
+                                , availability.getTime(), availability.getDesc()));
                 }
             }
 
