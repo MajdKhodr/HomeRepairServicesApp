@@ -1,5 +1,7 @@
 package com.scum.seg.ondemandhomerepairservices;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -115,9 +117,12 @@ public class ServicesFragment extends Fragment {
 
                 mServiceList = new ArrayList<>();
                 // Loop through list of services
+
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     mServiceList.add(childSnapshot.getValue(Service.class));
                 }
+
+
 
                 mServiceRecyclerView = v.findViewById(R.id.services_recyclerview);
                 mServiceRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -129,6 +134,8 @@ public class ServicesFragment extends Fragment {
                         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
                             return false;
                         }
+
+
 
                         @Override
                         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {

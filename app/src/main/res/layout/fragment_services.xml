@@ -88,13 +88,6 @@
             fab:fab_label="Edit Availability"
             fab:fab_size="mini" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fabLinkService"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/fab_add"
-            fab:fab_label="Link service"
-            fab:fab_size="mini" />
 
 
     </com.github.clans.fab.FloatingActionMenu>
