@@ -26,7 +26,7 @@ public class BottomNavHelper {
         // Creating the items
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.home, R.drawable.baseline_android_24, R.color.colorAccent);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.services, R.drawable.services, R.color.colorAccent);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.settings, R.drawable.baseline_account_box_24, R.color.colorAccent);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.Profile, R.drawable.baseline_account_box_24, R.color.colorAccent);
 
         // Adding the items
         bottomNavigation.addItem(item1);
