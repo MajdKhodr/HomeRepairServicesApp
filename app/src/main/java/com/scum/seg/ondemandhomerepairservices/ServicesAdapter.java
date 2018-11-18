@@ -53,7 +53,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                 intent.putExtra("ServicePosition", v.getAdapterPosition());
                 fragment.startActivityForResult(intent, 1);
 
-                Log.d("Test", "Test:" + ((Activity) (context)).getIntent().getSerializableExtra("User"));
+
             }
         });
         return v;
