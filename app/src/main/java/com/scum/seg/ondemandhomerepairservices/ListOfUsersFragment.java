@@ -35,11 +35,16 @@ public class ListOfUsersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_users, container, false);
 
-        mUserRecyclerView = v.findViewById(R.id.recycler_view);
-        mUserRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mUserRecyclerView.setHasFixedSize(true);
+        if(getActivity().getIntent().getSerializableExtra("User").equals("admin")){
+            TextView listofusers = v.findViewById(R.id.textView);
+            listofusers.setVisibility(View.VISIBLE);
+            mUserRecyclerView = v.findViewById(R.id.recycler_view);
+            mUserRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            mUserRecyclerView.setHasFixedSize(true);
 
-        updateUI();
+            updateUI();
+        }
+
         return v;
 
 

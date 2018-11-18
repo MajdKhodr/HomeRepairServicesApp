@@ -1,4 +1,4 @@
-package com.scum.seg.ondemandhomerepairservices.Utils;
+package com.scum.seg.ondemandhomerepairservices;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.scum.seg.ondemandhomerepairservices.R;
-import com.scum.seg.ondemandhomerepairservices.SignInPageActivity;
-import com.scum.seg.ondemandhomerepairservices.User;
 
 public class UserProfileFragment extends Fragment {
 
@@ -30,13 +27,6 @@ public class UserProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_user_profile, container, false);
 
-        Button signOutButton = v.findViewById(R.id.signout_button);
-        signOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signOut();
-            }
-        });
 
         user = (User) getActivity().getIntent().getSerializableExtra("User");
         mDisplayTextView = v.findViewById(R.id.displayUser_textView);
@@ -46,16 +36,29 @@ public class UserProfileFragment extends Fragment {
                 "First Name: " + user.getFirstName() +
                         "\nLast Name: " + user.getLastName() + "\n" +
                         "\nUser Name: " + user.getUserName() +
-                        "\nPassword: " + user.getPassword() + "\n" +
                         "\nEmail Address: " + user.getEmail() +
                         "\nAddress: " + user.getAddress() +
-                        "\nPhone Number: " + user.getPhonenumber() + "\n" +
-                        "\nCompany Name: " + user.getCompanyName() + "\n" + user.getDescription()+
-                        "\nType of User: " + user.getType();
+                        "\nPhone Number: " + user.getPhonenumber() + "\n";
+
+        if (user.getType().equals("service provider")) {
+            String licensed = "No";
+            if (user.getIsLicensed()){
+                licensed = "Yes";
+            }
+            mDisplayString += "\nCompany Name: " + user.getCompanyName() +
+                             "\nDescription: " + user.getDescription() +
+                             "\nLicensed: " + licensed;
+        }
 
         mDisplayTextView.setText(mDisplayString);
 
-
+        Button signOutButton = v.findViewById(R.id.signout_button);
+        signOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+            }
+        });
         return v;
 
     }

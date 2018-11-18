@@ -5,9 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.ViewGroup;
-import android.view.ViewManager;
-import android.widget.FrameLayout;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
@@ -15,7 +12,7 @@ import com.scum.seg.ondemandhomerepairservices.ListOfUsersFragment;
 import com.scum.seg.ondemandhomerepairservices.MainFragment;
 import com.scum.seg.ondemandhomerepairservices.R;
 import com.scum.seg.ondemandhomerepairservices.ServicesFragment;
-import com.scum.seg.ondemandhomerepairservices.SettingsFragment;
+import com.scum.seg.ondemandhomerepairservices.UserProfileFragment;
 
 public class BottomNavHelper {
 
@@ -29,7 +26,7 @@ public class BottomNavHelper {
         // Creating the items
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.home, R.drawable.baseline_android_24, R.color.colorAccent);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.services, R.drawable.services, R.color.colorAccent);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.settings, R.drawable.baseline_settings_black_48, R.color.colorAccent);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.Profile, R.drawable.baseline_account_box_24, R.color.colorAccent);
 
         // Adding the items
         bottomNavigation.addItem(item1);
@@ -87,7 +84,7 @@ public class BottomNavHelper {
                 }
                 // Settings Tab
                 if(position == 2){
-                    Fragment fragment = new SettingsFragment();
+                    Fragment fragment = new UserProfileFragment();
 
                     FragmentManager fm = activity.getSupportFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
