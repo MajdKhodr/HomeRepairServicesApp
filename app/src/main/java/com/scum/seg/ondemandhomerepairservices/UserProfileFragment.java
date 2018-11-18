@@ -38,9 +38,17 @@ public class UserProfileFragment extends Fragment {
                         "\nUser Name: " + user.getUserName() +
                         "\nEmail Address: " + user.getEmail() +
                         "\nAddress: " + user.getAddress() +
-                        "\nPhone Number: " + user.getPhonenumber() + "\n" +
-                        "\nCompany Name: " + user.getCompanyName() + "\n" +
-                        "Description: " + user.getDescription();
+                        "\nPhone Number: " + user.getPhonenumber() + "\n";
+
+        if (user.getType().equals("service provider")) {
+            String licensed = "No";
+            if (user.getIsLicensed()){
+                licensed = "Yes";
+            }
+            mDisplayString += "\nCompany Name: " + user.getCompanyName() +
+                             "\nDescription: " + user.getDescription() +
+                             "\nLicensed: " + licensed;
+        }
 
         mDisplayTextView.setText(mDisplayString);
 
