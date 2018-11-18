@@ -1,7 +1,6 @@
 package com.scum.seg.ondemandhomerepairservices;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -50,15 +49,15 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(((User) ((Activity) (context)).getIntent().getSerializableExtra("User")).getType().equals("admin")){
-                    final Intent intent;
-                    final Service service;
-                    intent = new Intent(context, ServiceActivity.class);
-                    service = serviceList.get(v.getAdapterPosition());
-                    intent.putExtra("Service", service);
-                    intent.putExtra("ServicePosition", v.getAdapterPosition());
-                    fragment.startActivityForResult(intent, 1);
-                }
+                final Intent intent;
+                final Service service;
+                intent = new Intent(context, ServiceActivity.class);
+                service = serviceList.get(v.getAdapterPosition());
+                intent.putExtra("Service", service);
+                intent.putExtra("ServicePosition", v.getAdapterPosition());
+                fragment.startActivityForResult(intent, 1);
+
+
             }
         });
         return v;
@@ -67,8 +66,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
 
     @Override
-    public void onBindViewHolder(@NonNull final ServiceHolder serviceHolder, int i) {
-        final Service service = serviceList.get(i);
+    public void onBindViewHolder(@NonNull ServiceHolder serviceHolder, int i) {
+        Service service = serviceList.get(i);
 
         double rate = service.getServiceRate();
         String stringRate = "";
