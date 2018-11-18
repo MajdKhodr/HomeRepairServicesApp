@@ -141,8 +141,8 @@ public class AvailabilityActivity extends AppCompatActivity {
     }
 
     private void parseDate() {
-        String startDate = mHourStart + ":" + mMinuteStart;
-        String endDate = mHourEnd + ":" + mMinuteEnd;
+        String startDate = String.format("%02d:%02d", mHourStart, mMinuteStart);
+        String endDate = String.format("%02d:%02d", mHourEnd, mMinuteEnd);
 
         SimpleDateFormat hourmin = new SimpleDateFormat("HH:mm", Locale.getDefault());
 
