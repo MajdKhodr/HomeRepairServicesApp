@@ -122,8 +122,11 @@ public class ServicesFragment extends Fragment {
                 // Loop through list of services
 
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                    mServiceList.add(childSnapshot.getValue(Service.class));
+                    Service service = childSnapshot.getValue(Service.class);
+                    service.setKey(childSnapshot.getKey());
+                    mServiceList.add(service);
                 }
+
 
 
 
@@ -188,6 +191,6 @@ public class ServicesFragment extends Fragment {
 
             }
         };
-        mDatabase.addValueEventListener(serviceListener);
+        mDatabase.addListenerForSingleValueEvent(serviceListener);
     }
 }
