@@ -36,12 +36,11 @@ public class UserProfileFragment extends Fragment {
                 "First Name: " + user.getFirstName() +
                         "\nLast Name: " + user.getLastName() + "\n" +
                         "\nUser Name: " + user.getUserName() +
-                        "\nPassword: " + user.getPassword() + "\n" +
                         "\nEmail Address: " + user.getEmail() +
                         "\nAddress: " + user.getAddress() +
                         "\nPhone Number: " + user.getPhonenumber() + "\n" +
-                        "\nCompany Name: " + user.getCompanyName() + "\n" + user.getDescription() +
-                        "\nType of User: " + user.getType();
+                        "\nCompany Name: " + user.getCompanyName() + "\n" +
+                        "Description: " + user.getDescription();
 
         mDisplayTextView.setText(mDisplayString);
 
