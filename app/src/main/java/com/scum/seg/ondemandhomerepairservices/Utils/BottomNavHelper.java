@@ -5,9 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.ViewGroup;
-import android.view.ViewManager;
-import android.widget.FrameLayout;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
@@ -15,7 +12,7 @@ import com.scum.seg.ondemandhomerepairservices.ListOfUsersFragment;
 import com.scum.seg.ondemandhomerepairservices.MainFragment;
 import com.scum.seg.ondemandhomerepairservices.R;
 import com.scum.seg.ondemandhomerepairservices.ServicesFragment;
-import com.scum.seg.ondemandhomerepairservices.SettingsFragment;
+import com.scum.seg.ondemandhomerepairservices.UserProfileFragment;
 
 public class BottomNavHelper {
 
@@ -87,7 +84,7 @@ public class BottomNavHelper {
                 }
                 // Settings Tab
                 if(position == 2){
-                    Fragment fragment = new SettingsFragment();
+                    Fragment fragment = new UserProfileFragment();
 
                     FragmentManager fm = activity.getSupportFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
