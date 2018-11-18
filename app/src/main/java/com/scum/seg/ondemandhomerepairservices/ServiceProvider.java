@@ -11,4 +11,12 @@ public class ServiceProvider extends User {
         services.add(service);
     }
 
+    public ArrayList<Service> getServices() {
+        return services;
+    }
+
+    public void removeService(Service service){
+        services.remove(service);
+
+    }
 }

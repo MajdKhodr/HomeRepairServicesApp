@@ -1,5 +1,6 @@
 package com.scum.seg.ondemandhomerepairservices;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -107,7 +108,9 @@ public class ServicesFragment extends Fragment {
         }
     }
 
-    private void setupRecyclerView(View fragment) {
+
+
+    private void setupRecyclerView(final View fragment) {
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services");
         final View v = fragment;
         ValueEventListener serviceListener = new ValueEventListener() {
@@ -173,6 +176,7 @@ public class ServicesFragment extends Fragment {
 
                     itemTouchHelper.attachToRecyclerView(mServiceRecyclerView);
                 }
+
                 Fragment fragment1 = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment);
                 mServicesAdapter = new ServicesAdapter(getActivity(), mServiceList, fragment1);
                 mServiceRecyclerView.setAdapter(mServicesAdapter);
