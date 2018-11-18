@@ -17,6 +17,8 @@ public class ExampleUnitTest {
 
     Service service = new Service("Appliance Installation", 25);
 
+    ServiceProvider provider = new ServiceProvider();
+
     @Test
     public void serviceRateIsCorrect(){
         assertEquals("Checking service rate is correct ",25, service.getServiceRate(),0.5);
@@ -66,6 +68,22 @@ public class ExampleUnitTest {
     @Test
     public void userTypeIsCorrect(){
         assertEquals("Checking if user's type is correct ", "admin", user.getType());
+    }
+
+    @Test
+    public void testServiceAddedToServiceProvider(){
+        provider.addService(service);
+        boolean result = provider.getServices().contains(service);
+        assertEquals("Checking if provider has \"service\" included in his list",true, result);
+
+    }
+
+    @Test
+    public void testServiceRemovedToServiceProvider(){
+        provider.removeService(service);
+        boolean result = provider.getServices().contains(service);
+        assertEquals("Checking if provider has \"service\" included in his list",false, result);
+
     }
 
 
