@@ -1,5 +1,6 @@
 package com.scum.seg.ondemandhomerepairservices;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -8,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -48,6 +50,7 @@ public class ServicesFragment extends Fragment {
         user = ((User) getActivity().getIntent().getSerializableExtra("User"));
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View fragment = inflater.inflate(R.layout.fragment_services, container, false);
@@ -109,7 +112,6 @@ public class ServicesFragment extends Fragment {
     }
 
 
-
     private void setupRecyclerView(final View fragment) {
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services");
         final View v = fragment;
@@ -120,14 +122,26 @@ public class ServicesFragment extends Fragment {
 
                 mServiceList = new ArrayList<>();
                 // Loop through list of services
-
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     Service service = childSnapshot.getValue(Service.class);
                     service.setKey(childSnapshot.getKey());
                     mServiceList.add(service);
+
+                    int counter = 0;
+                    for (DataSnapshot child : childSnapshot.getChildren()) {
+
+                        if (counter == 0 && child.hasChildren()) {
+                            for(DataSnapshot children : child.getChildren()){
+                                if (children.getValue().equals(user.getKey())) {
+                                    service.setAssigned(true);
+                                }
+                            }
+
+                        }
+                        counter++;
+
+                    }
                 }
-
-
 
 
                 mServiceRecyclerView = v.findViewById(R.id.services_recyclerview);
@@ -140,7 +154,6 @@ public class ServicesFragment extends Fragment {
                         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
                             return false;
                         }
-
 
 
                         @Override

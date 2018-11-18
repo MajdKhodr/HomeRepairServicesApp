@@ -7,6 +7,7 @@ public class Service implements Serializable {
     private String serviceName;
     private float serviceRate;
     private String key;
+    private boolean assigned;
 
     public Service(String serviceName, float serviceRate) {
         this.serviceName = serviceName;
@@ -28,6 +29,14 @@ public class Service implements Serializable {
     public void setServiceName(String name){serviceName = name;}
 
     public void setServiceRate(float rate){serviceRate = rate;}
+
+    public boolean isAssigned() {
+        return assigned;
+    }
+
+    public void setAssigned(boolean assigned) {
+        this.assigned = assigned;
+    }
 
     public String getKey() {
         return key;

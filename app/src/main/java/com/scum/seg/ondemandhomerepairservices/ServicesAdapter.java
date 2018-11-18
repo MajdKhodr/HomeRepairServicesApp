@@ -76,6 +76,10 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
     public void onBindViewHolder(@NonNull final ServiceHolder serviceHolder, int i) {
         final Service service = serviceList.get(i);
 
+        if(service.isAssigned()){
+            serviceHolder.itemView.setBackgroundColor(Color.parseColor("#6CABDD"));
+        }
+
         double rate = service.getServiceRate();
         String stringRate = "";
 
@@ -99,13 +103,14 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
                     builder.setTitle("Select Action");
 
-                    if (provider.getServices().contains(service)) {
+                    if ((service.isAssigned())) {
                         builder.setItems(delete, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 if (which == 0) {
                                     provider.getServices().remove(service);
                                     serviceHolder.itemView.setBackgroundColor(android.R.drawable.btn_default);
+                                    service.setAssigned(false);
 
                                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services/" + service.getKey() + "/ServiceProviders");
                                     ValueEventListener serviceListener = new ValueEventListener() {
@@ -138,7 +143,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                                 if (which == 0) {
                                     provider.addService(service);
                                     serviceHolder.itemView.setBackgroundColor(Color.parseColor("#6CABDD"));
-
+                                    service.setAssigned(true);
                                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services/" + service.getKey() + "/ServiceProviders" );
                                     mDatabase.push().setValue(provider.getKey());
                                 }
