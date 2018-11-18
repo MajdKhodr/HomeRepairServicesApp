@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -66,8 +67,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
 
     @Override
-    public void onBindViewHolder(@NonNull ServiceHolder serviceHolder, int i) {
-        Service service = serviceList.get(i);
+    public void onBindViewHolder(@NonNull final ServiceHolder serviceHolder, int i) {
+        final Service service = serviceList.get(i);
 
         double rate = service.getServiceRate();
         String stringRate = "";
