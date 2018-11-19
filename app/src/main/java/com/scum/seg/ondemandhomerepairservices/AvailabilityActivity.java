@@ -146,9 +146,13 @@ public class AvailabilityActivity extends AppCompatActivity {
         String endDate = String.format("%02d:%02d", mHourEnd, mMinuteEnd);
 
         SimpleDateFormat hourmin = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        SimpleDateFormat daymonthyear = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        Log.d("Alexi", "Current time is : " + System.currentTimeMillis());
 
         try {
-            if (hourmin.parse(startDate).getTime() < hourmin.parse(endDate).getTime()) {
+            Log.d("Alexi", "Chosen time is : " + daymonthyear.parse(date).getTime());
+
+            if (hourmin.parse(startDate).getTime() < hourmin.parse(endDate).getTime() && daymonthyear.parse(date).getTime() >= System.currentTimeMillis()) {
                 createEvent(startDate, endDate);
             } else {
                 Toast.makeText(this, "The end time is smaller than the start time. Please try again", Toast.LENGTH_SHORT).show();
