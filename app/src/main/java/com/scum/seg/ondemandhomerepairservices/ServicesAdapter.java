@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,11 +32,16 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
     private Context context;
     private List<Service> serviceList;
     private android.support.v4.app.Fragment fragment;
+    private ServiceProvider provider = new ServiceProvider();
 
     public ServicesAdapter(Context context, List<Service> servicesList, android.support.v4.app.Fragment fragment) {
         this.serviceList = servicesList;
         this.context = context;
         this.fragment = fragment;
+
+        User user = (User) ((Activity) context).getIntent().getSerializableExtra("User");
+        provider.setKey(user.getKey());
+
     }
 
     @NonNull
@@ -45,23 +54,31 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Intent intent;
-                final Service service;
-                intent = new Intent(context, ServiceActivity.class);
-                service = serviceList.get(v.getAdapterPosition());
-                intent.putExtra("Service", service);
-                intent.putExtra("ServicePosition", v.getAdapterPosition());
-                fragment.startActivityForResult(intent, 1);
+                User user = (User) ((Activity) context).getIntent().getSerializableExtra("User");
 
+                if (user.getType().equals("admin")) {
+                    final Intent intent;
+                    final Service service;
+                    intent = new Intent(context, ServiceActivity.class);
+                    service = serviceList.get(v.getAdapterPosition());
+                    intent.putExtra("Service", service);
+                    intent.putExtra("ServicePosition", v.getAdapterPosition());
+                    fragment.startActivityForResult(intent, 1);
+                }
 
             }
         });
         return v;
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull ServiceHolder serviceHolder, int i) {
-        Service service = serviceList.get(i);
+    public void onBindViewHolder(@NonNull final ServiceHolder serviceHolder, int i) {
+        final Service service = serviceList.get(i);
+
+        if(service.isAssigned()){
+            serviceHolder.itemView.setBackgroundColor(Color.parseColor("#6CABDD"));
+        }
 
         double rate = service.getServiceRate();
         String stringRate = "";
@@ -72,8 +89,79 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
             stringRate = String.format("%s", rate);
         }
 
+
         serviceHolder.mServiceRate.setText(stringRate + " $/h");
         serviceHolder.mService.setText(service.getServiceName());
+
+        serviceHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (((User) ((Activity) (context)).getIntent().getSerializableExtra("User")).getType().equals("service provider")) {
+                    final CharSequence[] add = {"Add", "Cancel"};
+                    final CharSequence[] delete = {"Remove", "Cancel"};
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                    builder.setTitle("Select Action");
+
+                    if ((service.isAssigned())) {
+                        builder.setItems(delete, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (which == 0) {
+                                    provider.getServices().remove(service);
+                                    serviceHolder.itemView.setBackgroundColor(android.R.drawable.btn_default);
+                                    service.setAssigned(false);
+
+                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services/" + service.getKey() + "/ServiceProviders");
+                                    ValueEventListener serviceListener = new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                            for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                                                if (childSnapshot.getValue().equals(provider.getKey())) {
+                                                    childSnapshot.getRef().setValue(null);
+                                                }
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                        }
+                                    };
+                                    mDatabase.addListenerForSingleValueEvent(serviceListener);
+
+
+                                }
+
+                            }
+                        });
+                    } else {
+                        builder.setItems(add, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (which == 0) {
+                                    provider.addService(service);
+                                    serviceHolder.itemView.setBackgroundColor(Color.parseColor("#6CABDD"));
+                                    service.setAssigned(true);
+                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services/" + service.getKey() + "/ServiceProviders" );
+                                    mDatabase.push().setValue(provider.getKey());
+                                }
+
+                            }
+                        });
+                    }
+
+
+                    builder.show();
+
+                }
+
+                return true;
+            }
+
+
+        });
 
     }
 
