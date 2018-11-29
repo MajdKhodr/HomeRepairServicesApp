@@ -28,10 +28,6 @@ import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
 
 public class BookService extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private LinearLayoutManager mLayoutManager;
-    private AvailabilityAdapter mAdapter;
-    private ArrayList<Availability> availabilities;
     private static final String TAG = "BookService";
     private Service service;
 
@@ -39,25 +35,16 @@ public class BookService extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_service);
+
+        // Get service extra
         service = (Service) (getIntent().getSerializableExtra("Service"));
 
+        // Fetch service provider availability for specific service
         fetchService(this);
 
-        mRecyclerView = findViewById(R.id.avail_rec);
-        availabilities = new ArrayList<>();
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // specify an adapter (see also next example)
-        availabilities.add(new Availability(12, "Hey"));
-        mAdapter = new AvailabilityAdapter(availabilities, this);
-        mRecyclerView.setAdapter(mAdapter);
 
 
 
@@ -153,5 +140,6 @@ public class BookService extends AppCompatActivity {
         }
         return availableDates;
     }
+
 
 }
