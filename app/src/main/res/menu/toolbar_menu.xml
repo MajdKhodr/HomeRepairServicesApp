@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <item
-        android:title="Search"
+        android:title="Search Service"
         android:id="@+id/action_search"
         android:icon="@drawable/baseline_search_black_48"
         app:showAsAction="ifRoom|collapseActionView"
