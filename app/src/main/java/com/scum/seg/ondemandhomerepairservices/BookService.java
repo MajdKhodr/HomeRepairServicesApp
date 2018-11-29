@@ -3,6 +3,8 @@ package com.scum.seg.ondemandhomerepairservices;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -16,6 +18,10 @@ import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
 
 public class BookService extends AppCompatActivity {
 
+    private RecyclerView mRecyclerView;
+    private LinearLayoutManager mLayoutManager;
+    private AvailabilityAdapter mAdapter;
+    private ArrayList<Availability> availabilities;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +62,22 @@ public class BookService extends AppCompatActivity {
             }
 
         });
+
+        mRecyclerView = findViewById(R.id.avail_rec);
+        availabilities = new ArrayList<>();
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
+        availabilities.add(new Availability(12,"Hey"));
+        mAdapter = new AvailabilityAdapter(availabilities, this);
+        mRecyclerView.setAdapter(mAdapter);
 
     }
 
