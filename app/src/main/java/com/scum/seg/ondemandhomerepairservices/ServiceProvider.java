@@ -1,7 +1,6 @@
 package com.scum.seg.ondemandhomerepairservices;
 
 import java.util.ArrayList;
-import java.util.ServiceConfigurationError;
 
 public class ServiceProvider extends User {
 

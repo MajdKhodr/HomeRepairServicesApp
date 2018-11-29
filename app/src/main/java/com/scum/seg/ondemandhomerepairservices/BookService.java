@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Random;
 
 import devs.mulham.horizontalcalendar.HorizontalCalendar;
-import devs.mulham.horizontalcalendar.HorizontalCalendarView;
 import devs.mulham.horizontalcalendar.model.CalendarEvent;
 import devs.mulham.horizontalcalendar.utils.CalendarEventsPredicate;
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
@@ -22,11 +21,11 @@ public class BookService extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_service);
 
-        /* starts before 1 month from now */
+        /* starts before 1 year from now */
         Calendar startDate = Calendar.getInstance();
         startDate.add(Calendar.YEAR, -1);
 
-        /* ends after 1 month from now */
+        /* ends after 1 year from now */
         Calendar endDate = Calendar.getInstance();
         endDate.add(Calendar.YEAR, 1);
 
