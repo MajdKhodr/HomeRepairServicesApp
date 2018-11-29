@@ -64,6 +64,14 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                     intent.putExtra("Service", service);
                     intent.putExtra("ServicePosition", v.getAdapterPosition());
                     fragment.startActivityForResult(intent, 1);
+                }else if(user.getType().equals("home owner")){
+                    final Intent intent;
+                    final Service service;
+                    intent = new Intent(context, BookService.class);
+                    service = serviceList.get(v.getAdapterPosition());
+                    intent.putExtra("Service", service);
+                    intent.putExtra("ServicePosition", v.getAdapterPosition());
+                    fragment.startActivity(intent);
                 }
 
             }

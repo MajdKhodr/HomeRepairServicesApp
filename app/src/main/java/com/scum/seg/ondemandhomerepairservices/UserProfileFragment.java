@@ -64,6 +64,7 @@ public class UserProfileFragment extends Fragment {
     }
 
     public void signOut() {
+        user = null;
         Intent intent = new Intent(getActivity(), SignInPageActivity.class);
         startActivity(intent);
         getActivity().finish();
