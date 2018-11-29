@@ -70,6 +70,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="8 AM " />
 
@@ -78,8 +80,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -95,6 +107,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="9 AM " />
 
@@ -103,8 +117,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -120,6 +144,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="10 AM " />
 
@@ -128,8 +154,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -145,6 +181,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="11 AM " />
 
@@ -153,8 +191,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -170,6 +218,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="12 AM " />
 
@@ -178,8 +228,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -195,16 +255,28 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
                         android:padding="12dp"
-                        android:text="1 PM" />
+                        android:text="1 PM"
+                        android:fontFamily="@font/font" />
 
                     <TextView
                         android:id="@+id/textView1pm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -220,6 +292,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="2 PM" />
 
@@ -228,8 +302,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -245,6 +329,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="3 PM" />
 
@@ -253,8 +339,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am9"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -270,6 +366,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="4 PM " />
 
@@ -278,8 +376,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -295,6 +403,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="5 PM " />
 
@@ -303,8 +413,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -320,6 +440,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="6 PM" />
 
@@ -328,8 +450,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -345,6 +477,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="7 PM" />
 
@@ -353,8 +487,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am13"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
@@ -370,6 +514,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
                         android:text="8 PM" />
 
@@ -378,8 +524,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="TextView" />
+                        android:text="Unavailable" />
+
+                    <Button
+                        android:id="@+id/book8am14"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
 
                 </LinearLayout>
 
