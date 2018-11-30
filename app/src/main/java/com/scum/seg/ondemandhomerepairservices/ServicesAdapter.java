@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,6 +16,9 @@ import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 
@@ -155,7 +159,65 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
                     builder.show();
 
+                } else if (((User) ((Activity) (context)).getIntent().getSerializableExtra("User")).getType().equals("home owner")) {
+                    AlertDialog.Builder selectRateAndServiceDialog = new AlertDialog.Builder(context);
+                    selectRateAndServiceDialog.setTitle("Select Action");
+
+                    final CharSequence[] rateAndComment = {"Add Rate and Comment", "View Rates and Comments"};
+
+                    selectRateAndServiceDialog.setItems(rateAndComment, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (which == 0) {
+                                AlertDialog.Builder addRateAndServiceDialog = new AlertDialog.Builder(context);
+
+                                LinearLayout layout = new LinearLayout(context);
+                                //layout.setOrientation(LinearLayout.VERTICAL);
+
+                                final RatingBar ratingBar = new RatingBar(context);
+                                ratingBar.setNumStars(5);
+
+                                final EditText comment = new EditText(context);
+                                comment.setHint("Comment");
+
+                                layout.addView(ratingBar);
+                                layout.addView(comment);
+
+                                addRateAndServiceDialog.setView(layout).
+                                setPositiveButton(R.string.add_button, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        // User clicked ADD button
+
+                                        int numberOfStars = ratingBar.getNumStars();
+                                        String userComment = comment.getText().toString();
+
+                                        Rating rating = new Rating(numberOfStars, userComment);
+
+                                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                        DatabaseReference serviceRating = database.getReference("Services/" + service.getKey() + "/ServiceRating");
+                                        serviceRating.push().setValue(rating);
+                                    }
+                                }).setNegativeButton(R.string.cancel_dialog, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        // User cancelled the dialog
+                                    }
+                                });
+
+
+                                addRateAndServiceDialog.show();
+
+                            } else {
+                                // To be filled out by goerges to lead to next activity listing ratings and comments
+                                //Intent intent = new Intent(this, );
+                                //startActivity(intent);
+                            }
+
+                        }
+                    });
+
+                    selectRateAndServiceDialog.show();
                 }
+
 
                 return true;
             }
