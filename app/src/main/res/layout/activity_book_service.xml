@@ -82,7 +82,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am"
@@ -118,7 +119,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am3"
@@ -154,7 +156,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am4"
@@ -190,7 +193,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am5"
@@ -226,7 +230,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am6"
@@ -262,7 +267,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am7"
@@ -298,7 +304,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am8"
@@ -334,7 +341,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am9"
@@ -370,7 +378,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am10"
@@ -406,7 +415,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am11"
@@ -442,7 +452,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am12"
@@ -478,7 +489,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am13"
@@ -514,7 +526,8 @@
                         android:background="#ff6666 "
                         android:fontFamily="@font/font"
                         android:padding="12dp"
-                        android:text="Unavailable" />
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
 
                     <Button
                         android:id="@+id/book8am14"

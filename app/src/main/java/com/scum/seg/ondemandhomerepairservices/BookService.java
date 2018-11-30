@@ -46,6 +46,7 @@ public class BookService extends AppCompatActivity {
         fetchService(this);
         listOfServices = new ArrayList<>();
 
+
     }
 
     private ArrayList<String> fetchService(final Context context) {
@@ -92,8 +93,9 @@ public class BookService extends AppCompatActivity {
 
                                         Date endDate = end.parse(endTime);
 
-                                        if (date.getTimeInMillis() == a.getTime() && endDate.getTime() < 72000000)
+                                        if (date.getTimeInMillis() == a.getTime() && endDate.getTime() <= 72000000) {
                                             events.add(new CalendarEvent(R.color.colorFAB, "event"));
+                                        }
                                     }
 
                                 } catch (ParseException e) {
@@ -125,7 +127,6 @@ public class BookService extends AppCompatActivity {
 
         return services;
     }
-
 
 
     private ArrayList<Availability> fetchServiceInfo(ArrayList<String> strings) {
