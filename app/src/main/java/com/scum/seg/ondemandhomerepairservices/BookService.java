@@ -46,7 +46,6 @@ public class BookService extends AppCompatActivity {
         fetchService(this);
         listOfServices = new ArrayList<>();
 
-
     }
 
     private ArrayList<String> fetchService(final Context context) {
@@ -71,6 +70,9 @@ public class BookService extends AppCompatActivity {
                 /* ends after 1 year from now */
                 Calendar endDate = Calendar.getInstance();
                 endDate.add(Calendar.YEAR, 1);
+
+                Calendar temp = Calendar.getInstance();
+                updateScrollView(temp);
 
                 HorizontalCalendar horizontalCalendar = new HorizontalCalendar.Builder((Activity) context, R.id.calendarView)
                         .range(startDate, endDate)
@@ -108,134 +110,7 @@ public class BookService extends AppCompatActivity {
                 horizontalCalendar.setCalendarListener(new HorizontalCalendarListener() {
                     @Override
                     public void onDateSelected(Calendar date, int position) {
-                        TextView eightam = findViewById(R.id.textView8am);
-                        TextView nineam = findViewById(R.id.textView9am);
-                        TextView tenam = findViewById(R.id.textView10am);
-                        TextView elevenam = findViewById(R.id.textView11am);
-                        TextView twelveam = findViewById(R.id.textView12am);
-                        TextView onepm = findViewById(R.id.textView1pm);
-                        TextView twopm = findViewById(R.id.textView2pm);
-                        TextView threepm = findViewById(R.id.textView3pm);
-                        TextView fourpm = findViewById(R.id.textView4pm);
-                        TextView fivepm = findViewById(R.id.textView5pm);
-                        TextView sixpm = findViewById(R.id.textView6pm);
-                        TextView sevenpm = findViewById(R.id.textView7pm);
-                        TextView eightpm = findViewById(R.id.textView8pm);
-
-                        eightam.setBackgroundColor(Color.parseColor("#ff6666"));
-                        nineam.setBackgroundColor(Color.parseColor("#ff6666"));
-                        tenam.setBackgroundColor(Color.parseColor("#ff6666"));
-                        elevenam.setBackgroundColor(Color.parseColor("#ff6666"));
-                        twelveam.setBackgroundColor(Color.parseColor("#ff6666"));
-                        onepm.setBackgroundColor(Color.parseColor("#ff6666"));
-                        twopm.setBackgroundColor(Color.parseColor("#ff6666"));
-                        threepm.setBackgroundColor(Color.parseColor("#ff6666"));
-                        fourpm.setBackgroundColor(Color.parseColor("#ff6666"));
-                        fivepm.setBackgroundColor(Color.parseColor("#ff6666"));
-                        sixpm.setBackgroundColor(Color.parseColor("#ff6666"));
-                        sevenpm.setBackgroundColor(Color.parseColor("#ff6666"));
-                        eightpm.setBackgroundColor(Color.parseColor("#ff6666"));
-
-                        eightam.setText("Unavailable");
-                        nineam.setText("Unavailable");
-                        tenam.setText("Unavailable");
-                        elevenam.setText("Unavailable");
-                        twelveam.setText("Unavailable");
-                        onepm.setText("Unavailable");
-                        twopm.setText("Unavailable");
-                        threepm.setText("Unavailable");
-                        fourpm.setText("Unavailable");
-                        fivepm.setText("Unavailable");
-                        sixpm.setText("Unavailable");
-                        sevenpm.setText("Unavailable");
-                        eightpm.setText("Unavailable");
-
-
-
-                        for (Availability a : listOfServices) {
-                            try {
-                                SimpleDateFormat start = new SimpleDateFormat("HH:mm", Locale.getDefault());
-                                SimpleDateFormat end = new SimpleDateFormat("HH:mm", Locale.getDefault());
-
-                                String startTime = a.getDesc().substring(16, 21);
-                                String endTime = a.getDesc().substring(26);
-
-                                Date startDate = start.parse(startTime);
-                                Date endDate = end.parse(endTime);
-
-
-                                if (a.getTime() == date.getTimeInMillis()) {
-                                    if (startDate.getTime() < 28800000 && endDate.getTime() > 28800000) {
-                                        eightam.setBackgroundColor(Color.parseColor("#007f00"));
-                                        eightam.setText("Available");
-                                    }
-                                    if (startDate.getTime() < 32400000 && endDate.getTime() > 32400000) {
-                                        nineam.setBackgroundColor(Color.parseColor("#007f00"));
-                                        nineam.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 36000000 && endDate.getTime() > 36000000) {
-                                        tenam.setBackgroundColor(Color.parseColor("#007f00"));
-                                        tenam.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 39600000 && endDate.getTime() > 39600000) {
-                                        elevenam.setBackgroundColor(Color.parseColor("#007f00"));
-                                        elevenam.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 43200000 && endDate.getTime() > 43200000) {
-                                        twelveam.setBackgroundColor(Color.parseColor("#007f00"));
-                                        twelveam.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 46800000 && endDate.getTime() > 46800000) {
-                                        onepm.setBackgroundColor(Color.parseColor("#007f00"));
-                                        onepm.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 50400000 && endDate.getTime() > 50400000) {
-                                        twopm.setBackgroundColor(Color.parseColor("#007f00"));
-                                        twopm.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 54000000 && endDate.getTime() > 54000000) {
-                                        threepm.setBackgroundColor(Color.parseColor("#007f00"));
-                                        threepm.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 57600000 && endDate.getTime() > 57600000) {
-                                        fourpm.setBackgroundColor(Color.parseColor("#007f00"));
-                                        fourpm.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 61200000 && endDate.getTime() > 61200000) {
-                                        fivepm.setBackgroundColor(Color.parseColor("#007f00"));
-                                        fivepm.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 64800000 && endDate.getTime() > 64800000) {
-                                        sixpm.setBackgroundColor(Color.parseColor("#007f00"));
-                                        sixpm.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 68400000 && endDate.getTime() > 68400000) {
-                                        sevenpm.setBackgroundColor(Color.parseColor("#007f00"));
-                                        sevenpm.setText("Available");
-
-                                    }
-                                    if (startDate.getTime() < 72000000 && endDate.getTime() > 72000000) {
-                                        eightpm.setBackgroundColor(Color.parseColor("#007f00"));
-                                        eightpm.setText("Available");
-
-                                    }
-
-                                }
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
+                        updateScrollView(date);
                     }
 
                 });
@@ -250,6 +125,8 @@ public class BookService extends AppCompatActivity {
 
         return services;
     }
+
+
 
     private ArrayList<Availability> fetchServiceInfo(ArrayList<String> strings) {
         final ArrayList<Availability> availableDates = new ArrayList<>();
@@ -276,6 +153,136 @@ public class BookService extends AppCompatActivity {
             mDatabase.addValueEventListener(userListener);
         }
         return availableDates;
+    }
+
+    private void updateScrollView(Calendar date) {
+        TextView eightam = findViewById(R.id.textView8am);
+        TextView nineam = findViewById(R.id.textView9am);
+        TextView tenam = findViewById(R.id.textView10am);
+        TextView elevenam = findViewById(R.id.textView11am);
+        TextView twelveam = findViewById(R.id.textView12am);
+        TextView onepm = findViewById(R.id.textView1pm);
+        TextView twopm = findViewById(R.id.textView2pm);
+        TextView threepm = findViewById(R.id.textView3pm);
+        TextView fourpm = findViewById(R.id.textView4pm);
+        TextView fivepm = findViewById(R.id.textView5pm);
+        TextView sixpm = findViewById(R.id.textView6pm);
+        TextView sevenpm = findViewById(R.id.textView7pm);
+        TextView eightpm = findViewById(R.id.textView8pm);
+
+        eightam.setBackgroundColor(Color.parseColor("#ff6666"));
+        nineam.setBackgroundColor(Color.parseColor("#ff6666"));
+        tenam.setBackgroundColor(Color.parseColor("#ff6666"));
+        elevenam.setBackgroundColor(Color.parseColor("#ff6666"));
+        twelveam.setBackgroundColor(Color.parseColor("#ff6666"));
+        onepm.setBackgroundColor(Color.parseColor("#ff6666"));
+        twopm.setBackgroundColor(Color.parseColor("#ff6666"));
+        threepm.setBackgroundColor(Color.parseColor("#ff6666"));
+        fourpm.setBackgroundColor(Color.parseColor("#ff6666"));
+        fivepm.setBackgroundColor(Color.parseColor("#ff6666"));
+        sixpm.setBackgroundColor(Color.parseColor("#ff6666"));
+        sevenpm.setBackgroundColor(Color.parseColor("#ff6666"));
+        eightpm.setBackgroundColor(Color.parseColor("#ff6666"));
+
+        eightam.setText("Unavailable");
+        nineam.setText("Unavailable");
+        tenam.setText("Unavailable");
+        elevenam.setText("Unavailable");
+        twelveam.setText("Unavailable");
+        onepm.setText("Unavailable");
+        twopm.setText("Unavailable");
+        threepm.setText("Unavailable");
+        fourpm.setText("Unavailable");
+        fivepm.setText("Unavailable");
+        sixpm.setText("Unavailable");
+        sevenpm.setText("Unavailable");
+        eightpm.setText("Unavailable");
+
+
+        for (Availability a : listOfServices) {
+            try {
+                SimpleDateFormat start = new SimpleDateFormat("HH:mm", Locale.getDefault());
+                SimpleDateFormat end = new SimpleDateFormat("HH:mm", Locale.getDefault());
+
+                String startTime = a.getDesc().substring(16, 21);
+                String endTime = a.getDesc().substring(26);
+
+                Date startDate = start.parse(startTime);
+                Date endDate = end.parse(endTime);
+
+
+                if (a.getTime() == date.getTimeInMillis()) {
+                    if (startDate.getTime() < 28800000 && endDate.getTime() > 28800000) {
+                        eightam.setBackgroundColor(Color.parseColor("#007f00"));
+                        eightam.setText("Available");
+                    }
+                    if (startDate.getTime() < 32400000 && endDate.getTime() > 32400000) {
+                        nineam.setBackgroundColor(Color.parseColor("#007f00"));
+                        nineam.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 36000000 && endDate.getTime() > 36000000) {
+                        tenam.setBackgroundColor(Color.parseColor("#007f00"));
+                        tenam.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 39600000 && endDate.getTime() > 39600000) {
+                        elevenam.setBackgroundColor(Color.parseColor("#007f00"));
+                        elevenam.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 43200000 && endDate.getTime() > 43200000) {
+                        twelveam.setBackgroundColor(Color.parseColor("#007f00"));
+                        twelveam.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 46800000 && endDate.getTime() > 46800000) {
+                        onepm.setBackgroundColor(Color.parseColor("#007f00"));
+                        onepm.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 50400000 && endDate.getTime() > 50400000) {
+                        twopm.setBackgroundColor(Color.parseColor("#007f00"));
+                        twopm.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 54000000 && endDate.getTime() > 54000000) {
+                        threepm.setBackgroundColor(Color.parseColor("#007f00"));
+                        threepm.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 57600000 && endDate.getTime() > 57600000) {
+                        fourpm.setBackgroundColor(Color.parseColor("#007f00"));
+                        fourpm.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 61200000 && endDate.getTime() > 61200000) {
+                        fivepm.setBackgroundColor(Color.parseColor("#007f00"));
+                        fivepm.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 64800000 && endDate.getTime() > 64800000) {
+                        sixpm.setBackgroundColor(Color.parseColor("#007f00"));
+                        sixpm.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 68400000 && endDate.getTime() > 68400000) {
+                        sevenpm.setBackgroundColor(Color.parseColor("#007f00"));
+                        sevenpm.setText("Available");
+
+                    }
+                    if (startDate.getTime() < 72000000 && endDate.getTime() > 72000000) {
+                        eightpm.setBackgroundColor(Color.parseColor("#007f00"));
+                        eightpm.setText("Available");
+
+                    }
+
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
 
