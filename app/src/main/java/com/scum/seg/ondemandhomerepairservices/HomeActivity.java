@@ -16,6 +16,7 @@ import com.scum.seg.ondemandhomerepairservices.Utils.BottomNavHelper;
 public class HomeActivity extends AppCompatActivity {
 
     private User user;
+    private static final String TAG = "MAINACTIVITY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,4 +65,5 @@ public class HomeActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.toolbar_menu,menu);
         return true;
     }
+
 }
