@@ -2,8 +2,6 @@ package com.scum.seg.ondemandhomerepairservices;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
@@ -117,7 +115,7 @@ public class AvailabilityActivity extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         mHourStart = hourOfDay;
-                        mMinuteStart = minute;
+                        mMinuteStart = 0;
                         dateDialogEnd();
                     }
                 }, mHourStart, mMinuteStart, false);
@@ -134,7 +132,7 @@ public class AvailabilityActivity extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         mHourEnd = hourOfDay;
-                        mMinuteEnd = minute;
+                        mMinuteEnd = 0;
                         parseDate();
                     }
                 }, mHourStart, mMinuteStart, false);

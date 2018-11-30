@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookService">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="#fff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <devs.mulham.horizontalcalendar.HorizontalCalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFF"
+            app:textColorSelected="#000" />
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="368dp"
+        android:layout_height="404dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+        <ScrollView
+            android:layout_width="352dp"
+            android:layout_height="388dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/EIGHTAM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="8 AM " />
+
+                    <TextView
+                        android:id="@+id/textView8am"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/NINEAM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="9 AM " />
+
+                    <TextView
+                        android:id="@+id/textView9am"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/TENAM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="10 AM " />
+
+                    <TextView
+                        android:id="@+id/textView10am"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/ELEVENAM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="11 AM " />
+
+                    <TextView
+                        android:id="@+id/textView11am"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/TWELVEAM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="12 AM " />
+
+                    <TextView
+                        android:id="@+id/textView12am"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/ONEPM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="1 PM" />
+
+                    <TextView
+                        android:id="@+id/textView1pm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/TWOPM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="2 PM" />
+
+                    <TextView
+                        android:id="@+id/textView2pm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/THREEPM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="3 PM" />
+
+                    <TextView
+                        android:id="@+id/textView3pm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am9"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/FOURPM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="4 PM " />
+
+                    <TextView
+                        android:id="@+id/textView4pm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/FIVEPM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="5 PM " />
+
+                    <TextView
+                        android:id="@+id/textView5pm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/SIXPM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="6 PM" />
+
+                    <TextView
+                        android:id="@+id/textView6pm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/SEVENPM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="7 PM" />
+
+                    <TextView
+                        android:id="@+id/textView7pm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am13"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/EIGHTPM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="8 PM" />
+
+                    <TextView
+                        android:id="@+id/textView8pm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#ff6666 "
+                        android:fontFamily="@font/font"
+                        android:padding="12dp"
+                        android:text="Unavailable"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:id="@+id/book8am14"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/font"
+                        android:text="Book" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

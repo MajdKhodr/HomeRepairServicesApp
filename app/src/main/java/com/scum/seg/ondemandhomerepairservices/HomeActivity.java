@@ -7,11 +7,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.scum.seg.ondemandhomerepairservices.Utils.BottomNavHelper;
 
 public class HomeActivity extends AppCompatActivity {
@@ -58,5 +57,11 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignInPageActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
+        return true;
     }
 }

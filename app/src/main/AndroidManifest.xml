@@ -25,7 +25,8 @@
             android:label="@string/title_activity_type"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ServiceActivity" />
-        <activity android:name=".AvailabilityActivity"></activity>
+        <activity android:name=".AvailabilityActivity" />
+        <activity android:name=".BookService"></activity>
     </application>
 
 </manifest>
