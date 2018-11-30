@@ -190,7 +190,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
                                         int numberOfStars = ratingBar.getNumStars();
                                         String userComment = comment.getText().toString();
-
                                         Rating rating = new Rating(numberOfStars, userComment);
 
                                         FirebaseDatabase database = FirebaseDatabase.getInstance();
