@@ -24,9 +24,7 @@ public class Rating implements Serializable {
         this.commmet = commmet;
     }
 
-    public int getRating() {
-        return rating;
-    }
+    public int getRating() { return rating; }
 
     public String getCommmet() {
         return commmet;

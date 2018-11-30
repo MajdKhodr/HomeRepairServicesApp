@@ -176,19 +176,23 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                             if (which == 0) {
                                 AlertDialog.Builder addRateAndServiceDialog = new AlertDialog.Builder(context);
 
-                                LinearLayout layout = new LinearLayout(context);
-                                //layout.setOrientation(LinearLayout.VERTICAL);
+                                LinearLayout mainLayout = new LinearLayout(context);
+                                mainLayout.setOrientation(LinearLayout.VERTICAL);
+                                LinearLayout ratingLayout = new LinearLayout(context);
+                                LinearLayout commentLayout = new LinearLayout(context);
 
                                 final RatingBar ratingBar = new RatingBar(context);
                                 ratingBar.setNumStars(5);
+                                ratingLayout.addView(ratingBar);
 
                                 final EditText comment = new EditText(context);
                                 comment.setHint("Comment");
+                                commentLayout.addView(comment);
 
-                                layout.addView(ratingBar);
-                                layout.addView(comment);
+                                mainLayout.addView(ratingLayout);
+                                mainLayout.addView(commentLayout);
 
-                                addRateAndServiceDialog.setView(layout).
+                                addRateAndServiceDialog.setView(mainLayout).
                                 setPositiveButton(R.string.add_button, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         // User clicked ADD button
