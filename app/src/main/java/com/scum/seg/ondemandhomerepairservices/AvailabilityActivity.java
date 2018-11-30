@@ -115,7 +115,7 @@ public class AvailabilityActivity extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         mHourStart = hourOfDay;
-                        mMinuteStart = minute;
+                        mMinuteStart = 0;
                         dateDialogEnd();
                     }
                 }, mHourStart, mMinuteStart, false);
@@ -132,7 +132,7 @@ public class AvailabilityActivity extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         mHourEnd = hourOfDay;
-                        mMinuteEnd = minute;
+                        mMinuteEnd = 0;
                         parseDate();
                     }
                 }, mHourStart, mMinuteStart, false);

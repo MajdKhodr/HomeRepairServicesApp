@@ -213,66 +213,66 @@ public class BookService extends AppCompatActivity {
 
 
                 if (a.getTime() == date.getTimeInMillis()) {
-                    if (startDate.getTime() < 28800000 && endDate.getTime() > 28800000) {
+                    if (startDate.getTime() - 18000000 <= 28800000 && endDate.getTime()- 18000000  >= 28800000) {
                         eightam.setBackgroundColor(Color.parseColor("#007f00"));
                         eightam.setText("Available");
                     }
-                    if (startDate.getTime() < 32400000 && endDate.getTime() > 32400000) {
+                    if (startDate.getTime()- 18000000  <= 32400000 && endDate.getTime()- 18000000  >= 32400000) {
                         nineam.setBackgroundColor(Color.parseColor("#007f00"));
                         nineam.setText("Available");
 
                     }
-                    if (startDate.getTime() < 36000000 && endDate.getTime() > 36000000) {
+                    if (startDate.getTime() - 18000000 <= 36000000 && endDate.getTime() - 18000000 >= 36000000) {
                         tenam.setBackgroundColor(Color.parseColor("#007f00"));
                         tenam.setText("Available");
 
                     }
-                    if (startDate.getTime() < 39600000 && endDate.getTime() > 39600000) {
+                    if (startDate.getTime() - 18000000 <= 39600000 && endDate.getTime()- 18000000  >= 39600000) {
                         elevenam.setBackgroundColor(Color.parseColor("#007f00"));
                         elevenam.setText("Available");
 
                     }
-                    if (startDate.getTime() < 43200000 && endDate.getTime() > 43200000) {
+                    if (startDate.getTime() - 18000000 <= 43200000 && endDate.getTime() - 18000000 >= 43200000) {
                         twelveam.setBackgroundColor(Color.parseColor("#007f00"));
                         twelveam.setText("Available");
 
                     }
-                    if (startDate.getTime() < 46800000 && endDate.getTime() > 46800000) {
+                    if (startDate.getTime()- 18000000  <= 46800000 && endDate.getTime()- 18000000  >= 46800000) {
                         onepm.setBackgroundColor(Color.parseColor("#007f00"));
                         onepm.setText("Available");
 
                     }
-                    if (startDate.getTime() < 50400000 && endDate.getTime() > 50400000) {
+                    if (startDate.getTime() - 18000000 <= 50400000 && endDate.getTime()- 18000000  >= 50400000) {
                         twopm.setBackgroundColor(Color.parseColor("#007f00"));
                         twopm.setText("Available");
 
                     }
-                    if (startDate.getTime() < 54000000 && endDate.getTime() > 54000000) {
+                    if (startDate.getTime()- 18000000  <= 54000000 && endDate.getTime() - 18000000 >= 54000000) {
                         threepm.setBackgroundColor(Color.parseColor("#007f00"));
                         threepm.setText("Available");
 
                     }
-                    if (startDate.getTime() < 57600000 && endDate.getTime() > 57600000) {
+                    if (startDate.getTime()- 18000000  <= 57600000 && endDate.getTime()- 18000000  >= 57600000) {
                         fourpm.setBackgroundColor(Color.parseColor("#007f00"));
                         fourpm.setText("Available");
 
                     }
-                    if (startDate.getTime() < 61200000 && endDate.getTime() > 61200000) {
+                    if (startDate.getTime() - 18000000 <= 61200000 && endDate.getTime() - 18000000 >= 61200000) {
                         fivepm.setBackgroundColor(Color.parseColor("#007f00"));
                         fivepm.setText("Available");
 
                     }
-                    if (startDate.getTime() < 64800000 && endDate.getTime() > 64800000) {
+                    if (startDate.getTime() - 18000000 <= 64800000 && endDate.getTime() - 18000000 >= 64800000) {
                         sixpm.setBackgroundColor(Color.parseColor("#007f00"));
                         sixpm.setText("Available");
 
                     }
-                    if (startDate.getTime() < 68400000 && endDate.getTime() > 68400000) {
+                    if (startDate.getTime() - 18000000 <= 68400000 && endDate.getTime() - 18000000 >= 68400000) {
                         sevenpm.setBackgroundColor(Color.parseColor("#007f00"));
                         sevenpm.setText("Available");
 
                     }
-                    if (startDate.getTime() < 72000000 && endDate.getTime() > 72000000) {
+                    if (startDate.getTime() - 18000000 <= 72000000 && endDate.getTime() - 18000000 >= 72000000) {
                         eightpm.setBackgroundColor(Color.parseColor("#007f00"));
                         eightpm.setText("Available");
 
