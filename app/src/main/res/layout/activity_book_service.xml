@@ -91,6 +91,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -123,11 +124,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am3"
+                        android:id="@+id/book9am"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -160,11 +162,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am4"
+                        android:id="@+id/book10am"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -197,11 +200,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am5"
+                        android:id="@+id/book11am"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -234,11 +238,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am6"
+                        android:id="@+id/book12am"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -271,11 +276,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am7"
+                        android:id="@+id/book1pm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -308,11 +314,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am8"
+                        android:id="@+id/book2pm8"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -345,11 +352,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am9"
+                        android:id="@+id/book3pm9"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -382,11 +390,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am10"
+                        android:id="@+id/book4pm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -419,11 +428,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am11"
+                        android:id="@+id/book5pm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -456,11 +466,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am12"
+                        android:id="@+id/book6pm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -493,11 +504,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am13"
+                        android:id="@+id/book7pm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>
@@ -530,11 +542,12 @@
                         android:textColor="#fff" />
 
                     <Button
-                        android:id="@+id/book8am14"
+                        android:id="@+id/book8pm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/font"
+                        android:onClick="book"
                         android:text="Book" />
 
                 </LinearLayout>

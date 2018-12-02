@@ -7,7 +7,10 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -213,11 +216,11 @@ public class BookService extends AppCompatActivity {
 
 
                 if (a.getTime() == date.getTimeInMillis()) {
-                    if (startDate.getTime() - 18000000 <= 28800000 && endDate.getTime()- 18000000  >= 28800000) {
+                    if (startDate.getTime() - 18000000 <= 28800000 && endDate.getTime() - 18000000 >= 28800000) {
                         eightam.setBackgroundColor(Color.parseColor("#007f00"));
                         eightam.setText("Available");
                     }
-                    if (startDate.getTime()- 18000000  <= 32400000 && endDate.getTime()- 18000000  >= 32400000) {
+                    if (startDate.getTime() - 18000000 <= 32400000 && endDate.getTime() - 18000000 >= 32400000) {
                         nineam.setBackgroundColor(Color.parseColor("#007f00"));
                         nineam.setText("Available");
 
@@ -227,7 +230,7 @@ public class BookService extends AppCompatActivity {
                         tenam.setText("Available");
 
                     }
-                    if (startDate.getTime() - 18000000 <= 39600000 && endDate.getTime()- 18000000  >= 39600000) {
+                    if (startDate.getTime() - 18000000 <= 39600000 && endDate.getTime() - 18000000 >= 39600000) {
                         elevenam.setBackgroundColor(Color.parseColor("#007f00"));
                         elevenam.setText("Available");
 
@@ -237,22 +240,22 @@ public class BookService extends AppCompatActivity {
                         twelveam.setText("Available");
 
                     }
-                    if (startDate.getTime()- 18000000  <= 46800000 && endDate.getTime()- 18000000  >= 46800000) {
+                    if (startDate.getTime() - 18000000 <= 46800000 && endDate.getTime() - 18000000 >= 46800000) {
                         onepm.setBackgroundColor(Color.parseColor("#007f00"));
                         onepm.setText("Available");
 
                     }
-                    if (startDate.getTime() - 18000000 <= 50400000 && endDate.getTime()- 18000000  >= 50400000) {
+                    if (startDate.getTime() - 18000000 <= 50400000 && endDate.getTime() - 18000000 >= 50400000) {
                         twopm.setBackgroundColor(Color.parseColor("#007f00"));
                         twopm.setText("Available");
 
                     }
-                    if (startDate.getTime()- 18000000  <= 54000000 && endDate.getTime() - 18000000 >= 54000000) {
+                    if (startDate.getTime() - 18000000 <= 54000000 && endDate.getTime() - 18000000 >= 54000000) {
                         threepm.setBackgroundColor(Color.parseColor("#007f00"));
                         threepm.setText("Available");
 
                     }
-                    if (startDate.getTime()- 18000000  <= 57600000 && endDate.getTime()- 18000000  >= 57600000) {
+                    if (startDate.getTime() - 18000000 <= 57600000 && endDate.getTime() - 18000000 >= 57600000) {
                         fourpm.setBackgroundColor(Color.parseColor("#007f00"));
                         fourpm.setText("Available");
 
@@ -284,6 +287,71 @@ public class BookService extends AppCompatActivity {
             }
 
         }
+    }
+
+    public void book(View v) {
+
+        TextView eightam = findViewById(R.id.textView8am);
+        TextView nineam = findViewById(R.id.textView9am);
+        TextView tenam = findViewById(R.id.textView10am);
+        TextView elevenam = findViewById(R.id.textView11am);
+        TextView twelveam = findViewById(R.id.textView12am);
+        TextView onepm = findViewById(R.id.textView1pm);
+        TextView twopm = findViewById(R.id.textView2pm);
+        TextView threepm = findViewById(R.id.textView3pm);
+        TextView fourpm = findViewById(R.id.textView4pm);
+        TextView fivepm = findViewById(R.id.textView5pm);
+        TextView sixpm = findViewById(R.id.textView6pm);
+        TextView sevenpm = findViewById(R.id.textView7pm);
+        TextView eightpm = findViewById(R.id.textView8pm);
+
+        Button b = (Button) v;
+        String buttonID = getResources().getResourceEntryName(v.getId());
+
+
+        if (buttonID.contains("8am") && eightam.getText().equals("Available")) {
+            eightam.setText("Booked");
+            eightam.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("9am") && nineam.getText().equals("Available")) {
+            nineam.setText("Booked");
+            nineam.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("10am") && tenam.getText().equals("Available")) {
+            tenam.setText("Booked");
+            tenam.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("11am") && elevenam.getText().equals("Available")) {
+            elevenam.setText("Booked");
+            elevenam.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("12am") && twelveam.getText().equals("Available")) {
+            twelveam.setText("Booked");
+            twelveam.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("1pm") && onepm.getText().equals("Available")) {
+            onepm.setText("Booked");
+            onepm.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("2pm") && twopm.getText().equals("Available")) {
+            twopm.setText("Booked");
+            twopm.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("3pm") && threepm.getText().equals("Available")) {
+            threepm.setText("Booked");
+            threepm.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("4pm") && fourpm.getText().equals("Available")) {
+            fourpm.setText("Booked");
+            fourpm.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("5pm") && fivepm.getText().equals("Available")) {
+            fivepm.setText("Booked");
+            fivepm.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("6pm") && sixpm.getText().equals("Available")) {
+            sixpm.setText("Booked");
+            sixpm.setBackgroundColor(Color.parseColor("#ff8000"));
+        }else if (buttonID.contains("7pm") && sevenpm.getText().equals("Available")) {
+            sevenpm.setText("Booked");
+            sevenpm.setBackgroundColor(Color.parseColor("#ff8000"));
+        } else if (buttonID.contains("8pm") && eightpm.getText().equals("Available")) {
+            eightpm.setText("Booked");
+            eightpm.setBackgroundColor(Color.parseColor("#ff8000"));
+        }else{
+            Toast.makeText(this,"Booking is unavailable", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
