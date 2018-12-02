@@ -19,6 +19,7 @@ public class User implements Serializable {
     private boolean isLicensed;
     private String type;
     private String key;
+    private int rating;
 
 
 
@@ -47,6 +48,7 @@ public class User implements Serializable {
         this.description = description;
         this.isLicensed = isLicensed;
         this.type = type;
+        this.rating = 0;
     }
 
 
@@ -147,6 +149,14 @@ public class User implements Serializable {
 
     public String getKey() {
         return key;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public String toString(){

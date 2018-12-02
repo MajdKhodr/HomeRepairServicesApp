@@ -63,6 +63,7 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
 
         serviceHolder.mServiceProvider.setText(serviceProvider.getFirstName() + " " + serviceProvider.getLastName());
         serviceHolder.mDescription.setText(serviceProvider.getDescription());
+        serviceHolder.mRating.setText(String.valueOf(serviceProvider.getRating()));
 
 
         serviceHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
