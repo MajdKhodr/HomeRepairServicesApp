@@ -31,7 +31,7 @@
                 android:layout_marginEnd="200dp"
                 android:fontFamily="@font/font"
                 android:text="@string/service_name"
-                card_view:layout_constraintEnd_toStartOf="@+id/textview_service_value"
+                card_view:layout_constraintEnd_toStartOf="@+id/text_view_service"
                 card_view:layout_constraintHorizontal_bias="0.0"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent" />
@@ -55,7 +55,7 @@
                 card_view:layout_constraintVertical_bias="0.772" />
 
             <TextView
-                android:id="@+id/textview_service_value"
+                android:id="@+id/text_view_service"
                 android:layout_width="145dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="16dp"
@@ -76,7 +76,7 @@
                 android:text="Placeholder"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@+id/textview_service_value"
+                card_view:layout_constraintTop_toBottomOf="@+id/text_view_service"
                 card_view:layout_constraintVertical_bias="1.0" />
 
         </android.support.constraint.ConstraintLayout>

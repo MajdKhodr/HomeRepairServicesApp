@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -69,13 +72,30 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
                     intent.putExtra("ServicePosition", v.getAdapterPosition());
                     fragment.startActivityForResult(intent, 1);
                 }else if(user.getType().equals("home owner")){
-                    final Intent intent;
-                    final Service service;
-                    intent = new Intent(context, BookService.class);
-                    service = serviceList.get(v.getAdapterPosition());
-                    intent.putExtra("Service", service);
-                    intent.putExtra("ServicePosition", v.getAdapterPosition());
-                    fragment.startActivity(intent);
+
+                    Fragment fragment = new ServiceProviderFragment();
+                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
+
+                    FragmentManager fm = activity.getSupportFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+
+                    Fragment users = fm.findFragmentById(R.id.users);
+
+                    ft.replace(R.id.fragment,fragment);
+                    ft.addToBackStack(null);
+                    if (users != null) {
+                        ft.hide(users);
+                    }
+
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("Service",serviceList.get(v.getAdapterPosition()));
+                    fragment.setArguments(bundle);
+
+                    ft.commit();
+
+
+
+
                 }
 
             }
@@ -313,7 +333,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         public ServiceHolder(View itemView) {
             super(itemView);
 
-            mService = itemView.findViewById(R.id.textview_service_value);
+            mService = itemView.findViewById(R.id.text_view_service);
             mServiceRate = itemView.findViewById(R.id.textview_servicerate_value);
         }
 
