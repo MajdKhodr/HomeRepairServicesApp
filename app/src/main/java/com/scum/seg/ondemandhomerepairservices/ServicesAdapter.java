@@ -32,6 +32,7 @@ import java.util.List;
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceHolder> {
 
 
+    private static final String TAG = "ServicesAdapter" ;
     private Context context;
     private List<Service> serviceList;
     private android.support.v4.app.Fragment fragment;
@@ -315,6 +316,18 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
             mService = itemView.findViewById(R.id.textview_service_value);
             mServiceRate = itemView.findViewById(R.id.textview_servicerate_value);
         }
+
+    }
+
+    public void replaceAll(List<Service> models) {
+        serviceList = new ArrayList<>();
+        Log.d(TAG, "replaceAll: Reached");
+
+        for(Service service : models){
+            serviceList.add(service);
+
+        }
+        notifyDataSetChanged();
 
     }
 

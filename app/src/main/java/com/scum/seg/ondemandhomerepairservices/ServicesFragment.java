@@ -1,6 +1,9 @@
 package com.scum.seg.ondemandhomerepairservices;
 
 import android.annotation.SuppressLint;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,10 +12,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -31,16 +41,22 @@ import static android.app.Activity.RESULT_OK;
 
 public class ServicesFragment extends Fragment {
 
+    private static final String TAG = "ServicesFragment";
     private RecyclerView mServiceRecyclerView;
     private ServicesAdapter mServicesAdapter;
+
+    private SearchView searchView = null;
+    private SearchView.OnQueryTextListener queryTextListener;
 
     private List<Service> mServiceList;
     private User user;
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         mServiceList = new ArrayList<>();
         user = ((User) getActivity().getIntent().getSerializableExtra("User"));
     }
@@ -48,7 +64,9 @@ public class ServicesFragment extends Fragment {
     @SuppressLint("RestrictedApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView: Passed by onCreate");
         View fragment = inflater.inflate(R.layout.fragment_services, container, false);
+        Log.d(TAG, "onCreateView: Didnt crash before getting here");
         setupRecyclerView(fragment);
 
         //Checks if the user is an admin to display the add button
@@ -201,4 +219,67 @@ public class ServicesFragment extends Fragment {
         };
         mDatabase.addListenerForSingleValueEvent(serviceListener);
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+
+        if (searchItem != null) {
+            searchView = (SearchView) searchItem.getActionView();
+        }
+        if (searchView != null) {
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+
+            queryTextListener = new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    Log.i("onQueryTextChange", newText);
+
+                    return true;
+                }
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    Log.i("onQueryTextSubmit", query);
+                    List<Service> searchedServiceList = new ArrayList<>();
+                    for(Service service : mServiceList){
+                        Log.d(TAG, "onQueryTextSubmit: Reached");
+                        if(service.getServiceName().equals(mServiceList)){
+                            searchedServiceList.add(service);
+                        }
+
+                    }
+
+                    mServiceList = new ArrayList<>();
+                    for(Service service : searchedServiceList){
+                        mServiceList.add(service);
+                    }
+
+                    mServicesAdapter.replaceAll(searchedServiceList);
+
+
+                    return true;
+                }
+            };
+            searchView.setOnQueryTextListener(queryTextListener);
+        }
+        super.onCreateOptionsMenu(menu, inflater);
+
+    }
+
+
+//    @Override
+//    public boolean onQueryTextSubmit(String s) {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onQueryTextChange(String s) {
+//        Log.d(TAG, "onQueryTextChange: text changed");
+//        String userInput = s.toLowerCase();
+//        return true;
+//    }
+
+
 }
