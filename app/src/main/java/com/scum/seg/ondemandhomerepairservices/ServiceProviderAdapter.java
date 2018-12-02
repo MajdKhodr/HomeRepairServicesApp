@@ -2,6 +2,7 @@ package com.scum.seg.ondemandhomerepairservices;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -15,16 +16,18 @@ import java.util.List;
 public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProviderAdapter.ServiceHolder> {
 
 
-    private static final String TAG = "ServiceProviderAdapter" ;
+    private static final String TAG = "ServiceProviderAdapter";
     private Context context;
     private List<User> serviceList;
     private Fragment fragment;
     private ServiceProvider provider = new ServiceProvider();
+    private Service service;
 
-    public ServiceProviderAdapter(Context context, List<User> servicesList, Fragment fragment) {
+    public ServiceProviderAdapter(Context context, List<User> servicesList, Fragment fragment, Service service) {
         this.serviceList = servicesList;
         this.context = context;
         this.fragment = fragment;
+        this.service = service;
 
         User user = (User) ((Activity) context).getIntent().getSerializableExtra("User");
         provider.setKey(user.getKey());
@@ -37,6 +40,18 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.list_service_providers, null);
 
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Intent intent;
+                intent = new Intent(context, BookService.class);
+                intent.putExtra("Service", service);
+                fragment.startActivity(intent);
+            }
+        });
+
+
         return new ServiceHolder(view);
     }
 
@@ -44,8 +59,6 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
     @Override
     public void onBindViewHolder(@NonNull final ServiceHolder serviceHolder, int i) {
         final User serviceProvider = serviceList.get(i);
-
-
 
 
         serviceHolder.mServiceProvider.setText(serviceProvider.getFirstName() + " " + serviceProvider.getLastName());

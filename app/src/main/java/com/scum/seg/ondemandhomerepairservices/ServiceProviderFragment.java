@@ -44,7 +44,13 @@ public class ServiceProviderFragment extends Fragment {
         mServiceRecyclerView = v.findViewById(R.id.service_provider_recyclerview);
         mServiceRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         Fragment fragment1 = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment);
-        mServicesAdapter = new ServiceProviderAdapter(getActivity(), providers, fragment1);
+
+        Bundle bundle = this.getArguments();
+        Service service = null;
+        if (bundle != null) {
+            service = (Service) bundle.get("Service");
+        }
+        mServicesAdapter = new ServiceProviderAdapter(getActivity(), providers, fragment1, service);
         mServiceRecyclerView.setAdapter(mServicesAdapter);
 
         getServiceProvider();
@@ -113,11 +119,5 @@ public class ServiceProviderFragment extends Fragment {
         mServicesAdapter.addItem(user);
     }
 
-//    final Intent intent;
-//    final Service service;
-//    intent = new Intent(context, BookService.class);
-//    service = serviceList.get(v.getAdapterPosition());
-//        intent.putExtra("Service", service);
-//        intent.putExtra("ServicePosition", v.getAdapterPosition());
-//        fragment.startActivity(intent);
+
 }
