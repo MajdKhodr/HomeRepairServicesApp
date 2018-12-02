@@ -3,6 +3,5 @@ The app addresses homeowner’s needs for on-demand home services. It allows use
 
 #Starts Here
 Build Status
-[![Build
-Status](https://circleci.com/gh/AliKhanafer7/Android-Project-On-Demand-Home-Repair-Services-App.png?branch=deliverableFour)](https://circleci.com/gh/SEG2105F18/ProductCatalog)
+[![BuildStatus](https://circleci.com/gh/AliKhanafer7/Android-Project-On-Demand-Home-Repair-Services-App.png?branch=deliverableFour)](https://circleci.com/gh/SEG2105F18/ProductCatalog)
 #Ends Here
