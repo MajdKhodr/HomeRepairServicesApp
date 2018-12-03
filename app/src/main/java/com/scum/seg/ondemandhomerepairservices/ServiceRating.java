@@ -2,17 +2,17 @@ package com.scum.seg.ondemandhomerepairservices;
 
 import java.io.Serializable;
 
-public class Rating implements Serializable {
+public class ServiceRating implements Serializable {
 
     private float rating;
     private String commmet;
 
-    public Rating(float rating, String comment) {
+    public ServiceRating(float rating, String comment) {
         this.rating = rating;
         this.commmet = comment;
     }
 
-    public Rating(){
+    public ServiceRating(){
 
     }
 

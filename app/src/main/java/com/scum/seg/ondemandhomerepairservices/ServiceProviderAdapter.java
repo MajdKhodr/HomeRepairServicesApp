@@ -16,10 +16,18 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.scum.seg.ondemandhomerepairservices.Utils.AESCrypt;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProviderAdapter.ServiceHolder> {
@@ -72,7 +80,52 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
 
         serviceHolder.mServiceProvider.setText(serviceProvider.getFirstName() + " " + serviceProvider.getLastName());
         serviceHolder.mDescription.setText(serviceProvider.getDescription());
-        serviceHolder.mRating.setText(String.valueOf(serviceProvider.getRating()));
+
+        //Start - Searches the database for average rating of a service provider
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + serviceProvider.getKey() + "/ServiceRating");
+        final float[] averageRating = new float[1];
+
+        // Add on data change listener to database to fetch data
+        ValueEventListener serviceRatingListener = new ValueEventListener() {
+            ServiceRating serviceRating;
+            float totalRating = 0;
+            float counter = 0;
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try {
+                    // Loop through list of users checking if the given username and password match an account
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        serviceRating = childSnapshot.getValue(ServiceRating.class);
+                        totalRating += serviceRating.getRating();
+                        counter++;
+                    }
+
+                    averageRating[0] = totalRating / counter;
+
+                    if (counter == 0) {
+                        serviceHolder.mRating.setText("NA");
+                    } else {
+                        DecimalFormat decimalFormat = new DecimalFormat("#.#");
+                        decimalFormat.setRoundingMode(RoundingMode.CEILING);
+                        String finalAverageRating = decimalFormat.format(averageRating[0]);
+
+                        serviceHolder.mRating.setText(finalAverageRating);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        mDatabase.addValueEventListener(serviceRatingListener);
+        //End
+
 
 
         serviceHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -113,7 +166,7 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
 
                                                 float numberOfStars = ratingBar.getRating();
                                                 String userComment = comment.getText().toString();
-                                                Rating rating = new Rating(numberOfStars, userComment);
+                                                ServiceRating rating = new ServiceRating(numberOfStars, userComment);
 
                                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                                 DatabaseReference serviceRating = database.getReference("Users/" + serviceProvider.getKey() + "/ServiceRating");

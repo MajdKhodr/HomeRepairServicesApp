@@ -50,7 +50,6 @@ public class ServiceProviderFragment extends Fragment {
         if (bundle != null) {
             service = (Service) bundle.get("Service");
 
-
         }
         mServicesAdapter = new ServiceProviderAdapter(getActivity(), providers, fragment1, service);
         mServiceRecyclerView.setAdapter(mServicesAdapter);
