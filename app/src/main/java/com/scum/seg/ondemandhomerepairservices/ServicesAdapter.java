@@ -30,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceHolder> {
@@ -340,16 +341,53 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
     }
 
     public void replaceAll(List<Service> models) {
-        serviceList = new ArrayList<>();
-        Log.d(TAG, "replaceAll: Reached");
 
-        for(Service service : models){
-            serviceList.add(service);
+        for(int i = 0; i < models.size(); i ++){
+            int index = 0;
+            while(index < serviceList.size()){
+                if(!serviceList.get(index).getServiceName().equals(models.get(i).getServiceName())){
+                    serviceList.remove(index);
+                    index = 0;
+                }
+
+                else{
+                    index ++;
+                }
+            }
 
         }
+
         notifyDataSetChanged();
 
     }
+
+    public void returnToOriginal(){
+        serviceList = new ArrayList<>();
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Services");
+        ValueEventListener serviceListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Loop through list of services
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    Service service = childSnapshot.getValue(Service.class);
+                    service.setKey(childSnapshot.getKey());
+                    serviceList.add(service);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        };
+        mDatabase.addListenerForSingleValueEvent(serviceListener);
+        notifyDataSetChanged();
+
+
+    }
+
+
 
     public void updateRecyclerView(List<Service> services){
         serviceList = new ArrayList<Service>();
