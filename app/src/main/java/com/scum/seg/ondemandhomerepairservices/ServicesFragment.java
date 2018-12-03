@@ -56,7 +56,6 @@ public class ServicesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
         mServiceList = new ArrayList<>();
         user = ((User) getActivity().getIntent().getSerializableExtra("User"));
     }
@@ -89,6 +88,8 @@ public class ServicesFragment extends Fragment {
                     openCalendar();
                 }
             });
+        }else if(user.getType().equals("home owner")){
+            setHasOptionsMenu(true);
         }
 
 
@@ -273,19 +274,6 @@ public class ServicesFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
 
     }
-
-
-//    @Override
-//    public boolean onQueryTextSubmit(String s) {
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onQueryTextChange(String s) {
-//        Log.d(TAG, "onQueryTextChange: text changed");
-//        String userInput = s.toLowerCase();
-//        return true;
-//    }
 
 
 }
