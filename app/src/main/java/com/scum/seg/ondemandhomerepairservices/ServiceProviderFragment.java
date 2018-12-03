@@ -49,6 +49,8 @@ public class ServiceProviderFragment extends Fragment {
         Service service = null;
         if (bundle != null) {
             service = (Service) bundle.get("Service");
+
+
         }
         mServicesAdapter = new ServiceProviderAdapter(getActivity(), providers, fragment1, service);
         mServiceRecyclerView.setAdapter(mServicesAdapter);
@@ -104,6 +106,7 @@ public class ServiceProviderFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
+                user.setKey(dataSnapshot.getKey());
                 addUser(user);
             }
 

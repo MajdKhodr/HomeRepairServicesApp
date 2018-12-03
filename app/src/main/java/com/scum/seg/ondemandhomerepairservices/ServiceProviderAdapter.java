@@ -36,7 +36,7 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
 
     @NonNull
     @Override
-    public ServiceHolder onCreateViewHolder(@NonNull final ViewGroup viewGroup, int i) {
+    public ServiceHolder onCreateViewHolder(@NonNull final ViewGroup viewGroup, final int i) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.list_service_providers, null);
 
@@ -47,6 +47,7 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
                 final Intent intent;
                 intent = new Intent(context, BookService.class);
                 intent.putExtra("Service", service);
+                intent.putExtra("User", serviceList.get(i));
                 fragment.startActivity(intent);
             }
         });

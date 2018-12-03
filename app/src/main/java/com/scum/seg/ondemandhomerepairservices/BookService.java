@@ -35,7 +35,9 @@ public class BookService extends AppCompatActivity {
 
     private static final String TAG = "BookService";
     private Service service;
-    ArrayList<Availability> listOfServices;
+    private ArrayList<Availability> listOfServices;
+    private Calendar mDate;
+    private ArrayList<Long> listOfBookings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class BookService extends AppCompatActivity {
         // Fetch service provider availability for specific service
         fetchService(this);
         listOfServices = new ArrayList<>();
+        listOfBookings = new ArrayList<>();
 
 
     }
@@ -66,6 +69,7 @@ public class BookService extends AppCompatActivity {
                 }
 
                 listOfServices = fetchServiceInfo(services);
+                listOfBookings = fetchBookings(services);
 
                 /* starts before 1 year from now */
                 Calendar startDate = Calendar.getInstance();
@@ -116,6 +120,7 @@ public class BookService extends AppCompatActivity {
                     @Override
                     public void onDateSelected(Calendar date, int position) {
                         updateScrollView(date);
+                        mDate = date;
                     }
 
                 });
@@ -147,6 +152,7 @@ public class BookService extends AppCompatActivity {
                     for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                         availableDates.add(childSnapshot.getValue(Availability.class));
                     }
+
                 }
 
                 @Override
@@ -157,6 +163,35 @@ public class BookService extends AppCompatActivity {
             mDatabase.addValueEventListener(userListener);
         }
         return availableDates;
+    }
+
+    private ArrayList<Long> fetchBookings(ArrayList<String> strings) {
+        final ArrayList<Long> bookings = new ArrayList<>();
+
+        for (String s : strings) {
+
+            // Get database reference
+            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + s + "/Booking");
+
+            // Add on data change listener to database to fetch data
+            ValueEventListener userListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        bookings.add((Long) childSnapshot.getValue());
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            };
+            mDatabase.addValueEventListener(userListener);
+        }
+
+        return bookings;
     }
 
     private void updateScrollView(Calendar date) {
@@ -287,6 +322,79 @@ public class BookService extends AppCompatActivity {
             }
 
         }
+
+        for (Long a : listOfBookings) {
+            if (a > date.getTimeInMillis() && a < date.getTimeInMillis() + 86400000) {
+                a = a - date.getTimeInMillis();
+                if (a <= 32400000 && a >= 28800000) {
+                    eightam.setBackgroundColor(Color.parseColor("#ff8000"));
+                    eightam.setText("Booked");
+                }
+                if (a <= 36000000 && a >= 32400000) {
+                    nineam.setBackgroundColor(Color.parseColor("#ff8000"));
+                    nineam.setText("Booked");
+
+                }
+                if (a <= 39600000 && a >= 36000000) {
+                    tenam.setBackgroundColor(Color.parseColor("#ff8000"));
+                    tenam.setText("Booked");
+
+                }
+                if (a <= 43200000 && a >= 39600000) {
+                    elevenam.setBackgroundColor(Color.parseColor("#ff8000"));
+                    elevenam.setText("Booked");
+
+                }
+                if (a <= 46800000 && a >= 43200000) {
+                    twelveam.setBackgroundColor(Color.parseColor("#ff8000"));
+                    twelveam.setText("Booked");
+
+                }
+                if (a <= 50400000 && a >= 46800000) {
+                    onepm.setBackgroundColor(Color.parseColor("#ff8000"));
+                    onepm.setText("Booked");
+
+                }
+                if (a <= 54000000 && a >= 50400000) {
+                    twopm.setBackgroundColor(Color.parseColor("#ff8000"));
+                    twopm.setText("Booked");
+
+                }
+                if (a <= 57600000 && a >= 54000000) {
+                    threepm.setBackgroundColor(Color.parseColor("#ff8000"));
+                    threepm.setText("Booked");
+
+                }
+                if (a <= 61200000 && a >= 57600000) {
+                    fourpm.setBackgroundColor(Color.parseColor("#ff8000"));
+                    fourpm.setText("Booked");
+
+                }
+                if (a <= 64800000 && a >= 61200000) {
+                    fivepm.setBackgroundColor(Color.parseColor("#ff8000"));
+                    fivepm.setText("Booked");
+
+                }
+                if (a <= 68400000 && a >= 64800000) {
+                    sixpm.setBackgroundColor(Color.parseColor("#ff8000"));
+                    sixpm.setText("Booked");
+
+                }
+                if (a <= 72000000 && a >= 68400000) {
+                    sevenpm.setBackgroundColor(Color.parseColor("#ff8000"));
+                    sevenpm.setText("Booked");
+
+                }
+                if (a <= 72000000 && a >= 75600000) {
+                    eightpm.setBackgroundColor(Color.parseColor("#ff8000"));
+                    eightpm.setText("Booked");
+
+                }
+
+            }
+
+
+        }
     }
 
     public void book(View v) {
@@ -308,48 +416,128 @@ public class BookService extends AppCompatActivity {
         Button b = (Button) v;
         String buttonID = getResources().getResourceEntryName(v.getId());
 
+        User user = (User) getIntent().getSerializableExtra("User");
 
         if (buttonID.contains("8am") && eightam.getText().equals("Available")) {
             eightam.setText("Booked");
             eightam.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 28800001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
         } else if (buttonID.contains("9am") && nineam.getText().equals("Available")) {
             nineam.setText("Booked");
             nineam.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 32400001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
         } else if (buttonID.contains("10am") && tenam.getText().equals("Available")) {
             tenam.setText("Booked");
             tenam.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 36000001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
         } else if (buttonID.contains("11am") && elevenam.getText().equals("Available")) {
             elevenam.setText("Booked");
             elevenam.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 39600001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
+
         } else if (buttonID.contains("12am") && twelveam.getText().equals("Available")) {
             twelveam.setText("Booked");
             twelveam.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 43200001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
         } else if (buttonID.contains("1pm") && onepm.getText().equals("Available")) {
             onepm.setText("Booked");
             onepm.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 46800001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
         } else if (buttonID.contains("2pm") && twopm.getText().equals("Available")) {
             twopm.setText("Booked");
             twopm.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 50400001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
         } else if (buttonID.contains("3pm") && threepm.getText().equals("Available")) {
             threepm.setText("Booked");
             threepm.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 54000001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
         } else if (buttonID.contains("4pm") && fourpm.getText().equals("Available")) {
             fourpm.setText("Booked");
             fourpm.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 57600001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
         } else if (buttonID.contains("5pm") && fivepm.getText().equals("Available")) {
             fivepm.setText("Booked");
             fivepm.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 61200001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
         } else if (buttonID.contains("6pm") && sixpm.getText().equals("Available")) {
             sixpm.setText("Booked");
             sixpm.setBackgroundColor(Color.parseColor("#ff8000"));
-        }else if (buttonID.contains("7pm") && sevenpm.getText().equals("Available")) {
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 64800001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
+        } else if (buttonID.contains("7pm") && sevenpm.getText().equals("Available")) {
             sevenpm.setText("Booked");
             sevenpm.setBackgroundColor(Color.parseColor("#ff8000"));
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 68400001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
         } else if (buttonID.contains("8pm") && eightpm.getText().equals("Available")) {
             eightpm.setText("Booked");
             eightpm.setBackgroundColor(Color.parseColor("#ff8000"));
-        }else{
-            Toast.makeText(this,"Booking is unavailable", Toast.LENGTH_SHORT).show();
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference booking = database.getReference("Users/" + user.getKey() + "/Booking");
+            booking.push().setValue(mDate.getTimeInMillis() + 72000001);
+            Toast.makeText(this, "Service booked", Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(this, "Booking is unavailable", Toast.LENGTH_SHORT).show();
         }
 
     }
