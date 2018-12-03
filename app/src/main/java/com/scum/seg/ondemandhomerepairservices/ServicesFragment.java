@@ -276,17 +276,4 @@ public class ServicesFragment extends Fragment {
     }
 
 
-//    @Override
-//    public boolean onQueryTextSubmit(String s) {
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onQueryTextChange(String s) {
-//        Log.d(TAG, "onQueryTextChange: text changed");
-//        String userInput = s.toLowerCase();
-//        return true;
-//    }
-
-
 }

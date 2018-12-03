@@ -69,55 +69,5 @@ public class HomeActivity extends AppCompatActivity{
         finish();
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
-//        MenuItem menuItem = menu.findItem(R.id.action_search);
-//        android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) menuItem.getActionView();
-//        searchView.setOnQueryTextListener(this);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if(item.toString().equals("Search Service")){
-//            Log.d(TAG, "onOptionsItemSelected: Search Service");
-//            ServicesFragment fragment = new ServicesFragment();
-//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment,fragment);
-//            fragmentTransaction.commit();
-//        }
-//
-//        else{
-//            Log.d(TAG, "onOptionsItemSelected: Filter" );
-//            final CharSequence[] add = {"Time", "Rate"};
-//            final CharSequence[] delete = {"Remove", "Cancel"};
-//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//            builder.setTitle("Filter");
-//            builder.setItems(add, new DialogInterface.OnClickListener(){
-//
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//
-//                }
-//            });
-//            builder.show();
-//
-//        }
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onQueryTextSubmit(String s) {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean onQueryTextChange(String s) {
-//        Log.d(TAG, "onQueryTextChange: text changed");
-//        String userInput = s.toLowerCase();
-//        return true;
-//    }
 
 }
