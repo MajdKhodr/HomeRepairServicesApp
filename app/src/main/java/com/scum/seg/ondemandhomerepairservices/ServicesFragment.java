@@ -235,30 +235,36 @@ public class ServicesFragment extends Fragment {
             queryTextListener = new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextChange(String newText) {
-                    Log.i("onQueryTextChange", newText);
+
+                    List<Service> searchedServiceList = new ArrayList<>();
+
+                    if(!newText.equals("")){
+                        for(Service service : mServiceList){
+                            Log.d(TAG, service.getServiceName() + "Is currently in the list");
+                            if(service.getServiceName().toLowerCase().equals(newText.toLowerCase())){
+                                searchedServiceList.add(service);
+                            }
+
+                        }
+
+                        if(!searchedServiceList.isEmpty()){
+
+                            mServicesAdapter.replaceAll(searchedServiceList);
+                        }
+
+                    }
+
+                    else{
+                        mServicesAdapter.returnToOriginal();
+
+                    }
+
+
 
                     return true;
                 }
                 @Override
                 public boolean onQueryTextSubmit(String query) {
-                    Log.i("onQueryTextSubmit", query);
-                    List<Service> searchedServiceList = new ArrayList<>();
-                    for(Service service : mServiceList){
-                        Log.d(TAG, "onQueryTextSubmit: Reached");
-                        if(service.getServiceName().equals(mServiceList)){
-                            searchedServiceList.add(service);
-                        }
-
-                    }
-
-                    mServiceList = new ArrayList<>();
-                    for(Service service : searchedServiceList){
-                        mServiceList.add(service);
-                    }
-
-                    mServicesAdapter.replaceAll(searchedServiceList);
-
-
                     return true;
                 }
             };
