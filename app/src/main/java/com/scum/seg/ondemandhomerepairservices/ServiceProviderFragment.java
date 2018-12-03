@@ -121,6 +121,5 @@ public class ServiceProviderFragment extends Fragment {
     private void addUser(User user){
         mServicesAdapter.addItem(user);
     }
-
-
+    
 }

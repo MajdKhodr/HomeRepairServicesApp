@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Rating implements Serializable {
 
-    private int rating;
+    private float rating;
     private String commmet;
 
-    public Rating(int rating, String comment) {
+    public Rating(float rating, String comment) {
         this.rating = rating;
         this.commmet = comment;
     }
@@ -16,7 +16,7 @@ public class Rating implements Serializable {
 
     }
 
-    public void setRating(int rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 
@@ -24,7 +24,7 @@ public class Rating implements Serializable {
         this.commmet = commmet;
     }
 
-    public int getRating() { return rating; }
+    public float getRating() { return rating; }
 
     public String getCommmet() {
         return commmet;
