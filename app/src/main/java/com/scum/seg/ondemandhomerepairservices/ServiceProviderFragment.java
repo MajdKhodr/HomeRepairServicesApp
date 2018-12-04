@@ -1,6 +1,8 @@
 package com.scum.seg.ondemandhomerepairservices;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +17,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
 
 import com.google.firebase.database.DataSnapshot;
@@ -135,29 +139,31 @@ public class ServiceProviderFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        final CharSequence[] timeAndRate = {"Time", "Rate","Cancel"};
-//        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-//        builder.setTitle("Filter Based On...");
-//
-//        builder.setItems(timeAndRate, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                if(which == 0){
-//
-//                }
-//
-//                else if(which == 1){
-//
-//                }
-//
-//                else{
-//
-//                }
-//            }
-//        });
-//
-//        return true;
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final CharSequence[] timeAndRate = {"Time", "Rate","Cancel"};
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Filter Based On...");
+
+        builder.setItems(timeAndRate, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(which == 0){
+                    
+                }
+
+                else if(which == 1){
+
+                }
+
+                else{
+
+                }
+            }
+        });
+
+        builder.show();
+
+        return true;
+    }
 }
