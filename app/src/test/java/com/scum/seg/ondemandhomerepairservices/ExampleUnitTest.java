@@ -3,8 +3,10 @@ package com.scum.seg.ondemandhomerepairservices;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -21,6 +23,7 @@ public class ExampleUnitTest {
     ServiceProvider provider = new ServiceProvider();
 
     ServiceRating rating = new ServiceRating(5,"Great Service");
+
 
     @Test
     public void serviceRateIsCorrect(){
@@ -114,6 +117,36 @@ public class ExampleUnitTest {
     public void testServiceRatingCommentNull(){
         ServiceRating newRating = new ServiceRating();
         assertNull(newRating.getComment());
+    }
+
+    @Test
+    public void testServiceProviderDesc(){
+        provider.setCompanyName("Astroworld Inc");
+        assertEquals("Checking if correct company", "Astroworld Inc", provider.getCompanyName());
+    }
+
+    @Test
+    public void testServiceProviderName(){
+        provider.setFirstName("Travis");
+        assertEquals("Checking if correct name", "Travis", provider.getFirstName());
+    }
+
+    @Test
+    public void testServiceProviderLicenced(){
+        provider.setIsLicensed(true);
+        assertTrue(provider.getIsLicensed());
+    }
+
+    @Test
+    public void testServiceProviderLicencedChange(){
+        provider.setIsLicensed(false);
+        assertFalse(provider.getIsLicensed());
+    }
+
+    @Test
+    public void testServiceProviderDescChange(){
+        provider.setCompanyName("Sheck Wes Inc");
+        assertEquals("Checking if correct company", "Sheck Wes Inc", provider.getCompanyName());
     }
 
 
