@@ -26,7 +26,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ServiceActivity" />
         <activity android:name=".AvailabilityActivity" />
-        <activity android:name=".BookService"></activity>
+        <activity android:name=".BookService" />
+        <activity android:name=".ViewRatings"></activity>
     </application>
 
 </manifest>

@@ -182,8 +182,9 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
 
                             } else {
                                 // To be filled out by goerges to lead to next activity listing ratings and comments
-                                //Intent intent = new Intent(this, );
-                                //startActivity(intent);
+                                Intent intent = new Intent(context,ViewRatings.class);
+                                intent.putExtra("ServiceProvider", serviceProvider);
+                                context.startActivity(intent);
                             }
 
                         }

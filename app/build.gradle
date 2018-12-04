@@ -61,6 +61,5 @@ dependencies {
     implementation 'devs.mulham.horizontalcalendar:horizontalcalendar:1.3.4'
 
 
-
 }
 apply plugin: 'com.google.gms.google-services'
