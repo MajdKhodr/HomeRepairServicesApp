@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class ServiceRating implements Serializable {
 
     private float rating;
-    private String commmet;
+    private String comment;
 
     public ServiceRating(float rating, String comment) {
         this.rating = rating;
-        this.commmet = comment;
+        this.comment = comment;
     }
 
     public ServiceRating(){
@@ -20,13 +20,13 @@ public class ServiceRating implements Serializable {
         this.rating = rating;
     }
 
-    public void setCommmet(String commmet) {
-        this.commmet = commmet;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public float getRating() { return rating; }
 
-    public String getCommmet() {
-        return commmet;
+    public String getComment() {
+        return comment;
     }
 }
